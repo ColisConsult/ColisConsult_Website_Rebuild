@@ -1,0 +1,547 @@
+import type { Dictionary } from './fr';
+
+/** Site copy — English. Same structure as fr.ts (enforced by the type). */
+const en: Dictionary = {
+  meta: {
+    siteName: 'ColisConsult',
+    title: 'ColisConsult · Parcel and pallet transport tenders',
+    description:
+      'Independent transport tender consultancy since 2005. AI-assisted invoice and bid analysis, negotiation by our consultants: 3–22% savings observed, success-based fees.',
+  },
+
+  nav: {
+    method: 'Method',
+    ai: 'AI',
+    services: 'Services',
+    clients: 'Clients',
+    team: 'Team',
+    rankings: 'Rankings',
+    blog: 'Blog',
+    cta: 'Free pre-audit',
+    menu: 'Menu',
+    close: 'Close',
+    skip: 'Skip to content',
+    language: 'Language',
+  },
+
+  common: {
+    learnMore: 'Learn more',
+    readMore: 'Read',
+    minRead: 'min read',
+    illustrative: 'Fictitious example',
+    translatedFrom: { fr: 'Translated from French', en: 'Translated from English' },
+    aiAssisted: 'AI-assisted',
+    bookMeeting: 'Book a call with Matthieu Erly',
+    allArticles: 'All articles',
+    allTestimonials: 'All testimonials',
+    backToBlog: 'Back to the blog',
+    publishedOn: 'Published on',
+    inFrench: 'Article in French',
+    deliverables: 'Deliverables',
+    included: 'Included',
+    pricing: 'Pricing',
+    contactUs: 'Contact us',
+  },
+
+  figures: [
+    { value: '150+', label: 'companies supported, from SMEs to global groups' },
+    { value: '2005', label: 'founded, fully independent from carriers' },
+    { value: '3–22%', label: 'savings observed on transport budgets' },
+    { value: '€150k–10M', label: 'annual transport budgets managed for clients' },
+  ],
+
+  home: {
+    hero: {
+      kicker: 'Independent transport tender consultancy · since 2005',
+      titleBefore: 'Pay the',
+      titleMark: 'right price',
+      titleAfter: 'for every parcel and every pallet.',
+      lead: 'We run your transport tenders end to end. Our AI tools analyse your invoices and the carriers’ bids; our consultants check, negotiate and advise you.',
+      ctaPrimary: 'Start the free pre-audit',
+      ctaSecondary: 'Estimate my savings',
+      guarantee: 'No savings, no fees.',
+    },
+    invoice: {
+      title: 'Carrier invoice',
+      meta: 'International express · March',
+      columns: { line: 'Line', amount: 'Amount' },
+      lines: [
+        { label: 'Shipment DE · Hamburg · 4.2 kg', amount: '€38.40' },
+        { label: 'Fuel surcharge', amount: '€6.91', flag: 'Charged twice on 112 shipments' },
+        { label: 'Shipment IT · Milan · 12 kg billed (7.4 kg actual)', amount: '€61.20', flag: 'Dimensional weight +62%' },
+        { label: 'Remote area surcharge', amount: '€18.00', flag: 'Postcode not eligible' },
+        { label: 'Shipment ES · Madrid · 2.1 kg', amount: '€24.10' },
+      ],
+      totalLabel: 'Discrepancies found over the period',
+      total: '€1,284.60',
+      reviewer: 'Flagged by AI · checked by a consultant',
+      note: 'Every discrepancy is checked by a consultant before it is claimed.',
+    },
+    clientsTitle: 'They optimise their transport with ColisConsult',
+    ai: {
+      label: 'Artificial intelligence',
+      title: 'AI does the sorting. Our consultants do the rest.',
+      intro:
+        'We use AI where it genuinely helps: processing, in full, data volumes nobody reads line by line. Every result is reviewed by a consultant before it reaches you.',
+      aiCol: 'What AI does',
+      humanCol: 'What the consultant does',
+      items: [
+        {
+          title: 'Invoice analysis',
+          ai: 'Reads your carrier invoices line by line and spots unjustified surcharges, duplicates, zone or weight errors.',
+          human: 'Qualifies each discrepancy, discards false positives and quantifies what is actually recoverable.',
+        },
+        {
+          title: 'Faster pre-audit',
+          ai: 'Rebuilds your shipping profile (destinations, weights, services) from your invoices, with no re-keying.',
+          human: 'Compares it with market conditions and gives you a savings range within a few days.',
+        },
+        {
+          title: 'Bid analysis',
+          ai: 'Normalises each carrier’s rate card and simulates it on your actual shipments, surcharges included.',
+          human: 'Challenges the bids, leads the negotiations and recommends the offers to retain.',
+        },
+      ],
+      cta: 'How we use AI',
+    },
+    method: {
+      label: 'Method',
+      title: 'A six-step tender, managed end to end.',
+      cta: 'Our method in detail',
+    },
+    model: {
+      label: 'Fees',
+      title: 'Paid on results. Otherwise, nothing.',
+      intro:
+        'We don’t resell transport: you contract directly with the carriers you choose. With our success-based option, our fee depends solely on your savings.',
+      facts: [
+        { value: '€0', label: 'if we achieve no savings, or if you retain no offer' },
+        { value: '6 months', label: 'of savings verified on invoices before any billing' },
+        { value: '33%', label: 'of the savings achieved, for 12 to 36 months only' },
+        { value: '100%', label: 'of the savings are yours afterwards' },
+      ],
+      note: 'Prefer a fixed fee? That works too.',
+    },
+    testimonials: { label: 'Testimonials', title: 'What our clients say' },
+    rankings: {
+      label: 'Rankings',
+      title: 'Best e-commerce delivery: the ColisConsult rankings',
+      text: 'The 3rd edition of our independent study of e-commerce delivery: shipping prices, free-shipping thresholds and the best practices online shoppers expect.',
+      cta: 'Discover the rankings',
+    },
+    resources: {
+      label: 'Resources',
+      title: 'For transport buyers',
+      webinars: 'Upcoming webinars',
+      noWebinar: 'No webinar scheduled at the moment. Replays are available on our YouTube channel.',
+      register: 'Register',
+      replay: 'Watch the replay',
+    },
+    final: {
+      title: 'How much are you overpaying?',
+      text: 'Send us your latest invoices. Under a non-disclosure agreement, we’ll tell you your savings potential, free of charge.',
+    },
+  },
+
+  method: {
+    label: 'Our mission',
+    title: 'Putting your carriers in genuine competition.',
+    lead: 'Since 2005, we have run parcel and pallet transport tenders for SMEs, online retailers and global groups. Our job: secure the best market terms, including from your current carriers, with no compromise on service quality.',
+    scopeTitle: 'What we put out to tender',
+    scope: [
+      { title: 'B2C and B2B parcels', text: 'E-commerce, parcel networks, domestic and international express.' },
+      { title: 'Pallet groupage', text: 'Pallet flows across France and Europe.' },
+      { title: 'Freight chartering', text: 'Full and part loads.' },
+      { title: 'France, EMEA, worldwide', text: 'Single-country and multi-country tenders.' },
+    ],
+    stepsTitle: 'Six steps, one point of contact',
+    steps: [
+      {
+        title: 'Free pre-audit',
+        short: 'Under NDA, from your latest invoices: a savings range, with no commitment.',
+        text: 'We sign a non-disclosure agreement, then you send us your latest transport invoices and an estimate of your annual volumes. We give you a range of achievable savings. No commitment.',
+        deliverables: ['Overall savings range'],
+        ai: 'AI rebuilds your shipping profile from the invoices.',
+      },
+      {
+        title: 'Preparation',
+        short: 'Flow audit, tender documents, representative pricing matrices.',
+        text: 'We audit your flows and draft the tender documents: consumption statistics, pricing matrices representative of your shipments and a technical questionnaire based on your needs.',
+        deliverables: ['Tender documents', 'Pricing matrices', 'Technical questionnaire'],
+        ai: 'Line-by-line invoice analysis for accurate statistics.',
+      },
+      {
+        title: 'Consultation',
+        short: 'Carrier sourcing and competition, including your current providers.',
+        text: 'We manage every step with the carriers, from sourcing to final negotiations. Being paid on results often lets us secure rate reductions from your current carriers.',
+        deliverables: ['Managed consultation', 'Negotiations'],
+        ai: null,
+      },
+      {
+        title: 'Bid analysis',
+        short: 'Rates, surcharges and technical answers compared on your actual flows.',
+        text: 'We compare rates, surcharges and technical answers in detail, then identify each carrier’s strengths, weaknesses and the savings available.',
+        deliverables: ['Comparative analysis', 'Simulation on your actual shipments'],
+        ai: 'Heterogeneous rate cards are normalised and applied to your shipments.',
+      },
+      {
+        title: 'Selection',
+        short: 'An impartial recommendation, and verified contracts.',
+        text: 'We help you choose the best offers impartially, and check that the selected carriers’ contracts include the benefits and waivers negotiated.',
+        deliverables: ['Recommendation', 'Contract review'],
+        ai: null,
+      },
+      {
+        title: 'Savings follow-up',
+        short: 'First invoices checked, and savings measured every six months.',
+        text: 'We check that the first invoices comply (rates and surcharges) and measure the savings achieved every six months.',
+        deliverables: ['Invoice compliance check', 'Six-monthly savings report'],
+        ai: 'Billing discrepancies are detected automatically, then verified.',
+      },
+    ],
+    independenceTitle: 'Independent from carriers',
+    independence: [
+      { title: 'Not a transport reseller', text: 'You contract directly with the selected carriers and keep the relationship.' },
+      { title: 'The whole market consulted', text: 'Including the carriers you already work with.' },
+      { title: 'An impartial recommendation', text: 'Based on your flows and service requirements, nothing else.' },
+    ],
+    pricingTitle: 'Two ways to pay us',
+    pricing: {
+      result: {
+        title: 'On results',
+        points: [
+          'No cost if no savings are achieved, or if you retain no offer.',
+          'No payment before six months of savings verified on invoices.',
+          'Fee of 33% of the savings, for a limited period of 12 to 36 months.',
+          'After that, you keep all of your savings.',
+        ],
+      },
+      fixed: {
+        title: 'Fixed fee',
+        points: [
+          'A fixed price, agreed upfront according to scope.',
+          'Classic and Premium packages for tenders.',
+          'Audit and benchmark engagements are always fixed-fee.',
+        ],
+      },
+      cta: 'Request our price list',
+    },
+  },
+
+  ai: {
+    label: 'Artificial intelligence',
+    title: 'AI reads everything. Our consultants decide.',
+    lead: 'A transport invoice means hundreds of lines, dozens of surcharges and rate cards that change every year. We use AI to process these volumes in full, and our consultants for what it can’t do: judge, negotiate, advise.',
+    flow: [
+      { title: 'Your data', text: 'PDF or Excel invoices, rate cards, carrier bids.' },
+      { title: 'AI', text: 'Reads, extracts, checks and normalises. Flags discrepancies.' },
+      { title: 'The consultant', text: 'Qualifies, quantifies, negotiates, recommends.' },
+      { title: 'You', text: 'Decide, based on verified findings.' },
+    ],
+    rows: { problem: 'The problem', ai: 'What AI does', human: 'What the consultant checks', gain: 'What you gain' },
+    uses: [
+      {
+        title: 'Invoice analysis',
+        problem: 'Across thousands of lines, billing errors go unnoticed: a surcharge applied twice, the wrong zone, overstated dimensional weight.',
+        ai: 'Extraction of every invoice line, from PDF or Excel, systematically checked against your contracted terms.',
+        human: 'Each discrepancy is qualified before being reported: we only flag what is real and recoverable.',
+        gain: 'A complete view of your spend, and well-argued claims to your carriers.',
+      },
+      {
+        title: 'Faster pre-audit',
+        problem: 'Estimating savings potential means rebuilding your flows: destinations, weight bands, services used.',
+        ai: 'Automatic reconstruction of your shipping profile from your latest invoices, with no re-keying on your side.',
+        human: 'The consultant compares this profile with the market terms they negotiate every day.',
+        gain: 'A savings range within a few days, instead of several weeks.',
+      },
+      {
+        title: 'Bid analysis',
+        problem: 'Each carrier answers with its own rate card, zones and surcharges: the bids can’t be compared as they are.',
+        ai: 'Rate-card normalisation and simulation of each bid on your actual shipments, surcharges included.',
+        human: 'The consultant challenges the bids, leads negotiations and weighs what can’t be quantified: reliability, service, coverage.',
+        gain: 'A comparison accurate to the euro, and a recommendation you can defend internally.',
+      },
+    ],
+    limitsTitle: 'What AI doesn’t do here',
+    limits: [
+      { title: 'Negotiate', text: 'That’s our consultants’ job, and a matter of relationships with carriers.' },
+      { title: 'Choose for you', text: 'The decision is yours, based on a reasoned recommendation.' },
+      { title: 'Conclude unreviewed', text: 'No result reaches you without a human check.' },
+    ],
+    dataTitle: 'Your data, under a non-disclosure agreement',
+    dataText:
+      'An NDA is signed before any invoices are shared. Your data is used solely for your engagement, and you can ask for it to be deleted at any time.',
+    faqTitle: 'Frequently asked questions',
+    faq: [
+      {
+        q: 'Does AI replace your consultants?',
+        a: 'No. It handles the volume: reading and checking data. Decisions, negotiations and recommendations remain our consultants’ work, as they have since 2005.',
+      },
+      {
+        q: 'Do I need to prepare my data in a specific format?',
+        a: 'No. Your invoices as you receive them are enough, in PDF or Excel. That is exactly what AI lets us use without re-keying.',
+      },
+      {
+        q: 'How long does a pre-audit take?',
+        a: 'A few days after we receive your invoices, instead of several weeks for a fully manual analysis.',
+      },
+      {
+        q: 'Are my current carriers excluded?',
+        a: 'Quite the opposite: they are consulted like the others. Many of our clients obtain better terms without changing carrier.',
+      },
+    ],
+  },
+
+  services: {
+    label: 'Services',
+    title: 'An engagement for every need.',
+    lead: 'From a full tender to a dashboard of your spend, our engagements adapt to your volume and procurement maturity.',
+    offers: [
+      {
+        id: 'appel-d-offres',
+        tag: 'Core service',
+        title: 'Transport tender',
+        text: 'End-to-end management of your parcel, pallet or freight chartering tender, from pre-audit to savings follow-up.',
+        includes: [
+          'Free pre-audit under NDA',
+          'Tender documents and pricing matrices',
+          'Carrier consultation and negotiation',
+          'Comparative bid analysis',
+          'Contract and first-invoice review',
+          'Savings measured every six months',
+        ],
+        price: 'On results or fixed fee (Classic and Premium packages)',
+      },
+      {
+        id: 'audit-benchmark',
+        tag: 'Diagnosis',
+        title: 'Audit & benchmark',
+        text: 'Know exactly where you stand before acting: your costs, your flows, and what comparable shippers pay.',
+        includes: [
+          'Invoice or flow audit',
+          'Rate benchmark',
+          'Mapping of your transport consumption',
+          'Consumption analysis by country',
+          'Set-up of comparison tools',
+        ],
+        price: 'Fixed fee',
+      },
+      {
+        id: 'dashboard-power-bi',
+        tag: 'Monitoring',
+        title: 'Power BI dashboard',
+        text: 'Your transport invoices turned into interactive dashboards: costs by carrier and period, geographic split, unit costs by zone, optimisation leads.',
+        includes: [
+          'Analysis of your invoices',
+          'Dashboard build',
+          'Training on how to use them',
+          'Recommendations from our experts',
+          'Delivered in 3 to 5 working days',
+        ],
+        price: '€999 per carrier, fixed all-inclusive price (launch offer)',
+      },
+      {
+        id: 'diagnostic-e-commerce',
+        tag: 'E-commerce',
+        title: 'E-commerce delivery diagnosis',
+        text: 'An assessment of delivery and returns on your website, based on our rankings’ criteria and market best practices.',
+        includes: [
+          'Your detailed scores on the 29 ranking criteria',
+          'Delivery and returns reviewed',
+          'Recommendations based on market best practices',
+        ],
+        price: 'Fixed fee',
+      },
+    ],
+    cta: 'Request our price list',
+  },
+
+  clients: {
+    label: 'Clients',
+    title: '150+ companies, from online retailers to global groups.',
+    lead: 'SMEs, online retailers and global groups have trusted us with their transport tenders since 2005. Here is what they say.',
+    segments: { enterprise: 'Global groups', ecommerce: 'Online retailers', sme: 'SMEs' },
+    namesTitle: 'They trusted us',
+    testimonialsTitle: 'Their testimonials',
+  },
+
+  team: {
+    label: 'Team',
+    title: 'A tight-knit team, direct contacts.',
+    lead: 'The firm is led by its founder, Matthieu Erly, who oversees every engagement, supported by consultants and data analysts specialised in transport.',
+    facts: [
+      { value: '2005', label: 'Firm founded in Saint-Maur-des-Fossés, near Paris' },
+      { value: '15,000+', label: 'Followers of the LinkedIn community run by Matthieu Erly' },
+      { value: '1%', label: 'of revenue donated to environmental charities since 2009' },
+    ],
+    linkedin: 'LinkedIn profile',
+  },
+
+  rankings: {
+    label: '2024 rankings',
+    title: 'Best e-commerce delivery',
+    lead: 'The 3rd edition of our independent study of e-commerce delivery. A benchmark to compare your practices with the market.',
+    stats: [
+      { value: '518', label: 'e-commerce sites audited' },
+      { value: '29', label: 'scoring criteria' },
+      { value: '1,212', label: 'delivery prices compared' },
+    ],
+    questionsTitle: 'The questions it answers',
+    questions: [
+      'Which online retailers offer the best delivery?',
+      'What does home delivery cost on average, and pick-up point delivery?',
+      'From what basket value is delivery free, sector by sector?',
+      'Which best practices do online shoppers expect?',
+    ],
+    methodTitle: 'Methodology',
+    method: [
+      'Two analysts reviewed all 518 sites.',
+      'Delivery prices are those applied in May 2024.',
+      'Each site is scored on 29 criteria.',
+      'Prices no longer count towards the score: they are shown separately, with the free-delivery threshold.',
+    ],
+    formTitle: 'Get the full rankings',
+    formText: 'The 113-page document, with the scores of all 518 sites (in French).',
+    formMessage: 'Request for the “Best e-commerce delivery 2024” rankings (full document).',
+    observatory: 'See the delivery price observatory on Tarif-Colis.com',
+  },
+
+  blog: {
+    label: 'Blog',
+    title: 'The transport buyer’s blog',
+    lead: 'Advice, analysis and lessons learned to buy parcel and pallet transport better. Most articles are in French.',
+    empty: 'No articles published yet.',
+    webinarsTitle: 'Webinars',
+  },
+
+  simulator: {
+    label: 'Simulator',
+    title: 'Estimate your savings in one minute.',
+    lead: 'A first estimate based on the ranges observed in our engagements. For a reliable figure, nothing beats analysing your invoices.',
+    budget: 'Annual transport budget',
+    budgetHint: 'All services combined, in euros',
+    flows: 'Your flows',
+    flowOptions: {
+      express_international: 'International express',
+      parcel_domestic: 'Domestic parcels (France)',
+      parcel_international: 'International parcels (road)',
+      pallets: 'Pallet groupage',
+      charter: 'Freight chartering',
+    },
+    carriers: 'Number of carriers used',
+    lastTender: 'Your last tender',
+    lastTenderOptions: {
+      never: 'Never',
+      over3: 'More than 3 years ago',
+      '1to3': '1 to 3 years ago',
+      under1: 'Less than a year ago',
+    },
+    submit: 'Estimate my savings',
+    computing: 'Calculating…',
+    resultTitle: 'Estimated annual savings',
+    ofBudget: 'that is {low} to {high}% of your transport budget',
+    netTitle: 'Net gain in year one with success-based fees',
+    netNote: 'Fee of 33% of the savings, for 12 to 36 months. After that, 100% of the savings are yours.',
+    budgetBelow: 'Below €150k a year, a fixed-fee audit is often a better fit than a full tender.',
+    budgetAbove: 'For a budget this size, let’s talk directly: every scope is different.',
+    disclaimer:
+      'Indicative estimate, capped to the 3–22% range observed among our clients. It is not a commitment: only the pre-audit, based on your invoices, gives a reliable figure.',
+    emptyState: 'Fill in your details to get an estimate.',
+    error: 'The calculation failed. Please try again in a moment.',
+    sendTitle: 'Get this estimate and discuss it with a consultant',
+    sendCta: 'Request a call back',
+  },
+
+  preAudit: {
+    label: 'Free pre-audit',
+    title: 'Find out your savings potential, free of charge.',
+    lead: 'No commitment, under a non-disclosure agreement. Thanks to AI, we analyse your invoices and give you a savings range within a few days.',
+    stepsTitle: 'How it works',
+    steps: [
+      { title: 'You write to us', text: 'Using the form, in a few fields.' },
+      { title: 'We sign an NDA', text: 'To guarantee the confidentiality of your data.' },
+      {
+        title: 'You send your invoices',
+        text: 'The latest detailed invoice from each main carrier (parcels and pallets), in PDF or Excel, and an estimate of your annual volumes.',
+      },
+      { title: 'We quantify', text: 'You receive an overall range of achievable savings.' },
+    ],
+    formTitle: 'Request my pre-audit',
+    budget: 'Annual transport budget',
+    budgetOptions: {
+      '<150k': 'Under €150k',
+      '150k-500k': '€150k to €500k',
+      '500k-2m': '€500k to €2M',
+      '2m-10m': '€2M to €10M',
+      '>10m': 'Over €10M',
+    },
+    budgetPlaceholder: 'Select a range',
+    carriers: 'Your current carriers',
+    carriersPlaceholder: 'e.g. DHL Express, UPS, Geodis…',
+    message: 'Comments',
+    files: 'Attach your invoices',
+    filesOptional: 'optional',
+    filesHint: 'You can also send them after the NDA is signed. PDF, Excel or CSV · 10 files · 15 MB per file.',
+    filesDrop: 'Drop your files here, or',
+    filesBrowse: 'browse',
+    filesRemove: 'Remove',
+    success: 'Thank you, we have received your request. We’ll get back to you shortly with the non-disclosure agreement.',
+  },
+
+  contact: {
+    label: 'Contact',
+    title: 'Let’s talk about your transport.',
+    lead: 'A question about a tender, a service or a webinar? Write to us, or book a slot directly with Matthieu Erly.',
+    direct: 'Direct contact',
+    formTitle: 'Write to us',
+    success: 'Thank you, we have received your message. We’ll get back to you shortly.',
+    mapLink: 'View on map',
+  },
+
+  legal: {
+    label: 'Legal information',
+    title: 'Legal notice and privacy',
+  },
+
+  forms: {
+    firstName: 'First name',
+    lastName: 'Last name',
+    company: 'Company',
+    jobTitle: 'Job title',
+    email: 'Work email',
+    phone: 'Phone',
+    message: 'Message',
+    optional: 'optional',
+    consent:
+      'I agree that ColisConsult may use this information to answer my request. It will not be shared or used for any other purpose.',
+    privacyLink: 'Learn more',
+    submit: 'Send',
+    sending: 'Sending…',
+    error: 'Sending failed. Please check the fields, or email us at commercial@colisconsult.com.',
+    tooMany: 'Too many attempts. Please try again in a few minutes.',
+    fileTooLarge: 'File too large (15 MB max):',
+    fileType: 'Unsupported format:',
+    tooManyFiles: '10 files maximum.',
+  },
+
+  footer: {
+    tagline:
+      'Independent consultancy for parcel and pallet transport tenders, in France, EMEA and worldwide.',
+    commitment: '1% of revenue donated to environmental charities since 2009.',
+    firm: 'The firm',
+    resources: 'Resources',
+    contact: 'Contact',
+    simulator: 'Savings simulator',
+    webinars: 'Webinars',
+    legal: 'Legal notice',
+    rights: 'All rights reserved.',
+  },
+
+  notFound: {
+    title: 'This page doesn’t exist (any more).',
+    text: 'Our website has been redesigned and some addresses have changed.',
+    cta: 'Back to the homepage',
+  },
+};
+
+export default en;

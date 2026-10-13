@@ -64,8 +64,8 @@ function Article({ post, locale }: { post: Post; locale: Locale }) {
     <article lang={post.locale}>
       <header className="container-site pt-14 pb-12 md:pt-20">
         <div className="mx-auto max-w-[44rem]">
-        <Link href={href(locale, 'blog')} className="font-display text-sm font-medium text-ink-soft hover:text-ink">
-          ← {t.common.backToBlog}
+        <Link href={href(locale, 'blog')} className="link font-display text-sm font-medium text-ink-soft hover:text-ink">
+          {t.common.backToBlog}
         </Link>
         <h1 className="mt-8 text-[clamp(2.1rem,1.4rem+2.8vw,3.2rem)] leading-[1.08]">{post.title}</h1>
         <p className="mt-6 flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-faint">
@@ -84,7 +84,7 @@ function Article({ post, locale }: { post: Post; locale: Locale }) {
       {post.coverImageUrl && (
         <div className="container-site">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={post.coverImageUrl} alt="" className="mx-auto max-h-[28rem] w-full max-w-[56rem] rounded-md border border-line object-cover" />
+          <img src={post.coverImageUrl} alt="" className="mx-auto max-h-[28rem] w-full max-w-[56rem] rounded-[var(--radius-media)] object-cover" />
         </div>
       )}
       <div className="container-site pt-4 pb-20">

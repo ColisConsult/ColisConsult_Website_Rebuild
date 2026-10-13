@@ -8,9 +8,17 @@ export function ArrowRight({ className }: IconProps) {
   );
 }
 
+/** Lien externe : s'insère dans le flux du texte (ne se sépare pas du dernier mot). */
 export function ArrowUpRight({ className }: IconProps) {
   return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" className={className ?? 'size-3.5'} aria-hidden="true">
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      className={className ?? 'ml-1 inline-block size-3.5 align-[-0.1em]'}
+      aria-hidden="true"
+    >
       <path d="M6 14 14 6M7 6h7v7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );

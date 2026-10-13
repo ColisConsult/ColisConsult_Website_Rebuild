@@ -63,25 +63,67 @@ npm run dev
 | Les fourchettes du simulateur | `apps/api/src/simulator/simulator.config.ts` |
 | Articles, témoignages, webinars | Back-office `/admin` |
 | Équipe et liste des clients | Table `team_members` / `clients` (contenu initial : `apps/api/src/db/seed-data.ts`). `npm run db:studio` ouvre un éditeur de base de données. |
-| Photos de l'équipe | Déposez-les dans `apps/web/public/team/` puis renseignez `photo_url` (ex. `/team/matthieu-erly.jpg`) |
+| Portraits de l'équipe | `apps/web/public/team/` (format 3:4, 900 × 1200 px) puis `photo_url` en base (ex. `/team/matthieu-erly.jpg`) |
+| Photos des pages (conférence, bureau…) | `apps/web/src/assets/photos/` — importées dans les composants, optimisées automatiquement (AVIF/WebP, tailles adaptées) |
+| Logos clients | `apps/web/src/assets/logos/` + la liste `apps/web/src/lib/client-logos.ts` (secteur, sélection de l'accueil) |
+| Témoignages vidéo | `apps/web/public/videos/` + `apps/web/src/lib/videos.ts` (citation, fonction, durée) |
 | URL françaises / anglaises | `apps/web/src/i18n/config.ts` |
 | Redirections des anciennes URL | `apps/web/next.config.ts` |
 
 ## Intelligence artificielle : ce que dit le site
 
-Le site présente trois usages, validés par l'équipe : **analyse des factures**, **pré-audit accéléré** et **analyse des offres d'appel d'offres**. Le parti pris éditorial : l'IA traite le volume, les consultants vérifient, négocient et décident. Aucune promesse chiffrée n'est attribuée à l'IA. L'illustration de facture de l'accueil est explicitement signalée comme exemple fictif.
+Le site présente trois usages, validés par l'équipe : **analyse des factures**, **pré-audit accéléré** et **analyse des offres d'appel d'offres**. Le parti pris éditorial : l'IA traite le volume, les consultants vérifient, négocient et décident. Aucune promesse chiffrée n'est attribuée à l'IA. L'exemple d'analyse (« 14,6 % des envois = 48,5 % de la dépense ») vient d'un audit client réel du support commercial 2024, présenté anonymisé.
+
+## Partis pris de la v2 (visuel et contenus)
+
+Objectif : qu'un dirigeant de PME se dise en moins d'une minute « ce sont des experts, ils sont sérieux ».
+
+- **Des preuves avant les promesses** : un résultat client nommé dès l'accueil (−19 %, Airis LED), des résultats chiffrés tirés de recommandations LinkedIn, trois témoignages vidéo (Melijoe, Lacoste, Wethenew), 45 logos clients classés par secteur.
+- **Des visages réels** : photos du shooting 2021, des conférences et portraits 2024 de l'équipe (dossier « 08 - IMAGES » et support commercial). Aucune image générée ou retouchée par IA n'est utilisée.
+- **Moins de texte** : une idée par section, des phrases courtes, deux appels à l'action constants (pré-audit gratuit, simulateur) et un interlocuteur joignable (Matthieu Erly, téléphone, Calendly).
+- **Pas de « look IA »** : fond blanc et aplats pétrole de la charte, logo officiel (fichiers vectoriels 2021), Poppins (police du logo) ; ni numérotation décorative, ni étiquettes au-dessus des titres, ni flèches sur chaque lien, ni animations au défilement, ni chiffres inventés.
+- **Sources des textes** : site WordPress actuel, support « MASTER FULL 2024 » (rémunération, étapes, conseils d'appel d'offres, rôles de l'équipe), sous-titres des vidéos clients (citations reprises mot pour mot).
 
 ## Avant la mise en ligne
 
-- [ ] **Chiffres** : le site actuel affiche « 150 clients » et « 3 à 22 % » sur l'accueil, mais « 130 entreprises » et « 5 à 28 % » sur la page Clients. Le nouveau site reprend 150+ et 3–22 % : à confirmer.
+- [ ] **Nombre de clients** : le site affiche « 150+ » (accueil du site actuel) ; le support 2024 et la page Clients actuelle disent « plus de 130 entreprises ». À trancher (`fr.ts`, `en.ts`).
+- [ ] **Durée du partage des économies** : le site actuel indique 12 à 36 mois, le support 2024 « 12 ou 24 mois ». La v2 affiche **12 à 24 mois** (textes et simulateur, `simulator.config.ts`). À confirmer.
+- [ ] **Logos clients** : 45 logos repris du dossier « 03_Logos/05_Clients » et du mur de logos. Vérifier que chaque client accepte d'être cité (et retirer ceux qui ne sont plus d'actualité dans `client-logos.ts`).
+- [ ] **Témoignages** : extraits mot pour mot des recommandations LinkedIn et des vidéos (coupes signalées par « […] »). Les traductions sont signalées. Relire les fonctions (ex. Michael Benyamin, « Responsable commercial » selon le support 2024).
+- [ ] **Exemple d'analyse anonymisé** (14,6 % / 48,5 %) : vérifier que le client concerné n'est pas identifiable.
+- [ ] **Vidéos** : confirmer l'accord de diffusion sur le site (Melijoe, Lacoste, Wethenew).
+- [ ] **Photo de Margaux Poiret** à ajouter (`public/team/margaux-poiret.jpg` + `photo_url`) ; un monogramme s'affiche en attendant.
 - [ ] **Page IA** : relire les engagements sur les données (« utilisées uniquement pour votre mission », « suppression à tout moment »).
 - [ ] **Simulateur** : calibrer les fourchettes par type de flux avec l'historique des missions (`simulator.config.ts`).
-- [ ] **Témoignages** : seules des phrases reprises mot pour mot du site actuel ont été importées (les coupes sont signalées par « […] »). Compléter les textes intégraux dans le back-office si souhaité.
 - [ ] **Mentions légales** : compléter les champs entre crochets (forme juridique, RCS, TVA, hébergeur, durée de conservation).
-- [ ] **Photos de l'équipe** (des monogrammes s'affichent en attendant).
 - [ ] **Traductions anglaises** : relecture par un natif.
 - [ ] **Palmarès** : le formulaire crée une demande dans le back-office ; l'envoi du PDF reste manuel.
 - [ ] Configurer le SMTP (`SMTP_*` dans `apps/api/.env`) pour recevoir les demandes par e-mail.
+
+### Mettre à jour une base déjà remplie avec la v1
+
+Le contenu initial (équipe avec photos, liste des clients, témoignages) a changé. Si vous aviez déjà lancé `npm run db:seed`, remplacez-le :
+
+```bash
+npm run db:seed -- --reset-content                                  # sans Docker
+docker compose exec api node dist/db/seed.js --reset-content        # avec Docker
+```
+
+Attention : les témoignages modifiés depuis le back-office sont alors remplacés. Les articles, webinars et demandes ne sont pas touchés.
+
+## Avec Docker (pile complète)
+
+Les conteneurs contiennent une copie du code faite au moment du build : après chaque modification du code, il faut **reconstruire** les images.
+
+```bash
+docker compose up -d --build                                          # reconstruit et relance api + site
+docker compose exec api node dist/db/seed.js --reset-content          # contenu initial (équipe, clients, témoignages)
+docker compose exec api node dist/scripts/import-wordpress.js --download-images   # articles WordPress + images
+```
+
+- Si l'ancien site s'affiche encore : `docker compose build --no-cache api web` puis `docker compose up -d`, et rechargez la page sans cache (Ctrl+F5).
+- Les images des articles sont copiées dans le volume Docker `media` et servies par le site sous `/media/blog/…`. L'import est relançable sans doublon.
+- Le site rafraîchit son contenu chaque minute ; pour voir tout de suite un import : `docker compose restart web`.
 
 ## Mise en production
 
@@ -91,6 +133,7 @@ Pile complète avec Docker (PostgreSQL + API + site) :
 cp .env.example .env     # puis renseigner JWT_SECRET, ADMIN_PASSWORD et les URL publiques
 docker compose up -d --build
 docker compose exec api node dist/db/seed.js   # première fois : contenu initial + admin
+docker compose exec api node dist/scripts/import-wordpress.js --download-images   # articles + images du blog
 ```
 
 Derrière un reverse proxy (Caddy, nginx…), sur un seul domaine :
@@ -112,7 +155,7 @@ www.colisconsult.com {
 }
 ```
 
-À sauvegarder : le volume `pgdata` (base) et le volume `uploads` (factures déposées).
+À sauvegarder : le volume `pgdata` (base), le volume `uploads` (factures déposées) et le volume `media` (images du blog).
 
 Bascule depuis WordPress : les anciennes URL (`/equipe/`, `/notre-mission/`, `/palmares/`, `/2023/06/08/mon-article/`…) sont redirigées en 301 vers les nouvelles. Lancez `npm run import:wordpress -- --download-images` **avant** de couper WordPress pour rapatrier articles et images.
 
@@ -135,4 +178,5 @@ Bascule depuis WordPress : les anciennes URL (`/equipe/`, `/notre-mission/`, `/p
 - **URL** : français sans préfixe (`/equipe`), anglais sous `/en` avec des slugs anglais (`/en/team`). Balises `hreflang`, sitemap et données structurées incluses.
 - **Confidentialité** : polices hébergées localement (pas d'appel à Google Fonts), aucun traceur tiers, factures stockées hors du dossier public et téléchargeables uniquement par l'équipe connectée.
 - **Sécurité** : limitation du débit sur les formulaires et la connexion, champ anti-spam, contrôle du type et de la taille des fichiers, session admin en cookie `httpOnly`.
-- **Logo** : redessiné en vectoriel à partir du logo actuel (l'original PNG est dans `apps/web/public/brand/`).
+- **Logo** : tracés officiels du logo 2021 (« Logo-H1 », « Logomark »), intégrés en SVG pour la déclinaison blanche ; fichier téléchargeable dans `apps/web/public/brand/colisconsult-logo.svg`.
+- **Images et vidéos** : photos redimensionnées (2000 px max) puis servies en AVIF/WebP par Next.js ; vidéos réencodées en 720p H.264 (4 à 6 Mo chacune), chargées seulement au clic, sans lecteur tiers.

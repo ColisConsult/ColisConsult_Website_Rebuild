@@ -36,7 +36,7 @@ export const SIMULATOR_CONFIG = {
   },
 
   /** Modèle « au résultat » : part des économies facturée, et durée de partage */
-  successFee: { share: 0.33, minMonths: 12, maxMonths: 36 },
+  successFee: { share: 0.33, minMonths: 12, maxMonths: 24 }, // support commercial 2024 : 12 ou 24 mois
 
   /** Budgets habituels des clients accompagnés */
   typicalBudget: { min: 150_000, max: 10_000_000 },

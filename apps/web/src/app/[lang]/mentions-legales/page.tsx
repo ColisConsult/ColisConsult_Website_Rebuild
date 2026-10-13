@@ -125,7 +125,7 @@ export default async function LegalPage() {
 
   return (
     <>
-      <PageHero label={t.legal.label} title={t.legal.title} />
+      <PageHero title={t.legal.title} />
       <div className="container-site pb-24">
         <div className="max-w-3xl border-t border-line">
           {sections.map((s) => (

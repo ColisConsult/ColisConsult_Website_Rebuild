@@ -1,19 +1,24 @@
 import { OrganizationJsonLd } from '@/components/json-ld';
-import { AiSplit } from '@/components/sections/ai-split';
-import { ClientNames } from '@/components/sections/client-names';
+import { AiHome } from '@/components/sections/ai-home';
 import { CtaBand } from '@/components/sections/cta-band';
-import { Figures } from '@/components/sections/figures';
+import { FounderBlock } from '@/components/sections/founder';
 import { HomeHero } from '@/components/sections/home-hero';
-import { MethodSteps } from '@/components/sections/method-steps';
-import { LatestPosts, UpcomingWebinars } from '@/components/sections/resources';
-import { ResultFacts } from '@/components/sections/result-model';
-import { TestimonialsGrid } from '@/components/sections/testimonials';
+import { HowItWorks } from '@/components/sections/how-it-works';
+import { LogoBand } from '@/components/sections/logo-band';
+import { PricingBand } from '@/components/sections/pricing-band';
+import { HomeResources } from '@/components/sections/resources';
+import { ResultCards } from '@/components/sections/results';
+import { VideoTestimonials } from '@/components/sections/video-testimonials';
 import { Section } from '@/components/ui/section';
 import { TextLink } from '@/components/ui/text-link';
 import { href } from '@/i18n/config';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { getTestimonials } from '@/lib/api';
 
+/*
+ * Parcours de l'accueil : promesse + preuve (hero) → références → résultats chiffrés →
+ * comment ça marche → IA → rémunération → vidéos clients → fondateur et équipe → ressources → contact.
+ */
 export default async function HomePage() {
   const { t, locale } = await getDictionary();
   const featured = await getTestimonials(true);
@@ -23,70 +28,26 @@ export default async function HomePage() {
     <>
       <OrganizationJsonLd description={t.meta.description} />
       <HomeHero t={t} locale={locale} />
-      <Figures items={t.figures} />
-      <ClientNames title={h.clientsTitle} limit={30} />
+      <LogoBand title={h.logos.title} />
 
-      <Section index="01" label={h.ai.label} title={h.ai.title} intro={h.ai.intro} tone="white">
-        <AiSplit t={h.ai} />
-        <div className="mt-10">
-          <TextLink href={href(locale, 'ai')}>{h.ai.cta}</TextLink>
+      <Section tone="mist" title={h.results.title} lead={h.results.lead}>
+        <ResultCards items={featured} locale={locale} t={t} />
+        <div className="mt-8 flex flex-wrap items-baseline justify-between gap-4">
+          <p className="max-w-2xl text-[0.95rem] text-ink-soft">{h.results.footnote}</p>
+          <TextLink href={href(locale, 'clients')}>{h.results.more}</TextLink>
         </div>
       </Section>
 
-      <Section index="02" label={h.method.label} title={h.method.title}>
-        <MethodSteps steps={t.method.steps} aiLabel={t.common.aiAssisted} />
-        <div className="mt-10">
-          <TextLink href={href(locale, 'method')}>{h.method.cta}</TextLink>
-        </div>
+      <HowItWorks t={t} locale={locale} />
+      <AiHome t={t} locale={locale} />
+      <PricingBand t={t} locale={locale} />
+
+      <Section title={h.videos.title}>
+        <VideoTestimonials t={t} locale={locale} />
       </Section>
 
-      <Section index="03" label={h.model.label} title={h.model.title} intro={h.model.intro} tone="dark">
-        <ResultFacts facts={h.model.facts} />
-        <p className="mt-8 text-white/70">
-          {h.model.note}{' '}
-          <TextLink href={href(locale, 'method') + '#tarifs'}>{t.method.pricing.cta}</TextLink>
-        </p>
-      </Section>
-
-      <Section index="04" label={h.testimonials.label} title={h.testimonials.title}>
-        <TestimonialsGrid items={featured} locale={locale} t={t} />
-        <div className="mt-12">
-          <TextLink href={href(locale, 'clients')}>{t.common.allTestimonials}</TextLink>
-        </div>
-      </Section>
-
-      <Section index="05" label={h.rankings.label} title={h.rankings.title} intro={h.rankings.text} tone="white">
-        <dl className="grid grid-cols-3 gap-6 border-t border-line pt-8">
-          {t.rankings.stats.map((s) => (
-            <div key={s.label}>
-              <dt className="sr-only">{s.label}</dt>
-              <dd>
-                <span className="block font-display text-[clamp(1.8rem,1.2rem+2.4vw,3.2rem)] leading-none font-semibold tracking-tight text-teal">{s.value}</span>
-                <span className="mt-2 block text-sm text-ink-soft">{s.label}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
-        <div className="mt-10">
-          <TextLink href={href(locale, 'rankings')}>{h.rankings.cta}</TextLink>
-        </div>
-      </Section>
-
-      <Section index="06" label={h.resources.label} title={h.resources.title}>
-        <div className="grid gap-x-12 gap-y-14 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <LatestPosts locale={locale} t={t} />
-            <div className="mt-8">
-              <TextLink href={href(locale, 'blog')}>{t.common.allArticles}</TextLink>
-            </div>
-          </div>
-          <aside className="lg:col-span-4">
-            <h3 className="mb-4 font-display text-sm font-medium text-ink-soft">{h.resources.webinars}</h3>
-            <UpcomingWebinars locale={locale} t={t} />
-          </aside>
-        </div>
-      </Section>
-
+      <FounderBlock t={t} locale={locale} />
+      <HomeResources t={t} locale={locale} />
       <CtaBand t={t} locale={locale} />
     </>
   );

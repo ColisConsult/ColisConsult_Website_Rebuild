@@ -1,5 +1,7 @@
 import { cacheLife } from 'next/cache';
+import Image from 'next/image';
 import Link from 'next/link';
+import onePercent from '@/assets/one-percent-member-white.png';
 import { href, type Locale } from '@/i18n/config';
 import type { Dictionary } from '@/i18n/get-dictionary';
 import { site } from '@/lib/site';
@@ -27,17 +29,17 @@ export function Footer({ t, locale }: { t: Dictionary; locale: Locale }) {
       <div className="container-site py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo tone="light" />
+            <Logo tone="light" className="h-10 w-auto" />
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-white/65">{t.footer.tagline}</p>
-            <p className="mt-6 flex max-w-sm gap-3 text-sm text-white/65">
-              <span className="mt-1.5 size-1.5 shrink-0 bg-mint" aria-hidden="true" />
-              <span>
-                {t.footer.commitment}{' '}
-                <a href={site.onePercent} target="_blank" rel="noopener noreferrer" className="link text-white/80">
-                  1% for the Planet
-                </a>
-              </span>
-            </p>
+            <a
+              href={site.onePercent}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 flex max-w-sm items-center gap-4 text-sm text-white/65 hover:text-white/85"
+            >
+              <Image src={onePercent} alt="1% for the Planet, membre" className="h-11 w-auto shrink-0" />
+              <span>{t.footer.commitment}</span>
+            </a>
           </div>
 
           <FooterColumn title={t.footer.firm} links={firm} />
@@ -78,7 +80,7 @@ export function Footer({ t, locale }: { t: Dictionary; locale: Locale }) {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/12 pt-6 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/12 pt-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © <CurrentYear /> ColisConsult. {t.footer.rights}
           </p>

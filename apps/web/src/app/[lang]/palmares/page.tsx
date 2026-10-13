@@ -1,6 +1,6 @@
 import { ContactForm } from '@/components/forms/contact-form';
 import { CtaBand } from '@/components/sections/cta-band';
-import { ArrowUpRight } from '@/components/ui/icons';
+import { ArrowUpRight, Check } from '@/components/ui/icons';
 import { PageHero, Section } from '@/components/ui/section';
 import { href } from '@/i18n/config';
 import { getDictionary } from '@/i18n/get-dictionary';
@@ -18,13 +18,13 @@ export default async function RankingsPage() {
 
   return (
     <>
-      <PageHero label={r.label} title={r.title} lead={r.lead}>
-        <dl className="grid max-w-4xl grid-cols-3 gap-6 border-t border-line pt-8">
+      <PageHero title={`${r.title} · ${r.label}`} lead={r.lead}>
+        <dl className="grid max-w-3xl grid-cols-3 gap-6">
           {r.stats.map((s) => (
             <div key={s.label}>
               <dt className="sr-only">{s.label}</dt>
               <dd>
-                <span className="block font-display text-[clamp(2.2rem,1.4rem+3vw,4rem)] leading-none font-semibold tracking-tight text-teal">
+                <span className="figure block text-[clamp(2.2rem,1.4rem+3vw,3.6rem)] text-teal">
                   {s.value}
                 </span>
                 <span className="mt-2 block text-ink-soft">{s.label}</span>
@@ -34,34 +34,33 @@ export default async function RankingsPage() {
         </dl>
       </PageHero>
 
-      <Section index="01" label={r.questionsTitle} tone="white">
-        <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2">
-          {r.questions.map((q, i) => (
-            <li key={q} className="bg-white p-6 md:p-8">
-              <span className="num text-sm text-ink-faint">Q{i + 1}</span>
-              <p className="mt-3 font-display text-xl font-medium tracking-tight">{q}</p>
+      <Section tone="mist" title={r.questionsTitle}>
+        <ul className="grid gap-5 md:grid-cols-2">
+          {r.questions.map((q) => (
+            <li key={q} className="rounded-[var(--radius-card)] bg-white p-6 font-display text-lg font-semibold tracking-tight ring-1 ring-line md:p-7">
+              {q}
             </li>
           ))}
-        </ol>
+        </ul>
       </Section>
 
-      <Section index="02" label={r.methodTitle}>
-        <ul className="max-w-2xl space-y-4 text-lg">
+      <Section title={r.methodTitle}>
+        <ul className="max-w-2xl space-y-3 text-lg">
           {r.method.map((m) => (
-            <li key={m} className="flex gap-4">
-              <span className="mt-3 size-1.5 shrink-0 bg-coral" aria-hidden="true" />
+            <li key={m} className="flex gap-3.5">
+              <Check className="mt-1.5 size-5 shrink-0 text-mint-ink" />
               {m}
             </li>
           ))}
         </ul>
-        <a href={site.tarifColis} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-1.5 font-display font-medium text-teal hover:underline">
+        <a href={site.tarifColis} target="_blank" rel="noopener noreferrer" className="link mt-8 inline-block font-display font-medium text-teal">
           {r.observatory}
           <ArrowUpRight />
         </a>
       </Section>
 
-      <Section id="recevoir" index="03" label={r.formTitle} title={r.formTitle} intro={r.formText} tone="white">
-        <div className="max-w-2xl">
+      <Section id="recevoir" tone="mist" title={r.formTitle} lead={r.formText}>
+        <div className="max-w-2xl rounded-[var(--radius-media)] bg-white p-6 ring-1 ring-line md:p-10">
           <ContactForm
             t={t.forms}
             locale={locale}

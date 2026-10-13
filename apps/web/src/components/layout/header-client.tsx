@@ -24,11 +24,11 @@ export function NavLink({ href, routeKey, children }: { href: string; routeKey: 
       aria-current={active ? 'page' : undefined}
       className={cn(
         'relative rounded px-3 py-2 font-display text-[0.94rem] font-medium transition-colors',
-        active ? 'text-ink' : 'text-ink-soft hover:text-ink',
+        active ? 'text-teal' : 'text-ink hover:text-teal',
       )}
     >
       {children}
-      {active && <span className="absolute inset-x-3 -bottom-[1.14rem] h-0.5 bg-coral" aria-hidden="true" />}
+      {active && <span className="absolute inset-x-3 -bottom-[1.14rem] h-[3px] rounded-t bg-coral" aria-hidden="true" />}
     </Link>
   );
 }
@@ -59,10 +59,12 @@ export function LanguageSwitch({ locale, label }: { locale: Locale; label: strin
 export function MobileMenu({
   items,
   cta,
+  phone,
   labels,
 }: {
   items: { key: RouteKey; href: string; label: string }[];
   cta: { href: string; label: string };
+  phone: { href: string; label: string };
   labels: { menu: string; close: string };
 }) {
   const [open, setOpen] = useState(false);
@@ -82,13 +84,13 @@ export function MobileMenu({
   }, [open]);
 
   return (
-    <div className="xl:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="menu-mobile"
-        className="flex h-10 items-center gap-2 rounded border border-line-strong px-3 font-display text-sm font-medium"
+        className="flex h-10 items-center gap-2 rounded-lg border border-line-strong px-3 font-display text-sm font-medium"
       >
         <span className="relative block h-2.5 w-4" aria-hidden="true">
           <span className={cn('absolute left-0 h-px w-4 bg-ink transition-transform', open ? 'top-1 rotate-45' : 'top-0')} />
@@ -99,7 +101,7 @@ export function MobileMenu({
       <div
         id="menu-mobile"
         hidden={!open}
-        className="fixed inset-x-0 top-[4.5rem] bottom-0 z-40 overflow-y-auto border-t border-line bg-paper"
+        className="fixed inset-x-0 top-[4.5rem] bottom-0 z-40 overflow-y-auto border-t border-line bg-white"
       >
         <nav className="container-site py-8" aria-label="Mobile">
           <ul className="divide-y divide-line border-y border-line">
@@ -111,7 +113,7 @@ export function MobileMenu({
                   className="flex items-center justify-between py-4 font-display text-2xl font-medium tracking-tight"
                 >
                   {item.label}
-                  {key === item.key && <span className="size-2 bg-coral" aria-hidden="true" />}
+                  {key === item.key && <span className="size-2 rounded-full bg-coral" aria-hidden="true" />}
                 </Link>
               </li>
             ))}
@@ -119,6 +121,9 @@ export function MobileMenu({
           <Link href={cta.href} className="btn btn-primary mt-8 w-full justify-center">
             {cta.label}
           </Link>
+          <a href={phone.href} className="btn btn-outline mt-3 w-full justify-center tabular-nums">
+            {phone.label}
+          </a>
         </nav>
       </div>
     </div>

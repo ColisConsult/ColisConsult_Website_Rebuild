@@ -34,6 +34,9 @@ services:
       ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@colisconsult.com}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Définissez ADMIN_PASSWORD dans un fichier .env à la racine}
       UPLOAD_DIR: /app/storage/uploads
+      # Images du blog copiées par l'import WordPress (--download-images), servies par le site
+      BLOG_IMAGES_DIR: /app/storage/media/blog
+      BLOG_IMAGES_URL: /media/blog
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-587}
       SMTP_USER: ${SMTP_USER:-}
@@ -44,6 +47,7 @@ services:
       - "4000:4000"
     volumes:
       - uploads:/app/storage/uploads
+      - media:/app/storage/media
 
   web:
     build:
@@ -57,9 +61,13 @@ services:
       - api
     environment:
       API_URL: http://api:4000/api
+      MEDIA_DIR: /app/media
     ports:
       - "3000:3000"
+    volumes:
+      - media:/app/media:ro
 
 volumes:
   pgdata:
   uploads:
+  media:

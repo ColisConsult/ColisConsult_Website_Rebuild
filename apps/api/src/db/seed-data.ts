@@ -1,56 +1,60 @@
 /**
- * Contenu initial repris du site WordPress (colisconsult.com, octobre 2026).
+ * Contenu initial : site WordPress (colisconsult.com) et support commercial « MASTER FULL 2024 ».
  *
- * ⚠ Témoignages : seules des phrases reprises mot pour mot du site actuel sont utilisées.
- *   Les « […] » signalent une coupe. Complétez les textes intégraux depuis le back-office
- *   (/admin/temoignages) si vous le souhaitez. Les versions anglaises sont des traductions,
- *   signalées comme telles sur le site.
+ * ⚠ Témoignages : extraits repris mot pour mot des recommandations LinkedIn reproduites dans le
+ *   support commercial, ou du site actuel. Les « […] » signalent une coupe. Les traductions
+ *   (FR ↔ EN) sont signalées comme telles sur le site (champ quoteLang = langue d'origine).
+ *   Les témoignages « featured » avec un résultat chiffré alimentent les cartes de l'accueil.
  */
 type Segment = 'enterprise' | 'ecommerce' | 'sme';
 
 export const teamSeed = [
   {
     name: 'Matthieu Erly',
-    roleFr: 'Directeur et fondateur',
+    roleFr: 'Fondateur et directeur',
     roleEn: 'Founder & Managing Director',
     bioFr:
-      "Passé par les services commerciaux de plusieurs transporteurs, il fonde ColisConsult en 2005. Il pilote les missions et reste l'interlocuteur direct des clients. Intervenant régulier en conférences, il anime une communauté de plus de 15 000 abonnés sur LinkedIn et les groupes « Acheteur transport » et « DHL Express, FedEx-TNT, UPS in Europe ».",
+      "Passé par les services commerciaux de plusieurs transporteurs, il fonde ColisConsult en 2005. Il pilote les missions et reste l'interlocuteur direct des clients. Intervenant régulier en conférences, il anime une communauté de plus de 15 000 abonnés sur LinkedIn et les groupes « Acheteur transport » et « DHL Express, FedEx-TNT, UPS in Europe ».",
     bioEn:
       'After working in the sales departments of several carriers, he founded ColisConsult in 2005. He leads every engagement and remains the client’s direct contact. A regular conference speaker, he runs a LinkedIn community of more than 15,000 followers and the groups “Acheteur transport” and “DHL Express, FedEx-TNT, UPS in Europe”.',
-    linkedinUrl: null,
+    linkedinUrl: 'https://www.linkedin.com/in/matthieuerly/',
+    photoUrl: '/team/matthieu-erly.jpg',
     sortOrder: 1,
   },
   {
     name: 'Stéphane Gravier',
-    roleFr: 'Directeur de projet',
-    roleEn: 'Project Director',
+    roleFr: 'Coordinateur de projets',
+    roleEn: 'Project Coordinator',
     bioFr:
-      'Accompagne Matthieu Erly et Majdi Hammami à chaque étape des missions, du cadrage à la sélection des offres.',
+      'Chez ColisConsult depuis 2015. Coordonne les missions aux côtés de Matthieu Erly et Majdi Hammami, du cadrage à la sélection des offres.',
     bioEn:
-      'Works alongside Matthieu Erly and Majdi Hammami at every stage of an engagement, from scoping to carrier selection.',
+      'With ColisConsult since 2015. Coordinates engagements alongside Matthieu Erly and Majdi Hammami, from scoping to carrier selection.',
     linkedinUrl: null,
+    photoUrl: '/team/stephane-gravier.jpg',
     sortOrder: 2,
   },
   {
     name: 'Majdi Hammami',
-    roleFr: 'Consultant transport senior',
-    roleEn: 'Senior Transport Consultant',
+    roleFr: 'Expert data transport',
+    roleEn: 'Transport Data Expert',
     bioFr:
-      "Responsable de l'ensemble des analyses des missions : factures, flux, grilles tarifaires et réponses des transporteurs.",
+      "Chez ColisConsult depuis 2016. Responsable des analyses des missions : factures, flux, grilles tarifaires et réponses des transporteurs.",
     bioEn:
-      'Leads all engagement analysis: invoices, shipping flows, rate cards and carrier responses.',
+      'With ColisConsult since 2016. Leads engagement analysis: invoices, shipping flows, rate cards and carrier responses.',
     linkedinUrl: null,
+    photoUrl: '/team/majdi-hammami.jpg',
     sortOrder: 3,
   },
   {
     name: 'Mohamed Farsi',
-    roleFr: 'Transport Data Analyst',
-    roleEn: 'Transport Data Analyst',
+    roleFr: 'Data analyst & Power BI',
+    roleEn: 'Data Analyst & Power BI',
     bioFr:
       'Traite et fiabilise les données de facturation transport qui alimentent les analyses et les tableaux de bord.',
     bioEn:
       'Processes and cleans the transport billing data behind every analysis and dashboard.',
     linkedinUrl: null,
+    photoUrl: '/team/mohamed-farsi.jpg',
     sortOrder: 4,
   },
   {
@@ -62,15 +66,17 @@ export const teamSeed = [
     bioEn:
       'Runs the websites, communications, marketing and events, including our webinars.',
     linkedinUrl: null,
+    photoUrl: null,
     sortOrder: 5,
   },
   {
     name: 'Maxime Courbeyrette',
-    roleFr: 'Alternant',
-    roleEn: 'Apprentice',
+    roleFr: 'Assistant',
+    roleEn: 'Assistant',
     bioFr: '',
     bioEn: '',
     linkedinUrl: null,
+    photoUrl: '/team/maxime-courbeyrette.jpg',
     sortOrder: 6,
   },
 ];
@@ -96,6 +102,19 @@ const clientNames: Record<Segment, string[]> = {
     'ADP',
     'Regus',
     'CNP',
+    'Renault',
+    'Zodiac',
+    'Radiall',
+    'Ipsos',
+    'Columbia',
+    'Westfield',
+    'Unibail',
+    'Groupama Loire Bretagne',
+    'Smacl Assurances',
+    'Hologram Industries',
+    'ALcontrol Laboratories',
+    'La Martinière Groupe',
+    'Beauté Prestige International',
   ],
   ecommerce: [
     'Lacoste',
@@ -119,6 +138,8 @@ const clientNames: Record<Segment, string[]> = {
     'Packshop',
     'Airis LED',
     'Cheval Energy',
+    'Veepee',
+    'What Matters',
   ],
   sme: [
     'Guard Industrie',
@@ -127,7 +148,13 @@ const clientNames: Record<Segment, string[]> = {
     'Alliance Artem',
     'Let Me Repair',
     'Nowos',
-    'Cetofine',
+    'Cétofine',
+    'Clément Design',
+    'Pharmacie des Drakkars',
+    'BIPEA',
+    "Prot'iLab",
+    'Infractive',
+    'Cellhire',
   ],
 };
 
@@ -152,6 +179,118 @@ export const testimonialsSeed: {
   sortOrder: number;
 }[] = [
   {
+    company: 'Plastic Omnium',
+    author: 'Nicole Hemard',
+    role: 'Service Purchaser',
+    missionFr: 'Étude et appel d’offres transport express',
+    missionEn: 'Express transport study and tender',
+    quoteFr: 'Matthieu a réalisé une étude précise de notre activité « transport express ».',
+    quoteEn: 'Matthieu carried out a precise study of our express transport activity.',
+    resultFr: '−25 % sur le transport express',
+    resultEn: '−25% on express transport',
+    segment: 'enterprise',
+    featured: true,
+    sortOrder: 1,
+  },
+  {
+    company: 'What Matters',
+    author: 'Charlotte Catton Puechbroussou',
+    role: 'Cofondatrice',
+    missionFr: 'Optimisation des coûts de transport',
+    missionEn: 'Transport cost optimisation',
+    quoteFr:
+      'Je ne peux que recommander ColisConsult et l’équipe de Matthieu qui nous ont aidé à réduire de plus de 20 % nos coûts de transport, sans changer de partenaire ! Efficaces et compétents.',
+    quoteEn:
+      'I can only recommend ColisConsult and Matthieu’s team, who helped us cut our transport costs by more than 20% without changing partner! Efficient and skilled.',
+    resultFr: '−20 % et plus, sans changer de partenaire',
+    resultEn: '−20% and more, without changing partner',
+    segment: 'sme',
+    featured: true,
+    sortOrder: 2,
+  },
+  {
+    company: 'Cétofine',
+    author: 'Benjamin Dumas',
+    role: 'Responsable e-commerce',
+    missionFr: 'Optimisation des contrats de transport',
+    missionEn: 'Transport contract optimisation',
+    quoteFr: 'L’économie réalisée a été de 16 % tout en gardant le même transporteur. En bref : je recommande…',
+    quoteEn: 'We saved 16% while keeping the same carrier. In short: I recommend them…',
+    resultFr: '−16 % avec le même transporteur',
+    resultEn: '−16% with the same carrier',
+    segment: 'sme',
+    featured: true,
+    sortOrder: 3,
+  },
+  {
+    company: 'Airis LED',
+    author: 'Michael Benyamin',
+    role: 'Responsable commercial',
+    missionFr: 'Optimisation des contrats colis et palettes',
+    missionEn: 'Parcel and pallet contract optimisation',
+    quoteFr:
+      'Nous avons réalisé 19 % d’économies sur nos contrats de transport de colis et de palettes sans changer de transporteur.',
+    quoteEn: 'We saved 19% on our parcel and pallet transport contracts without changing carrier.',
+    resultFr: '−19 % sans changer de transporteur',
+    resultEn: '−19% without changing carrier',
+    segment: 'ecommerce',
+    sortOrder: 4,
+  },
+  {
+    company: 'ADP',
+    author: 'François Renard',
+    role: 'Procurement Director',
+    missionFr: 'Appel d’offres transport multi-pays',
+    missionEn: 'Multi-country transport tender',
+    quoteFr:
+      'Les résultats ont dépassé nos attentes : nous avons réalisé d’importantes économies, y compris dans les pays où nous avons décidé de garder le même transporteur.',
+    quoteEn:
+      'The results were beyond our expectations: we achieved large amount of savings, even in the countries where we decided to keep the same carrier.',
+    quoteLang: 'en',
+    segment: 'enterprise',
+    sortOrder: 5,
+  },
+  {
+    company: 'Firmenich',
+    author: 'François Jacquier',
+    role: 'Global Purchasing Director',
+    missionFr: 'Appel d’offres transport express',
+    missionEn: 'Express transport tender',
+    quoteFr:
+      'Au-delà d’une bien meilleure compréhension de nos flux et de la gestion de nos données, l’équipe ColisConsult a apporté une approche très pragmatique, guidée par une compréhension fine de la valeur et bien adaptée à notre activité. Les résultats ont dépassé nos attentes.',
+    quoteEn:
+      'Beyond understanding much better our flows and data management, the Colisconsult team brought a very pragmatic approach, driven by deep value understanding and well adapted to our business. This has driven results beyond our expectations.',
+    quoteLang: 'en',
+    segment: 'enterprise',
+    sortOrder: 6,
+  },
+  {
+    company: 'Nina Ricci',
+    author: 'Hakima Desch-Benhemadi',
+    role: 'Logistics & Customer Service Manager',
+    missionFr: 'Maîtrise des coûts de transport express',
+    missionEn: 'Express transport cost control',
+    quoteFr:
+      'Grâce à leur expertise, leur connaissance de notre industrie et leur belle capacité de négociation, ColisConsult nous ont fait bénéficier de solutions de transport plus adaptées avec une meilleure qualité de service et d’une baisse significative de nos coûts de transport Express.',
+    quoteEn:
+      'Thanks to their expertise, their knowledge of our industry and their strong negotiating skills, ColisConsult gave us better-suited transport solutions, with better service quality and a significant reduction in our express transport costs.',
+    segment: 'ecommerce',
+    sortOrder: 7,
+  },
+  {
+    company: 'Vestiaire Collective',
+    author: 'Christian Jorge',
+    role: 'VP Operations',
+    missionFr: 'Reprise générale du plan de transport',
+    missionEn: 'Full overhaul of the transport plan',
+    quoteFr: 'ColisConsult nous a permis d’améliorer significativement nos tarifs et notre volet pilotage.',
+    quoteEn: 'ColisConsult helped us significantly improve our rates and our performance monitoring.',
+    resultFr: 'Plusieurs milliers de colis par jour vers 45 pays',
+    resultEn: 'Thousands of parcels a day to 45 countries',
+    segment: 'ecommerce',
+    sortOrder: 8,
+  },
+  {
     company: 'Somfy',
     author: 'Virginie Tueta',
     role: 'Group Indirect Purchasing Manager',
@@ -162,24 +301,61 @@ export const testimonialsSeed: {
     quoteEn:
       'Matthieu and his team successfully ran our EMEA parcel tender at the end of 2020. […] I highly recommend his services for any parcel tender project.',
     segment: 'enterprise',
-    featured: true,
-    sortOrder: 1,
+    sortOrder: 9,
   },
   {
-    company: 'Vestiaire Collective',
-    author: 'Christian Jorge',
-    role: 'Co-founder & former VP Ops',
-    missionFr: 'Reprise générale du plan de transport',
-    missionEn: 'Full overhaul of the transport plan',
+    company: 'Pharmacie des Drakkars',
+    author: 'Titouan Hébert',
+    role: 'Assistant de direction',
+    missionFr: 'Optimisation des coûts de transport',
+    missionEn: 'Transport cost optimisation',
     quoteFr:
-      'Notre choix s’est porté sur ColisConsult. Notre dossier a été supervisé par Matthieu. […] Matthieu est un partenaire à l’écoute, souple, réactif et fiable.',
+      'Matthieu nous a accompagnés avec rigueur, disponibilité et une grande expertise. Son approche à la fois constructive et pragmatique a permis de réduire nos coûts de transport tout en facilitant nos relations avec nos transporteurs. […] Objectif atteint.',
     quoteEn:
-      'We chose ColisConsult. Our project was overseen by Matthieu. […] Matthieu is an attentive, flexible, responsive and reliable partner.',
-    resultFr: 'Plusieurs milliers de colis par jour vers 45 pays',
-    resultEn: 'Thousands of parcels a day to 45 countries',
+      'Matthieu supported us with rigour, availability and great expertise. His constructive and pragmatic approach cut our transport costs while making our relationships with our carriers easier. […] Objective achieved.',
+    segment: 'sme',
+    sortOrder: 10,
+  },
+  {
+    company: 'Clément Design',
+    author: 'Alexandra Mannina Fantino',
+    role: 'Export Sales Manager',
+    missionFr: 'Appel d’offres transport',
+    missionEn: 'Transport tender',
+    quoteFr:
+      'ColisConsult a su nous accompagner, récupérer la data, challenger les acteurs transports et nous faire réaliser des économies concrètes et très intéressantes. Un prestataire clef en main, une équipe réactive, vraiment un temps précieux gagné.',
+    quoteEn:
+      'ColisConsult supported us, gathered the data, challenged the carriers and delivered concrete, very worthwhile savings. A turnkey provider and a responsive team: we saved a great deal of time.',
+    segment: 'sme',
+    sortOrder: 11,
+  },
+  {
+    company: 'Regus',
+    author: 'Claire Faure',
+    role: 'Procurement Director',
+    missionFr: 'Appels d’offres transport EMEA',
+    missionEn: 'EMEA transport tenders',
+    quoteFr:
+      'J’ai collaboré à plusieurs reprises avec Matthieu sur des appels d’offres EMEA. Il est très expérimenté et expert dans ce domaine. Je recommande vivement ce cabinet.',
+    quoteEn:
+      'I have collaborated several times with Matthieu for EMEA RFQs. He is really experienced and expert in this area. I highly recommend this company.',
+    quoteLang: 'en',
+    segment: 'enterprise',
+    sortOrder: 12,
+  },
+  {
+    company: 'Columbia',
+    author: 'Coralie Cappe',
+    role: 'Sourcing Manager Europe',
+    missionFr: 'Transport colis en Europe',
+    missionEn: 'Parcel transport in Europe',
+    quoteFr:
+      'Une bonne expérience avec l’équipe ColisConsult pour notre activité colis en Europe. Flexibilité, réactivité et précision ont permis des résultats tangibles.',
+    quoteEn:
+      'Good experience working with Colisconsult team for our Parcel business in Europe. Flexibility, reactivity, accuracy contributed to tangible output.',
+    quoteLang: 'en',
     segment: 'ecommerce',
-    featured: true,
-    sortOrder: 2,
+    sortOrder: 13,
   },
   {
     company: 'Firmenich',
@@ -187,56 +363,52 @@ export const testimonialsSeed: {
     role: 'Directeur financier',
     missionFr: 'Express international',
     missionEn: 'International express delivery',
-    quoteFr: 'Je peux dire que les résultats ont été supérieurs à nos attentes.',
-    quoteEn: 'I can say that the results were higher than expected.',
+    quoteFr:
+      'Les résultats ont été supérieurs à nos attentes. Matthieu a été présent à chaque étape du processus, avec des conseils, des explications, et en faisant vraiment tout pour obtenir des résultats.',
+    quoteEn:
+      'The results were higher than expected. Matthieu was always there, at any step of the process, giving advices, explanations and really doing his best to obtain results.',
     quoteLang: 'en',
     segment: 'enterprise',
-    featured: true,
-    sortOrder: 3,
+    sortOrder: 14,
   },
   {
-    company: 'Guard Industrie',
-    author: 'Barnabé Wayser',
-    role: 'Président',
-    missionFr: 'Appels d’offres transport',
-    missionEn: 'Transport tenders',
-    quoteFr: 'Équipe très compétente, dynamique et en plus très sympathique.',
-    quoteEn: 'A very competent, dynamic and genuinely friendly team.',
-    segment: 'sme',
-    featured: true,
-    sortOrder: 4,
-  },
-  {
-    company: 'Airis LED',
-    author: 'Michael Benyamin',
-    role: 'Marketing',
-    missionFr: 'Optimisation des contrats colis et palettes',
-    missionEn: 'Parcel and pallet contract optimisation',
+    company: 'Life Technologies (Thermo Fisher)',
+    author: 'Bruno Baudoin',
+    role: 'Program Manager',
+    missionFr: 'Renégociation des contrats DHL et TNT',
+    missionEn: 'DHL and TNT contract renegotiation',
     quoteFr:
-      'ColisConsult a optimisé nos contrats de transport de colis et de palettes, principalement en France.',
-    quoteEn:
-      'ColisConsult optimised our parcel and pallet contracts, mainly in France.',
-    resultFr: '−19 % sans changer de transporteur',
-    resultEn: '−19% without changing carrier',
-    segment: 'ecommerce',
-    featured: true,
-    sortOrder: 5,
-  },
-  {
-    company: 'Plastic Omnium',
-    author: 'Nicole Hemard',
-    role: 'Purchaser',
-    missionFr: 'Étude et appel d’offres transport express',
-    missionEn: 'Express transport study and tender',
-    quoteFr:
-      'Matthieu a réalisé une étude précise de notre activité « transport express ».',
-    quoteEn:
-      'Matthieu carried out a precise study of our express transport activity.',
-    resultFr: 'Gains de 25 % et 39 %',
-    resultEn: '25% and 39% savings',
+      'Nous avons gardé les mêmes fournisseurs, mais nous bénéficions dorénavant de tarifs plus avantageux.',
+    quoteEn: 'We kept the same suppliers, but we now benefit from better rates.',
+    resultFr: 'Meilleurs tarifs, mêmes transporteurs',
+    resultEn: 'Better rates, same carriers',
     segment: 'enterprise',
-    featured: true,
-    sortOrder: 6,
+    sortOrder: 15,
+  },
+  {
+    company: 'Patagonia',
+    author: 'Sylvain Morvan',
+    role: 'IT & Logistics Director',
+    missionFr: 'Optimisation des flux de transport en Europe',
+    missionEn: 'European transport flow optimisation',
+    quoteFr:
+      'Son expérience et son réseau de connaissances lui permettent d’être d’une efficacité redoutable.',
+    quoteEn: 'His experience and network make him remarkably effective.',
+    segment: 'ecommerce',
+    sortOrder: 16,
+  },
+  {
+    company: 'RAJA',
+    author: 'Mathieu Dubalais',
+    role: 'Directeur Transport France',
+    missionFr: 'Appel d’offres transport pour les entités du groupe',
+    missionEn: 'Transport tender for the group’s entities',
+    quoteFr: 'ColisConsult nous ont permis de gagner en efficacité dans les négociations.',
+    quoteEn: 'ColisConsult made our negotiations more effective.',
+    resultFr: '1,2 million de colis par an',
+    resultEn: '1.2 million parcels a year',
+    segment: 'ecommerce',
+    sortOrder: 17,
   },
   {
     company: 'Danone',
@@ -244,11 +416,10 @@ export const testimonialsSeed: {
     role: 'Directeur Supply Chain, Danone Advanced Medical Nutrition (Nutricia)',
     missionFr: 'Appel d’offres transport',
     missionEn: 'Transport tender',
-    quoteFr:
-      'Matthieu a conduit avec brio, pour le compte de Danone, un appel d’offres en 2018.',
+    quoteFr: 'Matthieu a conduit avec brio, pour le compte de Danone, un appel d’offres en 2018.',
     quoteEn: 'Matthieu brilliantly ran a tender for Danone in 2018.',
     segment: 'enterprise',
-    sortOrder: 7,
+    sortOrder: 18,
   },
   {
     company: 'Nutricia',
@@ -259,7 +430,7 @@ export const testimonialsSeed: {
     quoteFr: 'Ce fut un réel plaisir de travailler avec Matthieu !',
     quoteEn: 'It was a real pleasure to work with Matthieu!',
     segment: 'enterprise',
-    sortOrder: 8,
+    sortOrder: 19,
   },
   {
     company: 'Decathlon Pro',
@@ -272,46 +443,18 @@ export const testimonialsSeed: {
     quoteEn:
       'Matthieu and his whole team helped us with a freight chartering tender for Decathlon Pro.',
     segment: 'enterprise',
-    sortOrder: 9,
+    sortOrder: 20,
   },
   {
-    company: 'Nina Ricci',
-    author: 'Hakima Desch-Benhemadi',
-    role: 'Logistics & Customer Service Manager',
-    missionFr: 'Maîtrise des coûts de transport express',
-    missionEn: 'Express transport cost control',
-    quoteFr:
-      'ColisConsult nous a permis de bénéficier de solutions de transport plus adaptées.',
-    quoteEn: 'ColisConsult gave us access to better-suited transport solutions.',
-    segment: 'ecommerce',
-    sortOrder: 10,
-  },
-  {
-    company: 'RAJA',
-    author: 'Mathieu Dubalais',
-    role: 'Directeur Transport France',
-    missionFr: 'Appel d’offres transport pour les entités du groupe',
-    missionEn: 'Transport tender for the group’s entities',
-    quoteFr:
-      'Matthieu et ses équipes ont assisté le groupe RAJA pour un appel d’offres de transport.',
-    quoteEn: 'Matthieu and his teams supported the RAJA group on a transport tender.',
-    resultFr: '1,2 million de colis par an',
-    resultEn: '1.2 million parcels a year',
-    segment: 'ecommerce',
-    sortOrder: 11,
-  },
-  {
-    company: 'Patagonia',
-    author: 'Sylvain Morvan',
-    role: 'IT & Logistics Director',
-    missionFr: 'Optimisation des flux de transport en Europe',
-    missionEn: 'European transport flow optimisation',
-    quoteFr:
-      'J’ai pu apprécier le professionnalisme et les méthodes d’optimisation des flux de transport dans un contexte européen.',
-    quoteEn:
-      'I appreciated the professionalism and the transport flow optimisation methods in a European context.',
-    segment: 'ecommerce',
-    sortOrder: 12,
+    company: 'Guard Industrie',
+    author: 'Barnabé Wayser',
+    role: 'Président',
+    missionFr: 'Appels d’offres transport',
+    missionEn: 'Transport tenders',
+    quoteFr: 'Équipe très compétente, dynamique et en plus très sympathique.',
+    quoteEn: 'A very competent, dynamic and genuinely friendly team.',
+    segment: 'sme',
+    sortOrder: 21,
   },
   {
     company: 'Laboratoire Bioderma',
@@ -319,11 +462,10 @@ export const testimonialsSeed: {
     role: 'Responsable Supply Chain',
     missionFr: 'Optimisation des transports',
     missionEn: 'Transport optimisation',
-    quoteFr:
-      'J’ai collaboré avec Matthieu dans le cadre d’une mission d’optimisation de nos transports.',
-    quoteEn: 'I worked with Matthieu on a project to optimise our transport.',
+    quoteFr: 'La collaboration d’optimisation de nos transports avec ColisConsult fut fructueuse.',
+    quoteEn: 'Our transport optimisation project with ColisConsult was a success.',
     segment: 'ecommerce',
-    sortOrder: 13,
+    sortOrder: 22,
   },
   {
     company: 'Balzac Paris',
@@ -332,11 +474,10 @@ export const testimonialsSeed: {
     missionFr: 'Remise à plat du plan de distribution e-commerce',
     missionEn: 'E-commerce distribution plan overhaul',
     quoteFr:
-      'Matthieu nous a accompagnés dans notre stratégie de remise à plat de notre plan de distribution e-com.',
-    quoteEn:
-      'Matthieu supported us in overhauling our e-commerce distribution plan.',
+      'Une grande expertise pour mettre en lumière nos points faibles et remettre à plat notre plan de distribution e-com.',
+    quoteEn: 'Real expertise to highlight our weak points and overhaul our e-commerce distribution plan.',
     segment: 'ecommerce',
-    sortOrder: 14,
+    sortOrder: 23,
   },
   {
     company: 'Anne Semonin',
@@ -344,11 +485,10 @@ export const testimonialsSeed: {
     role: 'General Manager',
     missionFr: 'Optimisation des transports B2B et B2C',
     missionEn: 'B2B and B2C transport optimisation',
-    quoteFr:
-      'Matthieu nous a aidés à optimiser nos activités de transport B2B et B2C.',
-    quoteEn: 'Matthieu helped us optimise our B2B and B2C transport.',
+    quoteFr: 'Ils nous ont donné accès à de bien meilleurs tarifs pour nos activités transport B2B et B2C.',
+    quoteEn: 'They gave us access to much better rates for our B2B and B2C transport.',
     segment: 'ecommerce',
-    sortOrder: 15,
+    sortOrder: 24,
   },
   {
     company: 'Alma',
@@ -356,11 +496,10 @@ export const testimonialsSeed: {
     role: 'Responsable des achats',
     missionFr: 'Appel d’offres messagerie et palettes',
     missionEn: 'Groupage and pallet tender',
-    quoteFr:
-      'Nous avons confié à ColisConsult la gestion d’un appel d’offres transport messagerie palettes.',
-    quoteEn: 'We entrusted ColisConsult with running a pallet groupage tender.',
+    quoteFr: 'Gestion d’un appel d’offres transport messagerie palettes avec efficacité et célérité.',
+    quoteEn: 'A pallet groupage tender run efficiently and quickly.',
     segment: 'sme',
-    sortOrder: 16,
+    sortOrder: 25,
   },
   {
     company: 'Eugène Perma',
@@ -369,25 +508,22 @@ export const testimonialsSeed: {
     missionFr: 'Analyse et benchmark des flux de livraison',
     missionEn: 'Delivery flow analysis and benchmark',
     quoteFr:
-      'Matthieu et son équipe ont effectué une analyse et un benchmark poussé de nos flux.',
+      'Matthieu et son équipe ont optimisé nos transports sur ventes en bonne intelligence avec notre logisticien.',
     quoteEn:
-      'Matthieu and his team carried out an in-depth analysis and benchmark of our flows.',
+      'Matthieu and his team optimised our sales shipments in close cooperation with our logistics provider.',
     segment: 'sme',
-    sortOrder: 17,
+    sortOrder: 26,
   },
   {
-    company: 'Life Technologies (Thermo Fisher)',
-    author: 'Bruno Baudoin',
-    role: 'Integration Project Management, Commercial Operations EMEA',
-    missionFr: 'Renégociation des contrats DHL et TNT',
-    missionEn: 'DHL and TNT contract renegotiation',
-    quoteFr:
-      '[…] une mission de renégociation de nos contrats de transport avec DHL & TNT.',
-    quoteEn: '[…] a project to renegotiate our transport contracts with DHL & TNT.',
-    resultFr: 'Meilleurs tarifs, mêmes transporteurs',
-    resultEn: 'Better rates, same carriers',
-    segment: 'enterprise',
-    sortOrder: 18,
+    company: 'BIPEA',
+    author: 'Abdelkader Boubetra',
+    role: 'Manager scientifique et technique',
+    missionFr: 'Appel d’offres transport',
+    missionEn: 'Transport tender',
+    quoteFr: 'Très bonne approche et très bon suivi, notre collaboration a été très fructueuse !',
+    quoteEn: 'A very good approach and very good follow-up: our collaboration was very fruitful!',
+    segment: 'sme',
+    sortOrder: 27,
   },
 ];
 

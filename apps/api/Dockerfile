@@ -17,7 +17,7 @@ COPY --from=build /repo/node_modules ./node_modules
 COPY --from=build /repo/apps/api/package.json ./
 COPY --from=build /repo/apps/api/dist ./dist
 COPY --from=build /repo/apps/api/drizzle ./drizzle
-RUN mkdir -p /app/storage/uploads && chown -R node:node /app/storage
+RUN mkdir -p /app/storage/uploads /app/storage/media/blog && chown -R node:node /app/storage
 USER node
 EXPOSE 4000
 # Applique les migrations puis démarre l'API

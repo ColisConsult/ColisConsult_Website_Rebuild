@@ -1,5 +1,7 @@
+import majdi from '@/assets/photos/majdi-ecran.jpg';
+import { SpendInsight } from '@/components/sections/ai-home';
 import { CtaBand } from '@/components/sections/cta-band';
-import { AiMark, Plus } from '@/components/ui/icons';
+import { Plus } from '@/components/ui/icons';
 import { PageHero, Section } from '@/components/ui/section';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { cn } from '@/lib/cn';
@@ -16,67 +18,62 @@ export default async function AiPage() {
 
   return (
     <>
-      <PageHero label={a.label} title={a.title} lead={a.lead}>
-        {/* Chaîne de traitement : la machine au milieu, l'humain avant la décision */}
-        <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-          {a.flow.map((step, i) => (
-            <li
-              key={step.title}
-              className={cn('relative p-5 md:p-6', i === 1 ? 'bg-ink text-white' : i === 3 ? 'bg-teal text-white' : 'bg-white')}
-            >
-              <p className={cn('num text-xs', i === 1 || i === 3 ? 'text-white/55' : 'text-ink-faint')}>
-                {String(i + 1).padStart(2, '0')}
-              </p>
-              <p className="mt-6 flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
-                {i === 1 && <AiMark className="size-2.5 text-coral" />}
-                {step.title}
-              </p>
-              <p className={cn('mt-1 text-[0.95rem]', i === 1 || i === 3 ? 'text-white/70' : 'text-ink-soft')}>{step.text}</p>
-            </li>
+      <PageHero
+        title={a.title}
+        lead={a.lead}
+        image={{ src: majdi, alt: t.home.ai.photoAlt, caption: t.home.ai.photoCaption, position: '35% center' }}
+      />
+
+      <Section tone="mist">
+        <div className="grid gap-5 lg:grid-cols-3">
+          {a.uses.map((use) => (
+            <article key={use.title} className="flex flex-col rounded-[var(--radius-card)] bg-white p-6 ring-1 ring-line md:p-7">
+              <h2 className="text-title">{use.title}</h2>
+              <dl className="mt-5 space-y-5">
+                {(['problem', 'ai', 'human'] as const).map((row) => (
+                  <div key={row}>
+                    <dt
+                      className={cn(
+                        'text-sm font-medium',
+                        row === 'problem' && 'text-ink-faint',
+                        row === 'ai' && 'text-coral-ink',
+                        row === 'human' && 'text-teal',
+                      )}
+                    >
+                      {a.rows[row]}
+                    </dt>
+                    <dd className={cn('mt-1', row === 'problem' ? 'text-ink-soft' : 'text-ink')}>{use[row]}</dd>
+                  </div>
+                ))}
+              </dl>
+            </article>
           ))}
-        </ol>
-      </PageHero>
+        </div>
+        <SpendInsight t={t.home.insight} locale={locale} className="mt-5" />
+      </Section>
 
-      {a.uses.map((use, i) => (
-        <Section key={use.title} index={String(i + 1).padStart(2, '0')} label={use.title} tone={i % 2 === 0 ? 'white' : 'paper'}>
-          <h2 className="max-w-[24ch] text-headline">{use.gain}</h2>
-          <dl className="mt-12 border-t border-line">
-            {(['problem', 'ai', 'human'] as const).map((row) => (
-              <div key={row} className="grid gap-x-10 gap-y-2 border-b border-line py-6 md:grid-cols-12">
-                <dt className="flex items-center gap-2 font-display text-sm font-medium text-ink-soft md:col-span-3">
-                  {row === 'ai' && <AiMark className="size-2 text-coral" />}
-                  {row === 'human' && <span className="size-2 rounded-full bg-teal" aria-hidden="true" />}
-                  {a.rows[row]}
-                </dt>
-                <dd className={cn('text-lg leading-relaxed md:col-span-9', row === 'problem' && 'text-ink-soft')}>{use[row]}</dd>
-              </div>
-            ))}
-          </dl>
-        </Section>
-      ))}
-
-      <Section index="04" label={a.limitsTitle} title={a.limitsTitle} tone="white">
-        <div className="grid gap-10 md:grid-cols-3">
+      <Section title={a.limitsTitle}>
+        <div className="grid gap-x-10 gap-y-8 md:grid-cols-3">
           {a.limits.map((l) => (
-            <div key={l.title} className="border-t-2 border-ink pt-5">
-              <h3 className="text-xl">{l.title}</h3>
+            <div key={l.title}>
+              <h3 className="text-title">{l.title}</h3>
               <p className="mt-2 text-ink-soft">{l.text}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section index="05" label={a.dataTitle} title={a.dataTitle} intro={a.dataText} tone="dark" />
+      <Section tone="dark" title={a.dataTitle} lead={a.dataText} />
 
-      <Section index="06" label={a.faqTitle} title={a.faqTitle}>
+      <Section title={a.faqTitle} narrow>
         <div className="border-t border-line">
           {a.faq.map((f) => (
             <details key={f.q} className="group border-b border-line">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 font-display text-xl font-medium tracking-tight [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 font-display text-lg font-semibold tracking-tight [&::-webkit-details-marker]:hidden">
                 {f.q}
                 <Plus className="size-5 shrink-0 text-ink-soft transition-transform group-open:rotate-45" />
               </summary>
-              <p className="max-w-2xl pb-7 text-lg leading-relaxed text-ink-soft">{f.a}</p>
+              <p className="max-w-2xl pb-6 text-ink-soft">{f.a}</p>
             </details>
           ))}
         </div>

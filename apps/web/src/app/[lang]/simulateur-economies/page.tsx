@@ -13,9 +13,9 @@ export default async function SimulatorPage() {
   const { t, locale } = await getDictionary();
   return (
     <>
-      <PageHero label={t.simulator.label} title={t.simulator.title} lead={t.simulator.lead} />
+      <PageHero title={t.simulator.title} lead={t.simulator.lead} />
       <div className="container-site pb-24">
-        <div className="border-t border-line pt-12">
+        <div>
           <SavingsSimulator
             t={t.simulator}
             forms={t.forms}

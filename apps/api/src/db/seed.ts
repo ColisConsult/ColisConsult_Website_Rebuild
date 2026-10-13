@@ -2,6 +2,11 @@
  * Remplit la base avec le contenu initial et crée le compte admin.
  * Idempotent : peut être relancé sans créer de doublons.
  *   npm run db:seed
+ *
+ * Option --reset-content : remplace l'équipe, la liste des clients et les témoignages
+ * par la version de seed-data.ts (utile après une mise à jour du site ; les témoignages
+ * modifiés dans le back-office sont alors perdus). Les articles et demandes ne sont pas touchés.
+ *   npm run db:seed -- --reset-content
  */
 import 'dotenv/config';
 import bcrypt from 'bcryptjs';
@@ -62,8 +67,16 @@ async function seedIfEmpty<T extends Record<string, unknown>>(
   console.log(`✔ ${label} : ${rows.length} entrées`);
 }
 
+async function resetContent() {
+  await db.delete(schema.testimonials);
+  await db.delete(schema.clients);
+  await db.delete(schema.teamMembers);
+  console.log('• Équipe, clients et témoignages effacés (--reset-content)');
+}
+
 async function main() {
   await seedAdmin();
+  if (process.argv.includes('--reset-content')) await resetContent();
   await seedIfEmpty('Équipe', schema.teamMembers, teamSeed);
   await seedIfEmpty('Clients', schema.clients, clientsSeed);
   await seedIfEmpty('Témoignages', schema.testimonials, testimonialsSeed);

@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   output: 'standalone',
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
   // Monorepo : trace les dépendances depuis la racine (node_modules partagé)
   outputFileTracingRoot: path.resolve(process.cwd(), '../..'),
   poweredByHeader: false,

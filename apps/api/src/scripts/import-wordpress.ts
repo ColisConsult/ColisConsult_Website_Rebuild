@@ -5,6 +5,10 @@
  *   npm run import:wordpress -- --download-images  # + copie locale des images (recommandé avant de couper WordPress)
  *   WP_URL=https://staging.exemple.fr npm run import:wordpress
  *
+ * Avec Docker (pile complète), depuis la racine du projet :
+ *   docker compose exec api node dist/scripts/import-wordpress.js --download-images
+ *   → les images sont copiées dans le volume « media », servies par le site sous /media/blog/…
+ *
  * - Passe par l'API REST publique de WordPress (/wp-json/wp/v2/posts).
  * - Convertit le HTML en Markdown (éditable ensuite dans le back-office).
  * - Met à jour les articles existants par slug : relançable sans doublon.
@@ -26,8 +30,13 @@ const DOWNLOAD_IMAGES = process.argv.includes('--download-images');
 const EXCLUDED_SLUGS = new Set(['test-simple']);
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const IMAGES_DIR = path.resolve(here, '../../../web/public/uploads/blog');
-const IMAGES_PUBLIC_PATH = '/uploads/blog';
+/**
+ * Où copier les images, et sous quelle URL le site les sert.
+ * - npm run dev : dossier public du site (apps/web/public/uploads/blog → /uploads/blog/…)
+ * - Docker : volume partagé « media » (BLOG_IMAGES_DIR / BLOG_IMAGES_URL, cf. docker-compose.yml)
+ */
+const IMAGES_DIR = process.env.BLOG_IMAGES_DIR ?? path.resolve(here, '../../../web/public/uploads/blog');
+const IMAGES_PUBLIC_PATH = (process.env.BLOG_IMAGES_URL ?? '/uploads/blog').replace(/\/$/, '');
 
 interface WpPost {
   id: number;
@@ -63,13 +72,47 @@ const turndown = new TurndownService({
 // Supprime le bruit des constructeurs de pages (scripts, styles, formulaires, embeds vides)
 turndown.remove(['script', 'style', 'noscript', 'form', 'iframe', 'button']);
 
+/**
+ * Le site WordPress actuel imprime du HTML avant le JSON de son API REST : des blocs
+ * <style> d'Elementor et un commentaire du module « Alter HTML ». On les retire.
+ * Ce module modifie aussi les réponses de moins de 600 Ko (il abîme le JSON) : on demande
+ * donc tous les articles d'un coup (per_page=100), réponse assez grosse pour qu'il l'ignore.
+ */
+function stripLeadingHtml(text: string) {
+  let s = text;
+  for (;;) {
+    s = s.replace(/^\s+/, '');
+    if (s.startsWith('<!--')) {
+      const end = s.indexOf('-->');
+      if (end < 0) break;
+      s = s.slice(end + 3);
+      continue;
+    }
+    const style = s.match(/^<style\b[^>]*>[\s\S]*?<\/style>/i);
+    if (style) {
+      s = s.slice(style[0].length);
+      continue;
+    }
+    break;
+  }
+  return s;
+}
+
 async function fetchJson<T>(url: string): Promise<{ data: T; totalPages: number }> {
   const res = await fetch(url, { headers: { Accept: 'application/json' } });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} sur ${url}`);
-  return {
-    data: (await res.json()) as T,
-    totalPages: Number(res.headers.get('x-wp-totalpages') ?? 1),
-  };
+  const raw = await res.text();
+  let data: T;
+  try {
+    data = JSON.parse(stripLeadingHtml(raw)) as T;
+  } catch (error) {
+    throw new Error(
+      `réponse illisible de ${url} (${(error as Error).message}). ` +
+        `Début de la réponse : ${raw.slice(0, 120).replace(/\s+/g, ' ')}… ` +
+        `Un module WordPress modifie probablement les réponses de l'API REST.`,
+    );
+  }
+  return { data, totalPages: Number(res.headers.get('x-wp-totalpages') ?? 1) };
 }
 
 async function downloadImage(url: string): Promise<string> {
@@ -114,7 +157,7 @@ async function main() {
     let totalPages = 1;
     do {
       const res = await fetchJson<WpPost[]>(
-        `${WP_URL}/wp-json/wp/v2/posts?per_page=50&page=${page}&status=publish&_embed=wp:featuredmedia`,
+        `${WP_URL}/wp-json/wp/v2/posts?per_page=100&page=${page}&status=publish&_embed=wp:featuredmedia`,
       );
       totalPages = res.totalPages;
 

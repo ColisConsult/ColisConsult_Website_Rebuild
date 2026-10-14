@@ -60,7 +60,8 @@ services:
     depends_on:
       - api
     environment:
-      API_URL: http://api:4000/api
+      # Adresse interne de l'API (sur Vercel, injectée par la liaison du service web)
+      API_SERVICE_URL: http://api:4000
       MEDIA_DIR: /app/media
     ports:
       - "3000:3000"

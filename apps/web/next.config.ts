@@ -1,11 +1,15 @@
 import path from 'node:path';
 import type { NextConfig } from 'next';
 
+// Vitrine de démonstration sur Vercel : pas d'indexation (voir app/robots.ts), sauf ALLOW_INDEXING=1
+const noIndex = !!process.env.VERCEL && process.env.ALLOW_INDEXING !== '1';
+
 const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+  ...(noIndex ? [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] : []),
 ];
 
 const nextConfig: NextConfig = {

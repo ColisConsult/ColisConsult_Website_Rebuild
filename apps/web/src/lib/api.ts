@@ -1,6 +1,7 @@
 import 'server-only';
 import { cacheLife, cacheTag } from 'next/cache';
 import type { Locale } from '@/i18n/config';
+import { apiEndpoint } from './api-endpoint';
 import type { Client, Post, PostSummary, TeamMember, Testimonial, Webinar } from './types';
 
 /**
@@ -8,14 +9,13 @@ import type { Client, Post, PostSummary, TeamMember, Testimonial, Webinar } from
  * Chaque fonction est mise en cache (`use cache`) et étiquetée : le back-office
  * invalide l'étiquette après chaque modification (updateTag), et le contenu se
  * rafraîchit de toute façon chaque minute.
- * Si l'API est injoignable (ex. pendant `next build`), on renvoie une valeur
- * vide plutôt que de faire échouer le rendu.
+ * Si l'API est injoignable (ex. pendant `next build` sans API_BUILD_URL), on renvoie
+ * une valeur vide plutôt que de faire échouer le rendu.
+ * Adresse de l'API : voir api-endpoint.ts (liaison Vercel, Docker, local).
  */
-const API_URL = (process.env.API_URL ?? 'http://localhost:4000/api').replace(/\/$/, '');
-
 async function get<T>(path: string, fallback: T): Promise<T> {
   try {
-    const res = await fetch(`${API_URL}${path}`, { headers: { Accept: 'application/json' } });
+    const res = await fetch(apiEndpoint(path), { headers: { Accept: 'application/json' } });
     if (!res.ok) return fallback;
     return (await res.json()) as T;
   } catch {

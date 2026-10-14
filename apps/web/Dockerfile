@@ -13,9 +13,10 @@ COPY apps/web apps/web
 # Variables publiques : intégrées au code client au moment du build
 ARG NEXT_PUBLIC_API_URL=http://localhost:4000/api
 ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
-# API joignable pendant le build (facultatif : sans elle, le contenu se charge à la première visite)
-ARG API_URL=http://localhost:4000/api
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL API_URL=$API_URL NEXT_TELEMETRY_DISABLED=1
+# API joignable pendant le build, ex. https://www.colisconsult.com (facultatif : sans elle,
+# le contenu se charge à la première visite)
+ARG API_BUILD_URL=
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL API_BUILD_URL=$API_BUILD_URL NEXT_TELEMETRY_DISABLED=1
 RUN npm run build --workspace web
 
 FROM node:22-alpine

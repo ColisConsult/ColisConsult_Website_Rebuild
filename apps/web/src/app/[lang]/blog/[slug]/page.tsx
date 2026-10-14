@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, type CSSProperties } from 'react';
+import { Aurora, RiseWords } from '@/components/motion/primitives';
+import { CoverImage } from '@/components/sections/cover-image';
 import { CtaBand } from '@/components/sections/cta-band';
+import { ArrowRight } from '@/components/ui/icons';
 import { href, type Locale } from '@/i18n/config';
 import { dictionaryFor, getDictionary } from '@/i18n/get-dictionary';
 import { getPost, getPostSlugs } from '@/lib/api';
@@ -62,32 +65,41 @@ function Article({ post, locale }: { post: Post; locale: Locale }) {
 
   return (
     <article lang={post.locale}>
-      <header className="container-site pt-14 pb-12 md:pt-20">
-        <div className="mx-auto max-w-[44rem]">
-        <Link href={href(locale, 'blog')} className="link font-display text-sm font-medium text-ink-soft hover:text-ink">
-          {t.common.backToBlog}
-        </Link>
-        <h1 className="mt-8 text-[clamp(2.1rem,1.4rem+2.8vw,3.2rem)] leading-[1.08]">{post.title}</h1>
-        <p className="mt-6 flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-faint">
-          {post.publishedAt && (
-            <span>
-              {t.common.publishedOn} {formatDate(post.publishedAt, locale)}
-            </span>
-          )}
-          <span>
-            {post.readingMinutes} {t.common.minRead}
-          </span>
-          {post.locale !== locale && <span>{t.common.inFrench}</span>}
-        </p>
+      <header data-tone="dark" className={`surface-night on-dark pt-32 md:pt-40 ${post.coverImageUrl ? 'pb-28 md:pb-40' : 'pb-16 md:pb-24'}`}>
+        <Aurora variant="section" />
+        <div className="bg-grid pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="container-site">
+          <div className="mx-auto max-w-[48rem]">
+            <Link href={href(locale, 'blog')} className="rise group inline-flex items-center gap-2 font-display text-sm font-medium text-white/65 hover:text-white">
+              <ArrowRight className="size-4 rotate-180 transition-transform duration-300 group-hover:-translate-x-1" />
+              {t.common.backToBlog}
+            </Link>
+            <RiseWords text={post.title} className="mt-8 text-[clamp(2.1rem,1.4rem+2.8vw,3.6rem)] leading-[1.06] text-white" />
+            <p className="rise mt-7 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white/55" style={{ '--delay': '400ms' } as CSSProperties}>
+              {post.publishedAt && (
+                <span>
+                  {t.common.publishedOn} {formatDate(post.publishedAt, locale)}
+                </span>
+              )}
+              <span>
+                {post.readingMinutes} {t.common.minRead}
+              </span>
+              {post.locale !== locale && <span>{t.common.inFrench}</span>}
+            </p>
+          </div>
         </div>
       </header>
       {post.coverImageUrl && (
-        <div className="container-site">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={post.coverImageUrl} alt="" className="mx-auto max-h-[28rem] w-full max-w-[56rem] rounded-[var(--radius-media)] object-cover" />
+        <div className="relative z-10 container-site -mt-20 md:-mt-28">
+          <div className="rise" style={{ '--delay': '300ms' } as CSSProperties}>
+            <CoverImage
+              src={post.coverImageUrl}
+              className="mx-auto max-h-[30rem] w-full max-w-[60rem] rounded-[var(--radius-media)] object-cover shadow-[0_40px_100px_-40px_rgb(3_28_30/0.6)]"
+            />
+          </div>
         </div>
       )}
-      <div className="container-site pt-4 pb-20">
+      <div className="container-site pt-12 pb-20 md:pt-16">
         <div className="prose-cc mx-auto max-w-[44rem]" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </article>
@@ -96,14 +108,22 @@ function Article({ post, locale }: { post: Post; locale: Locale }) {
 
 function PostSkeleton() {
   return (
-    <div className="container-site animate-pulse pt-20 pb-24" aria-hidden="true">
-      <div className="h-4 w-32 rounded bg-line" />
-      <div className="mt-8 h-12 max-w-2xl rounded bg-line" />
-      <div className="mt-4 h-12 max-w-xl rounded bg-line" />
-      <div className="mx-auto mt-16 max-w-[44rem] space-y-3">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="h-4 rounded bg-line" />
-        ))}
+    <div aria-hidden="true">
+      <div data-tone="dark" className="surface-night pt-32 pb-20 md:pt-40">
+        <div className="container-site animate-pulse">
+          <div className="mx-auto max-w-[48rem]">
+            <div className="h-4 w-32 rounded bg-white/10" />
+            <div className="mt-8 h-12 max-w-2xl rounded bg-white/10" />
+            <div className="mt-4 h-12 max-w-xl rounded bg-white/10" />
+          </div>
+        </div>
+      </div>
+      <div className="container-site animate-pulse pt-16 pb-24">
+        <div className="mx-auto max-w-[44rem] space-y-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="h-4 rounded bg-line" />
+          ))}
+        </div>
       </div>
     </div>
   );

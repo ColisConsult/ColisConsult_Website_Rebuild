@@ -6,7 +6,7 @@ import { href, type Locale } from '@/i18n/config';
 import type { Dictionary } from '@/i18n/get-dictionary';
 import { site } from '@/lib/site';
 import { ArrowUpRight } from '../ui/icons';
-import { Logo } from '../ui/logo';
+import { Logo, WORDMARK } from '../ui/logo';
 
 export function Footer({ t, locale }: { t: Dictionary; locale: Locale }) {
   const firm = [
@@ -25,8 +25,8 @@ export function Footer({ t, locale }: { t: Dictionary; locale: Locale }) {
   ];
 
   return (
-    <footer className="on-dark bg-teal-950 text-white/80">
-      <div className="container-site py-16 md:py-20">
+    <footer data-tone="dark" className="surface-night on-dark text-white/80">
+      <div className="container-site pt-20 pb-10 md:pt-24">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Logo tone="light" className="h-10 w-auto" />
@@ -80,7 +80,18 @@ export function Footer({ t, locale }: { t: Dictionary; locale: Locale }) {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/12 pt-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        {/* Grand mot-symbole en filigrane */}
+        <svg viewBox="2080 600 5620 740" className="mt-20 w-full" aria-hidden="true">
+          <defs>
+            <linearGradient id="footer-wordmark" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#fff" stopOpacity="0.14" />
+              <stop offset="1" stopColor="#fff" stopOpacity="0.02" />
+            </linearGradient>
+          </defs>
+          <path d={WORDMARK} fill="url(#footer-wordmark)" />
+        </svg>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-white/12 pt-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © <CurrentYear /> ColisConsult. {t.footer.rights}
           </p>
@@ -107,7 +118,7 @@ function FooterColumn({ title, links }: { title: string; links: { label: string;
       <ul className="mt-4 space-y-2.5 text-[0.95rem]">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="transition-colors hover:text-white">
+            <Link href={l.href} className="link-slide transition-colors hover:text-white">
               {l.label}
             </Link>
           </li>

@@ -8,6 +8,8 @@ import '../globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
+import { MotionRuntime } from '@/components/motion/runtime';
+import { SmoothScroll } from '@/components/motion/smooth-scroll';
 import { locales } from '@/i18n/config';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { site } from '@/lib/site';
@@ -36,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0d5257',
+  themeColor: '#031c1e',
 };
 
 export default async function RootLayout({ children }: LayoutProps<'/[lang]'>) {
@@ -49,6 +51,8 @@ export default async function RootLayout({ children }: LayoutProps<'/[lang]'>) {
           {children}
         </main>
         <Footer t={t} locale={locale} />
+        <MotionRuntime />
+        <SmoothScroll />
       </body>
     </html>
   );

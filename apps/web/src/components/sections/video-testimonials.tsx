@@ -43,7 +43,7 @@ export function VideoTestimonials({ t, locale, showLink = true }: { t: Dictionar
           href={`${site.founderLinkedin}details/recommendations/`}
           target="_blank"
           rel="noopener noreferrer"
-          className="link mt-12 inline-block font-display text-[0.97rem] font-medium text-teal"
+          className="link mt-10 inline-block font-display text-[0.97rem] font-medium text-teal"
         >
           {t.home.videos.linkedin}
           <ArrowUpRight />

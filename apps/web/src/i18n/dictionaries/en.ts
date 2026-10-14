@@ -53,6 +53,7 @@ const en: Dictionary = {
       ctaPrimary: 'Get my free pre-audit',
       ctaSecondary: 'Estimate my savings',
       guarantee: 'No savings, no fees.',
+      badge: 'Independent transport procurement consultancy since 2005',
       reassurance: ['Free, no commitment', 'Non-disclosure agreement signed before any data is shared'],
       photoAlt: 'Matthieu Erly, founder of ColisConsult, speaking at a logistics conference',
       photoCaption: 'Matthieu Erly, founder, speaking at a conference',
@@ -62,12 +63,32 @@ const en: Dictionary = {
         author: 'Michael Benyamin',
         role: 'Sales Manager, Airis LED (translated from French)',
       },
+      console: {
+        title: 'Your invoices, analysed',
+        tag: 'Demo',
+        status: 'AI reading',
+        lines: [
+          { label: 'Parcel 2 kg · France', note: null },
+          { label: '“Remote area” surcharge', note: 'Unjustified surcharge' },
+          { label: 'Pallet 180 kg · Marseille', note: 'Wrong zone' },
+          { label: '6 kg parcel billed as 15 kg', note: 'Wrong weight' },
+          { label: 'Parcel 12 kg · Express Europe', note: null },
+        ],
+        ok: 'Compliant',
+        spendTitle: 'Where the spend is concentrated',
+        validated: 'Every anomaly is checked by an expert',
+      },
     },
     logos: { title: 'They trusted us with their transport purchasing' },
     results: {
       title: 'Savings checked against real invoices.',
       lead: 'In our clients’ own words, from the recommendations they published on LinkedIn.',
       footnote: 'Our clients spend from €150k to more than €10M a year on transport. Savings achieved: 3% to 22%.',
+      stats: [
+        { value: '3–22%', label: 'savings measured on our clients’ invoices', count: true },
+        { value: '€150k–€10M', label: 'annual transport budgets, and beyond', count: true },
+        { value: '2005', label: 'the year the firm was founded, independent ever since', count: false },
+      ],
       more: 'All testimonials',
     },
     how: {
@@ -90,6 +111,12 @@ const en: Dictionary = {
       cta: 'Our method in detail',
       photoAlt: 'Stéphane Gravier analysing tender data at his desk',
       photoCaption: 'Stéphane Gravier, project coordinator, with ColisConsult since 2015',
+      stepLabel: 'Step',
+      stepPhotos: [
+        { alt: 'Matthieu Erly working through a client file', caption: 'Matthieu Erly, founder' },
+        { alt: 'Stéphane Gravier analysing tender data at his desk', caption: 'Stéphane Gravier, project coordinator' },
+        { alt: 'Majdi Hammami checking carrier rate cards on two screens', caption: 'Majdi Hammami, transport data expert' },
+      ],
     },
     ai: {
       title: 'AI reads every line of your invoices. Our experts decide.',
@@ -102,6 +129,12 @@ const en: Dictionary = {
       cta: 'How we use AI',
       photoAlt: 'Majdi Hammami analysing carrier rate cards on two screens',
       photoCaption: 'Majdi Hammami, transport data expert, with ColisConsult since 2016',
+      visuals: {
+        weightBands: 'Shipments by weight band',
+        offer: 'Offer',
+        best: 'Selected',
+        flagged: 'To dispute',
+      },
     },
     insight: {
       title: 'What an invoice analysis reveals',
@@ -132,6 +165,7 @@ const en: Dictionary = {
       text: 'Matthieu Erly founded ColisConsult in 2005 after several years working for carriers. He leads every engagement with a team of data and transport purchasing specialists, based near Paris.',
       team: 'Meet the team',
       photoAlt: 'Matthieu Erly, founder of ColisConsult, at the office',
+      since: 'Firm founded',
     },
     resources: {
       title: 'For transport buyers',

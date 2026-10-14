@@ -14,8 +14,8 @@ export default async function SimulatorPage() {
   return (
     <>
       <PageHero title={t.simulator.title} lead={t.simulator.lead} />
-      <div className="container-site pb-24">
-        <div>
+      <div className="container-site pt-14 pb-24 md:pt-20">
+        <div data-reveal="">
           <SavingsSimulator
             t={t.simulator}
             forms={t.forms}

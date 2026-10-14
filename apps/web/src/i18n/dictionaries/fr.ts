@@ -58,6 +58,7 @@ const fr = {
       ctaPrimary: 'Demander mon pré-audit gratuit',
       ctaSecondary: 'Estimer mes économies',
       guarantee: 'Pas d’économies, pas d’honoraires.',
+      badge: 'Cabinet indépendant d’achat de transport, depuis 2005',
       reassurance: ['Gratuit et sans engagement', 'Accord de confidentialité signé avant tout échange'],
       photoAlt: 'Matthieu Erly, fondateur de ColisConsult, en conférence devant des professionnels de la logistique',
       photoCaption: 'Matthieu Erly, fondateur du cabinet, en conférence',
@@ -67,12 +68,32 @@ const fr = {
         author: 'Michael Benyamin',
         role: 'Responsable commercial, Airis LED',
       },
+      console: {
+        title: 'Analyse de vos factures',
+        tag: 'Démo',
+        status: 'Lecture par l’IA',
+        lines: [
+          { label: 'Colis 2 kg · France', note: null },
+          { label: 'Supplément « zone éloignée »', note: 'Supplément injustifié' },
+          { label: 'Palette 180 kg · Marseille', note: 'Erreur de zone' },
+          { label: 'Colis de 6 kg facturé 15 kg', note: 'Erreur de poids' },
+          { label: 'Colis 12 kg · Express Europe', note: null },
+        ],
+        ok: 'Conforme',
+        spendTitle: 'Où se concentre la dépense',
+        validated: 'Chaque anomalie est vérifiée par un expert',
+      },
     },
     logos: { title: 'Ils nous ont confié leurs achats de transport' },
     results: {
       title: 'Des économies vérifiées sur facture.',
       lead: 'Ce sont nos clients qui le disent, dans les recommandations qu’ils ont publiées sur LinkedIn.',
       footnote: 'Nos clients ont des budgets transport de 150 k€ à plus de 10 M€ par an. Économies constatées : de 3 à 22 %.',
+      stats: [
+        { value: '3 à 22 %', label: 'd’économies constatées sur facture chez nos clients', count: true },
+        { value: '150 k€ à 10 M€', label: 'de budget transport annuel, et au-delà', count: true },
+        { value: '2005', label: 'l’année de création du cabinet, indépendant depuis', count: false },
+      ],
       more: 'Tous les témoignages',
     },
     how: {
@@ -95,6 +116,12 @@ const fr = {
       cta: 'Le détail de notre méthode',
       photoAlt: 'Stéphane Gravier analysant les données d’un appel d’offres à son poste',
       photoCaption: 'Stéphane Gravier, coordinateur de projets, chez ColisConsult depuis 2015',
+      stepLabel: 'Étape',
+      stepPhotos: [
+        { alt: 'Matthieu Erly en pleine analyse d’un dossier', caption: 'Matthieu Erly, fondateur' },
+        { alt: 'Stéphane Gravier analysant les données d’un appel d’offres à son poste', caption: 'Stéphane Gravier, coordinateur de projets' },
+        { alt: 'Majdi Hammami contrôlant des grilles tarifaires sur deux écrans', caption: 'Majdi Hammami, expert data transport' },
+      ],
     },
     ai: {
       title: 'L’IA lit chaque ligne de vos factures. Nos experts décident.',
@@ -107,6 +134,12 @@ const fr = {
       cta: 'Comment nous utilisons l’IA',
       photoAlt: 'Majdi Hammami analysant des grilles tarifaires de transporteurs sur deux écrans',
       photoCaption: 'Majdi Hammami, expert data transport, chez ColisConsult depuis 2016',
+      visuals: {
+        weightBands: 'Envois par tranche de poids',
+        offer: 'Offre',
+        best: 'Retenue',
+        flagged: 'À contester',
+      },
     },
     insight: {
       title: 'Ce que révèle une analyse de factures',
@@ -137,6 +170,7 @@ const fr = {
       text: 'Matthieu Erly a fondé ColisConsult en 2005, après plusieurs années chez des transporteurs. Il pilote chaque mission avec une équipe de spécialistes de la donnée et de l’achat de transport, à Saint-Maur-des-Fossés.',
       team: 'Rencontrer l’équipe',
       photoAlt: 'Matthieu Erly, fondateur de ColisConsult, au bureau',
+      since: 'Création du cabinet',
     },
     resources: {
       title: 'Pour les acheteurs transport',

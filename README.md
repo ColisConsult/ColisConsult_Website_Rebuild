@@ -74,15 +74,34 @@ npm run dev
 
 Le site présente trois usages, validés par l'équipe : **analyse des factures**, **pré-audit accéléré** et **analyse des offres d'appel d'offres**. Le parti pris éditorial : l'IA traite le volume, les consultants vérifient, négocient et décident. Aucune promesse chiffrée n'est attribuée à l'IA. L'exemple d'analyse (« 14,6 % des envois = 48,5 % de la dépense ») vient d'un audit client réel du support commercial 2024, présenté anonymisé.
 
-## Partis pris de la v2 (visuel et contenus)
+## Partis pris de la v3 (design moderne et animé)
 
-Objectif : qu'un dirigeant de PME se dise en moins d'une minute « ce sont des experts, ils sont sérieux ».
+La v2 posait les contenus et les preuves ; la v3 les met en scène. Objectif inchangé : qu'un dirigeant de PME se dise en moins d'une minute « ce sont des experts, ils sont sérieux », avec un site qui fasse moderne et vivant.
 
-- **Des preuves avant les promesses** : un résultat client nommé dès l'accueil (−19 %, Airis LED), des résultats chiffrés tirés de recommandations LinkedIn, trois témoignages vidéo (Melijoe, Lacoste, Wethenew), 45 logos clients classés par secteur.
-- **Des visages réels** : photos du shooting 2021, des conférences et portraits 2024 de l'équipe (dossier « 08 - IMAGES » et support commercial). Aucune image générée ou retouchée par IA n'est utilisée.
-- **Moins de texte** : une idée par section, des phrases courtes, deux appels à l'action constants (pré-audit gratuit, simulateur) et un interlocuteur joignable (Matthieu Erly, téléphone, Calendly).
-- **Pas de « look IA »** : fond blanc et aplats pétrole de la charte, logo officiel (fichiers vectoriels 2021), Poppins (police du logo) ; ni numérotation décorative, ni étiquettes au-dessus des titres, ni flèches sur chaque lien, ni animations au défilement, ni chiffres inventés.
-- **Sources des textes** : site WordPress actuel, support « MASTER FULL 2024 » (rémunération, étapes, conseils d'appel d'offres, rôles de l'équipe), sous-titres des vidéos clients (citations reprises mot pour mot).
+- **Surfaces « nuit »** (pétrole très profond `#031C1E`) pour les temps forts : hero, IA, appel à l'action final, pied de page. Halos colorés animés, quadrillage discret, grain léger, lueur qui suit la souris.
+- **Hero** : titre qui monte mot à mot, démonstration animée de l'analyse IA d'une facture (lignes lues, anomalies signalées, dépense répartie, validation par un expert), résultat client réel (−19 %, Airis LED), logos clients en défilement continu.
+- **Défilement** : apparitions en cascade, chiffres qui défilent (résultats, rémunération, palmarès), étapes « collantes » avec barre de progression, phrase qui s'allume mot à mot, parallaxe douce sur les photos, défilement adouci à la molette (Lenis).
+- **Micro-interactions** : en-tête flottant qui s'adapte au fond (clair/sombre) et se cache en descendant, barre de lecture, boutons « aimantés » avec reflet, cartes qui s'éclairent sous la souris, simulateur aux montants qui glissent vers leur nouvelle valeur, FAQ qui s'ouvre en douceur, menu mobile plein écran.
+- **Honnêteté des contenus** : la console du hero est étiquetée « Démo » ; seules les barres 14,6 % / 48,5 % viennent d'un audit réel (anonymisé, source indiquée). Aucun chiffre inventé ; photos et logos réels uniquement, aucune image générée par IA.
+- **Accessibilité et performance** : tout mouvement est coupé si l'utilisateur a demandé à réduire les animations (`prefers-reduced-motion`) ; le contenu reste visible sans JavaScript (filet de sécurité CSS) ; les lecteurs d'écran lisent les valeurs finales des compteurs. Accueil mesuré : LCP 0,45 s et CLS 0,007 sur ordinateur ; LCP 1,9 s en mobile bridé (4G lente, processeur ÷ 4).
+
+### Ajouter une animation
+
+Le moteur (`apps/web/src/components/motion/runtime.tsx`, JS natif, sans dépendance) lit des attributs posés dans les composants serveur :
+
+| Attribut | Effet |
+| --- | --- |
+| `data-reveal` (`="fade"`, `"scale"`, `"left"`, `"right"`, `"blur"`) | apparition à l'entrée dans l'écran (`--d` pour un délai) |
+| `data-stagger` | apparition en cascade des enfants directs |
+| `class="seq"` + `data-bar` / `data-vbar` / `data-pop` / `data-line` | barres qui se remplissent, puces qui apparaissent, lignes qui glissent |
+| `data-spotlight` (+ classe `spot`) | lueur qui suit la souris |
+| `data-magnetic` | bouton attiré par la souris |
+| `data-tilt` (+ classe `tilt`) | inclinaison 3D |
+| `data-parallax="0.08"` | parallaxe (prop `parallax` du composant `Photo`) |
+| `data-scrub` | mots qui s'allument au défilement (composant `ScrubText`) |
+| `data-tone="dark"` | section sombre : l'en-tête passe en version claire au-dessus |
+
+Composants : `CountUp` (chiffres), `RiseWords` (titres), `Marquee` (défilement), `Aurora` (halos), dans `components/motion/`.
 
 ## Avant la mise en ligne
 
@@ -179,4 +198,5 @@ Bascule depuis WordPress : les anciennes URL (`/equipe/`, `/notre-mission/`, `/p
 - **Confidentialité** : polices hébergées localement (pas d'appel à Google Fonts), aucun traceur tiers, factures stockées hors du dossier public et téléchargeables uniquement par l'équipe connectée.
 - **Sécurité** : limitation du débit sur les formulaires et la connexion, champ anti-spam, contrôle du type et de la taille des fichiers, session admin en cookie `httpOnly`.
 - **Logo** : tracés officiels du logo 2021 (« Logo-H1 », « Logomark »), intégrés en SVG pour la déclinaison blanche ; fichier téléchargeable dans `apps/web/public/brand/colisconsult-logo.svg`.
+- **Animations** : moteur maison en JS natif (quelques Ko, sans dépendance) piloté par attributs `data-*`, Lenis pour le défilement adouci ; les composants restent des composants serveur, le moteur démarre une fois la page hydratée (aucun écart d'hydratation).
 - **Images et vidéos** : photos redimensionnées (2000 px max) puis servies en AVIF/WebP par Next.js ; vidéos réencodées en 720p H.264 (4 à 6 Mo chacune), chargées seulement au clic, sans lecteur tiers.

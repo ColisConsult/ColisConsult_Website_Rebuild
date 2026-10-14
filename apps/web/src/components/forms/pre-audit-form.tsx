@@ -109,11 +109,18 @@ export function PreAuditForm({
           onDragLeave={() => setDragging(false)}
           onDrop={onDrop}
           className={cn(
-            'rounded-md border border-dashed bg-white px-5 py-6 text-center transition-colors',
-            dragging ? 'border-teal bg-teal-50' : 'border-line-strong',
+            'rounded-xl border-2 border-dashed bg-white px-5 py-8 text-center transition-all duration-300',
+            dragging ? 'scale-[1.01] border-teal bg-teal-50' : 'border-line-strong hover:border-teal/60',
           )}
         >
-          <Paperclip className="mx-auto size-5 text-ink-faint" />
+          <span
+            className={cn(
+              'mx-auto flex size-11 items-center justify-center rounded-full bg-mist text-teal transition-transform duration-500 ease-[var(--ease-out-expo)]',
+              dragging && '-translate-y-1 scale-110',
+            )}
+          >
+            <Paperclip className="size-5" />
+          </span>
           <p className="mt-2 text-[0.95rem]">
             {t.filesDrop}{' '}
             <button type="button" onClick={() => inputRef.current?.click()} className="link font-medium text-teal">
@@ -141,7 +148,7 @@ export function PreAuditForm({
           </p>
         )}
         {files.length > 0 && (
-          <ul className="mt-3 divide-y divide-line rounded-md border border-line bg-white">
+          <ul className="mt-3 divide-y divide-line rounded-xl border border-line bg-white">
             {files.map((f, i) => (
               <li key={`${f.name}-${i}`} className="flex items-center justify-between gap-4 px-4 py-2.5 text-sm">
                 <span className="min-w-0 truncate">{f.name}</span>

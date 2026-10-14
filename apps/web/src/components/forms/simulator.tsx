@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { Aurora } from '../motion/primitives';
 import type { Locale } from '@/i18n/config';
 import type { Dictionary } from '@/i18n/get-dictionary';
 import { cn } from '@/lib/cn';
@@ -131,7 +132,7 @@ export function SavingsSimulator({
               value={toSlider(Math.min(Math.max(budget, MIN), MAX))}
               onChange={(e) => setBudget(fromSlider(Number(e.target.value)))}
               aria-label={t.budget}
-              className="h-1 w-full cursor-pointer accent-teal"
+              className="h-1.5 w-full cursor-pointer accent-coral"
             />
           </div>
         </fieldset>
@@ -148,8 +149,8 @@ export function SavingsSimulator({
                   aria-pressed={on}
                   onClick={() => toggleFlow(f)}
                   className={cn(
-                    'rounded-md border px-3.5 py-2 text-[0.95rem] transition-colors',
-                    on ? 'border-teal bg-teal text-white' : 'border-line-strong bg-white hover:border-ink-faint',
+                    'rounded-full border px-4 py-2 text-[0.95rem] transition-all duration-300 active:scale-95',
+                    on ? 'border-teal bg-teal text-white shadow-[0_8px_20px_-10px_rgb(13_82_87/0.8)]' : 'border-line-strong bg-white hover:border-teal hover:text-teal',
                   )}
                 >
                   {t.flowOptions[f]}
@@ -176,16 +177,17 @@ export function SavingsSimulator({
 
       {/* Résultat */}
       <div className="lg:col-span-5">
-        <div className="on-dark sticky top-24 rounded-md bg-teal-900 p-6 text-white md:p-8" aria-live="polite">
+        <div className="surface-night on-dark sticky top-24 rounded-[var(--radius-card)] p-6 text-white shadow-[0_40px_100px_-40px_rgb(3_28_30/0.6)] md:p-8" aria-live="polite">
+          <Aurora variant="cta" />
           <p className="text-sm text-white/65">{t.resultTitle}</p>
           {error ? (
             <p className="mt-4 text-white/80">{t.error}</p>
           ) : estimate ? (
             <div className={cn('transition-opacity', loading && 'opacity-60')}>
-              <p className="mt-3 font-display text-[clamp(1.7rem,1.3rem+1.6vw,2.5rem)] leading-tight font-semibold tracking-tight">
-                {eur(estimate.annualSavings.low)}
+              <p className="figure mt-3 text-[clamp(1.9rem,1.4rem+1.8vw,2.8rem)] leading-tight">
+                <Tween value={estimate.annualSavings.low} format={eur} />
                 <span className="text-white/45"> – </span>
-                {eur(estimate.annualSavings.high)}
+                <Tween value={estimate.annualSavings.high} format={eur} className="text-gradient-coral" />
               </p>
               <p className="mt-2 text-white/70">
                 {t.ofBudget.replace('{low}', String(estimate.pct.low)).replace('{high}', String(estimate.pct.high))}
@@ -194,14 +196,14 @@ export function SavingsSimulator({
 
               <div className="mt-7 border-t border-white/15 pt-5">
                 <p className="text-sm text-white/65">{t.netTitle}</p>
-                <p className="mt-1 font-display text-xl font-semibold text-mint">
-                  {eur(estimate.netFirstYear.low)} – {eur(estimate.netFirstYear.high)}
+                <p className="mt-1 font-display text-xl font-semibold text-mint-300 tabular-nums">
+                  <Tween value={estimate.netFirstYear.low} format={eur} /> – <Tween value={estimate.netFirstYear.high} format={eur} />
                 </p>
                 <p className="mt-2 text-sm text-white/55">{t.netNote}</p>
               </div>
 
               {estimate.budgetFit !== 'typical' && (
-                <p className="mt-5 rounded-sm bg-white/8 p-3 text-sm text-white/80">
+                <p className="mt-5 rounded-xl bg-white/8 p-3 text-sm text-white/80">
                   {estimate.budgetFit === 'below' ? t.budgetBelow : t.budgetAbove}
                 </p>
               )}
@@ -211,7 +213,7 @@ export function SavingsSimulator({
           )}
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link href={preAuditHref} className="btn btn-primary">
+            <Link href={preAuditHref} data-magnetic="" className="btn btn-primary">
               {preAuditLabel}
               <ArrowRight />
             </Link>
@@ -225,7 +227,7 @@ export function SavingsSimulator({
         </div>
 
         {showForm && (
-          <div className="mt-6 rounded-md border border-line bg-white p-6">
+          <div className="card mt-6 p-6">
             {leadState.status === 'success' ? (
               <FormStatus state={leadState} t={forms} success={t.sendTitle} />
             ) : (
@@ -269,8 +271,8 @@ function Segmented({
           aria-pressed={value === key}
           onClick={() => onChange(key)}
           className={cn(
-            'min-w-11 rounded-md border px-3.5 py-2 text-[0.95rem] transition-colors',
-            value === key ? 'border-teal bg-teal text-white' : 'border-line-strong bg-white hover:border-ink-faint',
+            'min-w-11 rounded-full border px-4 py-2 text-[0.95rem] transition-all duration-300 active:scale-95',
+            value === key ? 'border-teal bg-teal text-white shadow-[0_8px_20px_-10px_rgb(13_82_87/0.8)]' : 'border-line-strong bg-white hover:border-teal hover:text-teal',
           )}
         >
           {label}
@@ -288,7 +290,10 @@ function RangeBar({ low, high }: { low: number; high: number }) {
     <div className="mt-6" aria-hidden="true">
       <div className="relative h-2 rounded-full bg-white/10">
         <div className="absolute inset-y-0 rounded-full bg-white/15" style={{ left: pos(3), width: pos(19) }} />
-        <div className="absolute inset-y-0 rounded-full bg-coral" style={{ left: pos(low), width: pos(high - low) }} />
+        <div
+          className="absolute inset-y-0 rounded-full bg-gradient-to-r from-coral to-[#ffb39f] shadow-[0_0_16px_rgb(255_142_114/0.6)] transition-[left,width] duration-700 ease-[var(--ease-out-expo)]"
+          style={{ left: pos(low), width: pos(high - low) }}
+        />
       </div>
       <div className="num relative mt-2 h-4 text-[0.7rem] text-white/45">
         {[0, 3, 10, 22].map((v) => (
@@ -298,5 +303,39 @@ function RangeBar({ low, high }: { low: number; high: number }) {
         ))}
       </div>
     </div>
+  );
+}
+
+/**
+ * Montant qui glisse vers sa nouvelle valeur quand l'estimation change.
+ * L'affichage animé est masqué aux lecteurs d'écran, qui lisent la valeur finale.
+ */
+function Tween({ value, format, className }: { value: number; format: (n: number) => string; className?: string }) {
+  const [shown, setShown] = useState(value);
+  const current = useRef(value);
+
+  useEffect(() => {
+    const from = current.current;
+    if (from === value) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const duration = reduced ? 0 : 650;
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = duration ? Math.min(1, (now - start) / duration) : 1;
+      const v = from + (value - from) * (1 - Math.pow(1 - t, 3));
+      current.current = v;
+      setShown(v);
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [value]);
+
+  return (
+    <span className={className}>
+      <span aria-hidden="true">{format(Math.round(shown))}</span>
+      <span className="sr-only">{format(value)}</span>
+    </span>
   );
 }

@@ -16,19 +16,34 @@ export async function FounderBlock({ t, locale }: { t: Dictionary; locale: Local
   const team = await getTeam();
 
   return (
-    <section className="bg-mist py-16 md:py-24">
-      <div className="container-site grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-5">
-          <Photo src={matthieu} alt={f.photoAlt} className="aspect-[4/3.6] lg:aspect-[4/4.6]" position="center 20%" sizes="(min-width: 1024px) 36vw, 90vw" />
+    <section className="bg-white py-20 md:py-32">
+      <div className="container-site grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
+        <div data-reveal="scale" className="relative lg:col-span-5">
+          <Photo
+            src={matthieu}
+            alt={f.photoAlt}
+            className="aspect-[4/3.6] lg:aspect-[4/4.8]"
+            position="center 20%"
+            parallax={0.06}
+            sizes="(min-width: 1024px) 36vw, 90vw"
+          />
+          <p className="absolute -right-3 -bottom-5 rounded-2xl bg-night px-5 py-4 text-white shadow-[0_24px_60px_-24px_rgb(3_28_30/0.8)] md:-right-6">
+            <span className="figure block text-[2.2rem] text-coral">2005</span>
+            <span className="text-sm text-white/70">{f.since}</span>
+          </p>
         </div>
         <div className="lg:col-span-7">
-          <h2 className="max-w-[20ch] text-headline">{f.title}</h2>
-          <p className="mt-5 max-w-xl text-lg text-ink-soft">{f.text}</p>
+          <h2 data-reveal="" className="max-w-[18ch] text-headline">
+            {f.title}
+          </h2>
+          <p data-reveal="" className="mt-6 max-w-xl text-lg text-ink-soft">
+            {f.text}
+          </p>
           {team.some((m) => m.photoUrl) && (
-            <TeamAvatars team={team.filter((m) => m.photoUrl)} locale={locale} className="mt-9" />
+            <TeamAvatars team={team.filter((m) => m.photoUrl)} locale={locale} className="mt-10" />
           )}
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a href={site.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-dark">
+          <div data-reveal="" className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a href={site.calendly} target="_blank" rel="noopener noreferrer" data-magnetic="" className="btn btn-dark">
               {t.common.bookMeeting}
               <ArrowUpRight />
             </a>
@@ -68,7 +83,7 @@ export function Avatar({ member, size = 56 }: { member: Pick<TeamMember, 'name' 
 
 function TeamAvatars({ team, locale, className }: { team: TeamMember[]; locale: Locale; className?: string }) {
   return (
-    <ul className={`grid max-w-xl grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 ${className ?? ''}`}>
+    <ul data-stagger="" className={`grid max-w-xl grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 ${className ?? ''}`}>
       {team.map((m) => (
         <li key={m.id} className="flex items-center gap-3">
           <Avatar member={m} size={48} />

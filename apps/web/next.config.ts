@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Vitrine Vercel (projet multi-services) : l'optimiseur /_next/image n'y est pas branché
+    // (404 sur toutes les images). Les images y sont donc servies telles quelles par le CDN ;
+    // Docker et le local gardent l'optimisation (AVIF/WebP, tailles adaptées).
+    unoptimized: !!process.env.VERCEL,
   },
   // Monorepo : trace les dépendances depuis la racine (node_modules partagé)
   outputFileTracingRoot: path.resolve(process.cwd(), '../..'),

@@ -1,9 +1,9 @@
 import 'server-only';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { apiEndpoint } from './api-endpoint';
 
 export const ADMIN_COOKIE = 'cc_admin';
-const API_URL = (process.env.API_URL ?? 'http://localhost:4000/api').replace(/\/$/, '');
 
 export class AdminApiError extends Error {
   constructor(
@@ -22,7 +22,7 @@ export async function getAdminToken() {
 export async function adminFetch<T>(path: string, init: RequestInit = {}): Promise<T> {
   const token = await getAdminToken();
   if (!token) redirect('/admin/login');
-  const res = await fetch(`${API_URL}${path}`, {
+  const res = await fetch(apiEndpoint(path), {
     ...init,
     headers: {
       Accept: 'application/json',
@@ -41,6 +41,7 @@ export async function adminFetch<T>(path: string, init: RequestInit = {}): Promi
   return (await res.json()) as T;
 }
 
+/** URL d'une route de l'API, pour les appels serveur hors adminFetch (connexion, téléchargements) */
 export function apiUrl(path: string) {
-  return `${API_URL}${path}`;
+  return apiEndpoint(path);
 }

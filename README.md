@@ -178,6 +178,46 @@ www.colisconsult.com {
 
 Bascule depuis WordPress : les anciennes URL (`/equipe/`, `/notre-mission/`, `/palmares/`, `/2023/06/08/mon-article/`…) sont redirigées en 301 vers les nouvelles. Lancez `npm run import:wordpress -- --download-images` **avant** de couper WordPress pour rapatrier articles et images.
 
+## Vitrine de démonstration sur Vercel (un projet, deux services)
+
+Vercel sert à **montrer le site au client** (visuel, animations, parcours) ; le développement et la future production passent par Docker. `vercel.json` (racine du dépôt) déclare un seul projet Vercel avec deux [services](https://vercel.com/docs/services), construits séparément et servis sur le même domaine :
+
+| Service | Dossier | Framework | Exposition publique |
+| --- | --- | --- | --- |
+| `api` | `apps/api` | NestJS | `/api/*` (formulaires et simulateur appelés par le navigateur) |
+| `web` | `apps/web` | Next.js | tout le reste |
+
+- **Routage** : les règles `rewrites` sont évaluées dans l'ordre, `/api/(.*)` d'abord. L'API reçoit le chemin complet (`/api/posts`), ce qui correspond à son préfixe global `api`.
+- **Liaison (binding) `web` → `api`** : le serveur Next.js (pages, back-office, server actions) appelle l'API par le réseau interne de Vercel, à l'adresse que Vercel injecte dans `API_SERVICE_URL` à l'exécution. Ne pas définir cette variable soi-même ; elle n'existe ni pendant le build ni dans `proxy.ts` (qui n'appelle pas l'API). L'API n'appelle aucun autre service.
+- **Navigateur** : les formulaires appellent `/api/...` sur le même domaine (pas de CORS) ; ne pas définir `NEXT_PUBLIC_API_URL` sur Vercel.
+- **Pas d'indexation** : sur Vercel, `robots.txt` et l'en-tête `X-Robots-Tag` demandent aux moteurs de ne pas indexer la vitrine (elle reprend le contenu du site en ligne). `ALLOW_INDEXING=1` lève ce blocage.
+
+### Mettre la vitrine en ligne
+
+1. Importer le dépôt dans Vercel (« Add New… → Project ») : `vercel.json` suffit, sans réglage de dossier racine ni de framework.
+2. Onglet **Storage** du projet : créer une base **Neon Postgres** (offre gratuite) ; Vercel ajoute `DATABASE_URL` aux variables.
+3. Onglet **Settings → Environment Variables** : ajouter `JWT_SECRET` (valeur longue et aléatoire) et `NEXT_PUBLIC_SITE_URL` (adresse de la vitrine, ex. `https://colisconsult.vercel.app`). SMTP facultatif : sans `SMTP_HOST`, les demandes sont enregistrées sans e-mail.
+4. Remplir la base depuis votre poste, avec l'adresse Neon (bouton « Copy » de `DATABASE_URL`) :
+
+```bash
+DATABASE_URL="postgres://…" npm run db:migrate
+DATABASE_URL="postgres://…" ADMIN_EMAIL=… ADMIN_PASSWORD=… npm run db:seed
+DATABASE_URL="postgres://…" npm run import:wordpress   # articles ; images servies par le WordPress actuel
+```
+
+5. Redéployer (onglet Deployments → Redeploy). Facultatif : `API_BUILD_URL` = adresse de la vitrine, pour que les pages soient pré-rendues avec le contenu réel dès le déploiement suivant.
+
+Partager l'adresse de production du projet (`….vercel.app`) : les adresses de prévisualisation sont protégées par Vercel par défaut.
+
+**Limites assumées de la vitrine** : pas de disque persistant ni de requêtes de plus de 4,5 Mo sur Vercel, donc le dépôt de factures au pré-audit et l'import d'images en local (`--download-images`) n'y fonctionnent pas. Tout le reste (pages, animations, simulateur, formulaires sans pièce jointe, back-office) fonctionne.
+
+### En local
+
+`vercel dev` lance les deux services ensemble et injecte la liaison (retirer alors `API_URL` et `NEXT_PUBLIC_API_URL` de `apps/web/.env.local`). `npm run dev` et Docker fonctionnent comme avant (`API_SERVICE_URL=http://api:4000` dans `docker-compose.yml`).
+
+- **Compilation de l'API** : en déploiement, Vercel lance `npm run build` (`nest build`) et sert `dist/main.js`. NestJS a besoin des métadonnées de décorateurs que seul ce compilateur produit (injection de dépendances, validation des formulaires) ; c'est pourquoi le service `api` déclare `devCommand: npm run start:dev`, pour que `vercel dev` utilise le même compilateur.
+- **Vérifié** : `vercel build` (les deux services) et `vercel dev` en local ; pages, formulaires, simulateur et back-office (connexion, téléchargement de facture, modification d'articles) passent par le routage et la liaison.
+
 ## Commandes utiles
 
 | Commande | Effet |

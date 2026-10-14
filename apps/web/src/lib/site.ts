@@ -23,8 +23,10 @@ export const site = {
   tarifColis: 'https://www.tarif-colis.com/',
 } as const;
 
-/** URL de l'API appelée depuis le navigateur (formulaires, simulateur) */
-export const publicApiUrl = (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000/api').replace(
-  /\/$/,
-  '',
-);
+/**
+ * URL de l'API appelée depuis le navigateur (formulaires, simulateur).
+ * Par défaut « /api » sur le même domaine : sur Vercel, la réécriture /api/(.*) de
+ * vercel.json envoie ces requêtes au service « api » (pas de CORS).
+ * En local ou avec Docker, NEXT_PUBLIC_API_URL pointe vers l'API (http://localhost:4000/api).
+ */
+export const publicApiUrl = (process.env.NEXT_PUBLIC_API_URL ?? '/api').replace(/\/$/, '');

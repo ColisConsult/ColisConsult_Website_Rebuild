@@ -42,7 +42,7 @@ export function HomeHero({ t, locale }: { t: Dictionary; locale: Locale }) {
             accentClassName="mt-3 text-[0.5em] leading-[1.15] tracking-[-0.025em] text-coral"
             className="mt-7 text-[clamp(2.4rem,1.3rem+3.6vw,4.4rem)] leading-[1.02] text-white"
           />
-          <p className="rise mt-7 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl" style={{ '--delay': '550ms' } as CSSProperties}>
+          <p className="rise mt-7 max-w-lg text-lg leading-relaxed text-white/70 md:text-xl" style={{ '--delay': '550ms' } as CSSProperties}>
             {h.lead}
           </p>
           <div className="rise mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap" style={{ '--delay': '700ms' } as CSSProperties}>
@@ -55,10 +55,10 @@ export function HomeHero({ t, locale }: { t: Dictionary; locale: Locale }) {
             </Link>
           </div>
           <ul
-            className="rise mt-8 flex flex-col gap-x-6 gap-y-2 text-[0.95rem] text-white/65 sm:flex-row sm:flex-wrap"
+            className="rise mt-7 flex flex-col gap-x-6 gap-y-2 text-[0.95rem] text-white/65 sm:flex-row sm:flex-wrap"
             style={{ '--delay': '850ms' } as CSSProperties}
           >
-            {[h.guarantee, ...h.reassurance].map((r) => (
+            {[h.guarantee.replace(/\.$/, ''), ...h.reassurance].map((r) => (
               <li key={r} className="flex items-center gap-2">
                 <Check className="size-4 shrink-0 text-mint" />
                 {r}
@@ -145,7 +145,8 @@ function AnalysisConsole({ t, locale }: { t: Dictionary; locale: Locale }) {
           ))}
         </ul>
 
-        <div className="mt-5 border-t border-white/10 pt-4">
+        {/* Sur mobile, la console se limite aux lignes de facture : moins à lire */}
+        <div className="mt-5 hidden border-t border-white/10 pt-4 sm:block">
           <p className="text-xs text-white/55">
             {c.spendTitle} · <span className="text-white/80">{ins.legendHeavy}</span>
           </p>
@@ -185,21 +186,16 @@ function AnalysisConsole({ t, locale }: { t: Dictionary; locale: Locale }) {
   );
 }
 
-/** Résultat réel d'un client, flottant contre la console. */
+/** Résultat réel d'un client, flottant contre la console : le chiffre, le client, une ligne. */
 function ProofCard({ t }: { t: Dictionary }) {
   const p = t.home.hero.proof;
   const [logo] = logosBySlug(['airis']);
   return (
-    <figure className="relative z-10 mt-5 rounded-[var(--radius-card)] bg-white p-5 text-ink shadow-[0_30px_80px_-30px_rgb(0_0_0/0.7)] sm:mr-16 lg:-mt-6 lg:-ml-8 lg:mr-20 lg:animate-float xl:-ml-12">
-      <div className="flex items-center gap-5">
-        <CountUp value={p.value} delay={600} className="figure block shrink-0 text-[2.7rem] text-mint-ink" />
-        <blockquote className="text-[0.95rem] leading-snug">{p.text}</blockquote>
-      </div>
-      <figcaption className="mt-3 flex items-center justify-between gap-4 border-t border-line pt-3 text-sm text-ink-soft">
-        <span>
-          <span className="font-medium text-ink">{p.author}</span>, {p.role}
-        </span>
-        {logo && <LogoItem logo={logo} base={18} className="shrink-0" />}
+    <figure className="relative z-10 mt-5 flex items-center gap-5 rounded-[var(--radius-card)] bg-white p-5 text-ink shadow-[0_30px_80px_-30px_rgb(0_0_0/0.7)] sm:mr-16 lg:-mt-6 lg:-ml-8 lg:mr-28 lg:animate-float xl:-ml-12">
+      <CountUp value={p.value} delay={600} className="figure block shrink-0 text-[2.7rem] text-mint-ink" />
+      <figcaption className="text-[0.95rem] leading-snug text-ink-soft">
+        {logo && <LogoItem logo={logo} base={18} className="mb-1.5 block" />}
+        {p.short}
       </figcaption>
     </figure>
   );

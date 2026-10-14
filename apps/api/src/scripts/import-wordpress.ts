@@ -46,6 +46,7 @@ interface WpPost {
   status: string;
   link: string;
   title: { rendered: string };
+  categories?: number[];
   excerpt: { rendered: string };
   content: { rendered: string };
   _embedded?: { 'wp:featuredmedia'?: { source_url?: string }[] };
@@ -145,6 +146,29 @@ async function localiseImages(markdown: string): Promise<string> {
   return out;
 }
 
+/**
+ * Article de fond ou actualité ? WordPress range tout dans les mêmes catégories : on classe
+ * en « news » la catégorie Actualités, les annonces de webinars et le recueil de
+ * recommandations. Le classement reste modifiable dans le back-office, et n'est appliqué
+ * qu'à la création (un nouvel import ne l'écrase pas).
+ */
+async function newsCategoryIds(): Promise<Set<number>> {
+  try {
+    const { data } = await fetchJson<{ id: number; slug: string }[]>(
+      `${WP_URL}/wp-json/wp/v2/categories?per_page=100&_fields=id,slug`,
+    );
+    return new Set(data.filter((c) => /actualit/.test(c.slug)).map((c) => c.id));
+  } catch {
+    return new Set();
+  }
+}
+
+function kindFor(wp: WpPost, newsIds: Set<number>, title: string): 'article' | 'news' {
+  if (wp.categories?.some((id) => newsIds.has(id))) return 'news';
+  if (/webinar/i.test(title) || wp.slug.startsWith('recueil')) return 'news';
+  return 'article';
+}
+
 async function main() {
   const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
   const db = drizzle(pool, { schema });
@@ -153,6 +177,7 @@ async function main() {
 
   try {
     console.log(`Import depuis ${WP_URL}${DOWNLOAD_IMAGES ? ' (avec images)' : ''}`);
+    const newsIds = await newsCategoryIds();
     let page = 1;
     let totalPages = 1;
     do {
@@ -190,7 +215,7 @@ async function main() {
           await db.update(schema.posts).set(values).where(eq(schema.posts.id, existing.id));
           updated++;
         } else {
-          await db.insert(schema.posts).values(values);
+          await db.insert(schema.posts).values({ ...values, kind: kindFor(wp, newsIds, values.title) });
           created++;
         }
         console.log(`  ✔ ${values.title}`);

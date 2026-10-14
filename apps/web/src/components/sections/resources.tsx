@@ -92,13 +92,46 @@ export function PostCard({ post, locale, t, featured }: { post: PostSummary; loc
   );
 }
 
+/** Derniers articles de fond (conseils, analyses) : les actualités sont présentées à part. */
 export async function LatestPosts({ locale, t, limit = 3 }: { locale: Locale; t: Dictionary; limit?: number }) {
-  const { items } = await getPosts(locale, 1, limit);
+  const { items } = await getPosts(locale, 1, limit, 'article');
   if (!items.length) return <p className="text-ink-soft">{t.blog.empty}</p>;
   return (
     <ul data-stagger="" className="border-t border-line">
       {items.map((post) => (
         <PostRow key={post.id} post={post} locale={locale} t={t} />
+      ))}
+    </ul>
+  );
+}
+
+/** Actualité ou annonce de webinar : date, étiquette, titre. */
+export function NewsItem({ post, locale, t }: { post: PostSummary; locale: Locale; t: Dictionary }) {
+  return (
+    <li className="border-b border-line">
+      <Link
+        href={href(locale, 'blog', post.slug)}
+        lang={post.locale !== locale ? post.locale : undefined}
+        className="group block py-4"
+      >
+        <span className="block text-xs font-medium text-ink-faint tabular-nums">
+          {post.publishedAt ? formatDate(post.publishedAt, locale, { month: 'short' }) : t.common.kind.news}
+        </span>
+        <span className="mt-1 block font-display leading-snug font-semibold tracking-tight transition-colors duration-300 group-hover:text-teal">
+          {post.title}
+        </span>
+      </Link>
+    </li>
+  );
+}
+
+export async function LatestNews({ locale, t, limit = 3 }: { locale: Locale; t: Dictionary; limit?: number }) {
+  const { items } = await getPosts(locale, 1, limit, 'news');
+  if (!items.length) return <p className="text-[0.95rem] text-ink-soft">{t.home.resources.noNews}</p>;
+  return (
+    <ul className="border-t border-line">
+      {items.map((post) => (
+        <NewsItem key={post.id} post={post} locale={locale} t={t} />
       ))}
     </ul>
   );
@@ -123,9 +156,21 @@ export function WebinarItem({ w, locale, t }: { w: Webinar; locale: Locale; t: D
   );
 }
 
-export async function UpcomingWebinars({ locale, t }: { locale: Locale; t: Dictionary }) {
+/**
+ * Webinars à venir. `quiet` : sans webinar programmé, rien qu'un lien discret vers les
+ * replays (dans un bloc qui affiche déjà les actualités).
+ */
+export async function UpcomingWebinars({ locale, t, quiet }: { locale: Locale; t: Dictionary; quiet?: boolean }) {
   const webinars = await getWebinars('upcoming');
   if (!webinars.length) {
+    if (quiet) {
+      return (
+        <a href={site.youtube} target="_blank" rel="noopener noreferrer" className="link mt-5 inline-block text-sm text-teal">
+          {t.home.resources.replay} (YouTube)
+          <ArrowUpRight />
+        </a>
+      );
+    }
     return (
       <p className="text-[0.95rem] text-ink-soft">
         {t.home.resources.noWebinar}{' '}
@@ -135,12 +180,19 @@ export async function UpcomingWebinars({ locale, t }: { locale: Locale; t: Dicti
       </p>
     );
   }
-  return (
-    <ul className="border-t border-line">
+  const list = (
+    <ul className={quiet ? undefined : 'border-t border-line'}>
       {webinars.slice(0, 3).map((w) => (
         <WebinarItem key={w.id} w={w} locale={locale} t={t} />
       ))}
     </ul>
+  );
+  if (!quiet) return list;
+  return (
+    <div className="mt-6 rounded-2xl bg-coral-soft/50 px-5 pt-4 [&_li:last-child]:border-b-0 [&_li]:py-4">
+      <p className="text-xs font-semibold tracking-wide text-coral-ink uppercase">{t.home.resources.webinars}</p>
+      {list}
+    </div>
   );
 }
 
@@ -178,8 +230,9 @@ export function HomeResources({ t, locale }: { t: Dictionary; locale: Locale }) 
             </span>
           </Link>
           <div className="card p-7">
-            <h3 className="mb-3 font-display text-base font-semibold">{r.webinars}</h3>
-            <UpcomingWebinars locale={locale} t={t} />
+            <h3 className="mb-3 font-display text-base font-semibold">{r.news}</h3>
+            <LatestNews locale={locale} t={t} />
+            <UpcomingWebinars locale={locale} t={t} quiet />
           </div>
         </aside>
       </div>

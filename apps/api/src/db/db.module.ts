@@ -1,4 +1,4 @@
-import { Global, Inject, Module, OnApplicationShutdown } from '@nestjs/common';
+import { Global, Inject, Logger, Module, OnApplicationShutdown } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { drizzle, type NodePgDatabase } from 'drizzle-orm/node-postgres';
 import pg from 'pg';
@@ -17,11 +17,14 @@ export const InjectDb = () => Inject(DB);
     {
       provide: PG_POOL,
       inject: [ConfigService],
-      useFactory: (config: ConfigService) =>
-        new pg.Pool({
-          connectionString: config.getOrThrow<string>('DATABASE_URL'),
-          max: 10,
-        }),
+      useFactory: (config: ConfigService) => {
+        const connectionString = config.get<string>('DATABASE_URL');
+        // Sans base, l'API démarre quand même (simulateur, /api/health qui explique le problème)
+        if (!connectionString) {
+          Logger.warn('DATABASE_URL absente : les routes qui lisent la base répondront en erreur', 'DbModule');
+        }
+        return new pg.Pool({ connectionString, max: 10 });
+      },
     },
     {
       provide: DB,

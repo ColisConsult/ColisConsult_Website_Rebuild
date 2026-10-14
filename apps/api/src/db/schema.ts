@@ -34,6 +34,7 @@ export const leadStatus = pgEnum('lead_status', [
   'archived',
 ]);
 export const postStatus = pgEnum('post_status', ['draft', 'published']);
+export const postKind = pgEnum('post_kind', ['article', 'news']);
 export const clientSegment = pgEnum('client_segment', [
   'enterprise',
   'ecommerce',
@@ -61,6 +62,8 @@ export const posts = pgTable(
     content: text('content').notNull().default(''),
     coverImageUrl: text('cover_image_url'),
     status: postStatus('status').notNull().default('draft'),
+    /** « article » (conseils, analyses) ou « news » (actualités, annonces et comptes rendus de webinars) */
+    kind: postKind('kind').notNull().default('article'),
     publishedAt: timestamp('published_at', { withTimezone: true }),
     /** Ancienne URL WordPress, pour les redirections 301 */
     legacyUrl: text('legacy_url'),

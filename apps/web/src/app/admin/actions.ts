@@ -59,6 +59,7 @@ export async function savePost(id: string | null, _: ActionState, fd: FormData):
     content: String(fd.get('content') ?? ''),
     coverImageUrl: str(fd, 'coverImageUrl'),
     status: str(fd, 'status') || 'draft',
+    kind: str(fd, 'kind') || 'article',
     publishedAt: str(fd, 'publishedAt') ? parisInputToIso(str(fd, 'publishedAt')) : null,
   };
   try {

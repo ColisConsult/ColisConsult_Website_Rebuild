@@ -13,7 +13,8 @@ export function LogoItem({
   logo: ClientLogo;
   base?: number;
   className?: string;
-  tone?: 'color' | 'white';
+  /** color : légèrement atténué (bandeaux) · full : pleine intensité (témoignages) · white : sur fond sombre */
+  tone?: 'color' | 'white' | 'full';
 }) {
   const h = logoHeight(logo.src, base);
   const w = Math.round((logo.src.width / logo.src.height) * h);
@@ -24,9 +25,14 @@ export function LogoItem({
       title={logo.name}
       width={w}
       height={h}
-      className={cn('object-contain', tone === 'white' ? 'opacity-60 brightness-0 invert' : 'opacity-80', className)}
-      // Dimensions explicites (identiques aux attributs) : pas d'écart d'arrondi avec l'image optimisée
-      style={{ width: w, height: h, maxWidth: '100%' }}
+      className={cn(
+        'object-contain',
+        tone === 'white' ? 'opacity-60 brightness-0 invert' : tone === 'color' ? 'opacity-80' : undefined,
+        className,
+      )}
+      // Taille exacte des attributs ; un logo très large dans une cellule étroite est réduit
+      // en gardant ses proportions (aspect-ratio fixe, plutôt que celui de l'image optimisée)
+      style={{ width: w, height: 'auto', aspectRatio: `${w} / ${h}`, maxWidth: '100%' }}
     />
   );
 }
@@ -68,7 +74,7 @@ export function LogoWall({ sectors }: { sectors: Record<Sector, string> }) {
         return (
           <div key={sector} className={cn('grid gap-5 py-8 md:grid-cols-[9rem_1fr] md:items-center md:gap-8', i > 0 && 'border-t border-line')}>
             <h3 className="font-display text-base font-semibold">{sectors[sector]}</h3>
-            <ul data-stagger="" className="grid grid-cols-3 items-center gap-x-6 gap-y-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7">
+            <ul data-stagger="" className="grid grid-cols-3 items-center gap-x-4 gap-y-6 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-6 xl:grid-cols-7">
               {logos.map((logo) => (
                 <li key={logo.slug} className="flex h-12 items-center">
                   <LogoItem

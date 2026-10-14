@@ -62,7 +62,9 @@ npm run dev
 | Couleurs, typographies | `apps/web/src/app/globals.css` (bloc `@theme`) |
 | Les fourchettes du simulateur | `apps/api/src/simulator/simulator.config.ts` |
 | Articles, témoignages, webinars | Back-office `/admin` |
+| Ranger une publication en « Article » (blog) ou en « Actualité ou webinar » (annonces, palmarès, vie du cabinet) | Back-office `/admin` → Articles → champ **Type**. Les deux sont présentés séparément sur l'accueil et sur `/blog`. |
 | Équipe et liste des clients | Table `team_members` / `clients` (contenu initial : `apps/api/src/db/seed-data.ts`). `npm run db:studio` ouvre un éditeur de base de données. |
+| Contenu affiché quand l'API ne répond pas | `apps/web/src/content/fallback.json`, généré depuis `seed-data.ts` : après toute modification de ce fichier, lancer `npm run content:fallback -w api`. |
 | Portraits de l'équipe | `apps/web/public/team/` (format 3:4, 900 × 1200 px) puis `photo_url` en base (ex. `/team/matthieu-erly.jpg`) |
 | Photos des pages (conférence, bureau…) | `apps/web/src/assets/photos/` — importées dans les composants, optimisées automatiquement (AVIF/WebP, tailles adaptées) |
 | Logos clients | `apps/web/src/assets/logos/` + la liste `apps/web/src/lib/client-logos.ts` (secteur, sélection de l'accueil) |
@@ -143,6 +145,7 @@ docker compose exec api node dist/scripts/import-wordpress.js --download-images 
 - Si l'ancien site s'affiche encore : `docker compose build --no-cache api web` puis `docker compose up -d`, et rechargez la page sans cache (Ctrl+F5).
 - Les images des articles sont copiées dans le volume Docker `media` et servies par le site sous `/media/blog/…`. L'import est relançable sans doublon.
 - Le site rafraîchit son contenu chaque minute ; pour voir tout de suite un import : `docker compose restart web`.
+- Les migrations de la base (par exemple le « Type » article / actualité ajouté en v5) s'appliquent toutes seules au démarrage du conteneur `api` : `docker compose up -d --build` suffit.
 
 ## Mise en production
 
@@ -198,6 +201,8 @@ Vercel sert à **montrer le site au client** (visuel, animations, parcours) ; le
 2. Onglet **Storage** du projet : « Create Database » → **Neon** (offre gratuite) → la relier au projet. Vercel ajoute `DATABASE_URL` tout seul.
 3. Onglet **Settings → Environment Variables** : ajouter `JWT_SECRET` (une longue suite de caractères au hasard) ; pour se connecter au back-office, `ADMIN_EMAIL` et `ADMIN_PASSWORD`. SMTP facultatif : sans `SMTP_HOST`, les demandes sont enregistrées sans e-mail.
 4. Onglet **Deployments** : « Redeploy ». Pendant le déploiement, la base se prépare toute seule (`apps/api/src/scripts/vercel-prepare.ts`) : tables, import des articles WordPress (images servies par le WordPress actuel), équipe, clients, témoignages, compte admin. Rien à lancer depuis son poste.
+
+**Sans base de données** (étapes 2 et 3 sautées), la vitrine reste complète visuellement : témoignages, équipe, clients et articles de démonstration s'affichent à partir du contenu initial embarqué dans le site. La base et `JWT_SECRET` ne servent qu'aux formulaires et au back-office. En cas de doute, `https://<vitrine>/api/health` indique ce qui manque (`database`, `jwtSecret`).
 
 Juste après un déploiement, les sections alimentées par la base (résultats, équipe, blog) peuvent mettre une minute à apparaître : recharger la page. Facultatif : `API_BUILD_URL` = adresse de la vitrine, pour qu'elles soient présentes dès le déploiement suivant.
 

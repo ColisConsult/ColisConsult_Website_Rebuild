@@ -27,7 +27,7 @@ async function Posts({ searchParams }: { searchParams: PageProps<'/admin/article
     <>
       <Saved show={sp.saved === '1'} label="Article enregistré. Le site est mis à jour." />
       {posts.length ? (
-        <Table head={['Titre', 'Langue', 'Statut', 'Publication', 'Modifié']}>
+        <Table head={['Titre', 'Type', 'Langue', 'Statut', 'Publication', 'Modifié']}>
           {posts.map((p) => (
             <tr key={p.id} className="hover:bg-paper/70">
               <td className="max-w-md px-4 py-3">
@@ -36,6 +36,7 @@ async function Posts({ searchParams }: { searchParams: PageProps<'/admin/article
                 </Link>
                 <span className="block truncate text-xs text-ink-faint">/blog/{p.slug}</span>
               </td>
+              <td className="px-4 py-3 whitespace-nowrap">{p.kind === 'news' ? 'Actualité' : 'Article'}</td>
               <td className="px-4 py-3 uppercase">{p.locale}</td>
               <td className="px-4 py-3">
                 <span className={p.status === 'published' ? 'text-mint-ink' : 'text-ink-faint'}>

@@ -531,9 +531,11 @@ export const testimonialsSeed: {
  * Articles du blog WordPress (1re page). Le contenu complet s'importe avec
  * `npm run import:wordpress`, qui met à jour ces entrées par slug.
  */
+/** kind : « article » (conseils, analyses) ou « news » (actualités, webinars) */
 export const postsSeed = [
   {
     slug: 'recueils-des-recommandations-linkedin-deposees-par-les-clients-colisconsult',
+    kind: 'news' as const,
     title: 'Recueil des recommandations LinkedIn déposées par les clients ColisConsult',
     excerpt:
       'Les recommandations laissées par nos clients, également visibles sur le profil LinkedIn de Matthieu Erly.',
@@ -543,6 +545,7 @@ export const postsSeed = [
   },
   {
     slug: 'webinar-un-ao-pour-contrer-les-hausses-2026-des-transporteurs-bonne-ou-mauvaise-idee',
+    kind: 'news' as const,
     title:
       '[Webinar] Un AO pour contrer les hausses 2026 des transporteurs : bonne ou mauvaise idée ?',
     excerpt:
@@ -553,6 +556,7 @@ export const postsSeed = [
   },
   {
     slug: 'les-enjeux-de-la-gestion-des-expeditions-pour-les-e-commercants',
+    kind: 'article' as const,
     title: 'Les enjeux de la gestion des expéditions pour les e-commerçants',
     excerpt:
       'La gestion des expéditions, pilier de la stratégie commerciale des e-commerçants. Une tribune de CibleWeb.',
@@ -561,6 +565,7 @@ export const postsSeed = [
   },
   {
     slug: 'guide-2023-reussir-lenvoi-de-colis-en-toute-simplicite',
+    kind: 'article' as const,
     title: 'Guide : réussir l’envoi de colis en toute simplicité',
     excerpt:
       'Emballage, choix du service, assurance : les bases pour expédier des colis sans mauvaise surprise, à titre personnel comme professionnel.',
@@ -569,6 +574,7 @@ export const postsSeed = [
   },
   {
     slug: 'pourquoi-vous-devriez-lancer-un-ao-transport-cet-ete',
+    kind: 'article' as const,
     title: 'Pourquoi lancer un appel d’offres transport cet été ?',
     excerpt:
       'Anticiper les hausses tarifaires annuelles des transporteurs en lançant son appel d’offres dès l’été.',
@@ -577,6 +583,7 @@ export const postsSeed = [
   },
   {
     slug: '4-leviers-efficaces-pour-reduire-votre-budget-de-transport-express',
+    kind: 'article' as const,
     title: '4 leviers efficaces pour réduire votre budget de transport express',
     excerpt:
       'Quatre leviers concrets pour faire baisser nettement votre budget de transport express.',
@@ -585,6 +592,7 @@ export const postsSeed = [
   },
   {
     slug: '13-erreurs-a-eviter-pour-vos-envois-de-colis',
+    kind: 'article' as const,
     title: '13 erreurs à éviter pour vos envois de colis',
     excerpt:
       'Les erreurs les plus fréquentes dans l’expédition de colis, et comment les corriger.',
@@ -593,6 +601,7 @@ export const postsSeed = [
   },
   {
     slug: 'le-poids-volumetrique-dans-le-transport-comment-optimiser-votre-budget-et-reduire-limpact-economique',
+    kind: 'article' as const,
     title: 'Le poids volumétrique : comment optimiser votre budget transport',
     excerpt:
       'Le poids volumétrique pèse de plus en plus dans la tarification. Comment le mesurer, et comment limiter son impact.',

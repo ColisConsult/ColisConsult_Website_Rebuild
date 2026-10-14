@@ -17,12 +17,14 @@ export class PublicContentController {
     @Query('locales') locales = 'fr',
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('pageSize', new DefaultValuePipe(12), ParseIntPipe) pageSize: number,
+    @Query('kind') kind?: string,
   ) {
     const list = locales.split(',').filter((l) => LOCALES.includes(l));
     return this.postsService.listPublished(
       list.length ? list : ['fr'],
       Math.max(1, page),
       Math.min(50, Math.max(1, pageSize)),
+      kind === 'article' || kind === 'news' ? kind : undefined,
     );
   }
 

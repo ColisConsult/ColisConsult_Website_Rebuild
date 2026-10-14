@@ -36,6 +36,8 @@ export class CreatePostDto {
   @IsOptional() @IsString() @MaxLength(200_000) content?: string;
   @IsOptional() @Transform(emptyToNull) @IsString() @MaxLength(500) coverImageUrl?: string | null;
   @IsOptional() @IsIn(['draft', 'published']) status?: 'draft' | 'published';
+  /** article : conseils, analyses · news : actualités, annonces de webinars */
+  @IsOptional() @IsIn(['article', 'news']) kind?: 'article' | 'news';
   @IsOptional() @Transform(emptyToNull) @Type(() => Date) @IsDate() publishedAt?: Date | null;
 }
 export class UpdatePostDto extends PartialType(CreatePostDto) {}

@@ -30,6 +30,7 @@ const fr = {
   },
 
   common: {
+    kind: { article: 'Article', news: 'Actualité' },
     learnMore: 'En savoir plus',
     readMore: 'Lire',
     minRead: 'min de lecture',
@@ -54,12 +55,12 @@ const fr = {
   home: {
     hero: {
       title: 'Payez moins cher vos colis et vos palettes. Souvent sans changer de transporteur.',
-      lead: 'Nous menons votre appel d’offres transport de A à Z, auprès de tout le marché, vos transporteurs actuels compris. Et nous sommes payés sur les économies obtenues.',
+      lead: 'Nous menons votre appel d’offres transport de A à Z, vos transporteurs actuels compris.',
       ctaPrimary: 'Demander mon pré-audit gratuit',
       ctaSecondary: 'Estimer mes économies',
       guarantee: 'Pas d’économies, pas d’honoraires.',
-      badge: 'Cabinet indépendant d’achat de transport, depuis 2005',
-      reassurance: ['Gratuit et sans engagement', 'Accord de confidentialité signé avant tout échange'],
+      badge: 'Cabinet indépendant, depuis 2005',
+      reassurance: ['Gratuit, sous accord de confidentialité'],
       photoAlt: 'Matthieu Erly, fondateur de ColisConsult, en conférence devant des professionnels de la logistique',
       photoCaption: 'Matthieu Erly, fondateur du cabinet, en conférence',
       proof: {
@@ -67,6 +68,7 @@ const fr = {
         text: 'sur nos contrats colis et palettes, sans changer de transporteur',
         author: 'Michael Benyamin',
         role: 'Responsable commercial, Airis LED',
+        short: 'sur les contrats colis et palettes d’Airis LED, sans changer de transporteur',
       },
       console: {
         title: 'Analyse de vos factures',
@@ -75,9 +77,7 @@ const fr = {
         lines: [
           { label: 'Colis 2 kg · France', note: null },
           { label: 'Supplément « zone éloignée »', note: 'Supplément injustifié' },
-          { label: 'Palette 180 kg · Marseille', note: 'Erreur de zone' },
           { label: 'Colis de 6 kg facturé 15 kg', note: 'Erreur de poids' },
-          { label: 'Colis 12 kg · Express Europe', note: null },
         ],
         ok: 'Conforme',
         spendTitle: 'Où se concentre la dépense',
@@ -166,7 +166,7 @@ const fr = {
       linkedin: 'Lire les recommandations de nos clients sur LinkedIn',
     },
     founder: {
-      title: 'Vous travaillez avec ceux qui font le travail.',
+      title: 'Votre appel d’offres, piloté par Matthieu Erly et son équipe.',
       text: 'Matthieu Erly a fondé ColisConsult en 2005, après plusieurs années chez des transporteurs. Il pilote chaque mission avec une équipe de spécialistes de la donnée et de l’achat de transport, à Saint-Maur-des-Fossés.',
       team: 'Rencontrer l’équipe',
       photoAlt: 'Matthieu Erly, fondateur de ColisConsult, au bureau',
@@ -175,6 +175,8 @@ const fr = {
     resources: {
       title: 'Pour les acheteurs transport',
       blog: 'Derniers articles',
+      news: 'Actualités et webinars',
+      noNews: 'Aucune actualité pour le moment.',
       rankingsTitle: 'Palmarès de la livraison e-commerce',
       rankingsText: '518 sites e-commerce passés au crible, sur 29 critères.',
       rankingsCta: 'Découvrir le palmarès',
@@ -456,6 +458,11 @@ const fr = {
     title: 'Le blog de l’acheteur transport',
     lead: 'Conseils, analyses et retours d’expérience pour mieux acheter le transport de colis et de palettes.',
     empty: 'Aucun article publié pour le moment.',
+    jumpLabel: 'Rubriques du blog',
+    articlesTitle: 'Articles',
+    newsTitle: 'Actualités et webinars',
+    newsLead: 'Annonces de webinars, palmarès et vie du cabinet.',
+    newsEmpty: 'Aucune actualité pour le moment.',
     webinarsTitle: 'Webinars',
     replays: 'Replays',
   },

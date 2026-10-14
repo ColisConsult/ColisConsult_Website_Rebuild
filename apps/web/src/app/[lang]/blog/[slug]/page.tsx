@@ -74,7 +74,14 @@ function Article({ post, locale }: { post: Post; locale: Locale }) {
               <ArrowRight className="size-4 rotate-180 transition-transform duration-300 group-hover:-translate-x-1" />
               {t.common.backToBlog}
             </Link>
-            <RiseWords text={post.title} className="mt-8 text-[clamp(2.1rem,1.4rem+2.8vw,3.6rem)] leading-[1.06] text-white" />
+            <p className="rise mt-8" style={{ '--delay': '100ms' } as CSSProperties}>
+              <span
+                className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${post.kind === 'news' ? 'bg-coral text-night' : 'bg-white/10 text-white/85'}`}
+              >
+                {t.common.kind[post.kind ?? 'article']}
+              </span>
+            </p>
+            <RiseWords text={post.title} className="mt-5 text-[clamp(2.1rem,1.4rem+2.8vw,3.6rem)] leading-[1.06] text-white" />
             <p className="rise mt-7 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white/55" style={{ '--delay': '400ms' } as CSSProperties}>
               {post.publishedAt && (
                 <span>

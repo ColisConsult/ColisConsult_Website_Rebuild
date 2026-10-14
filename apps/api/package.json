@@ -24,6 +24,7 @@
     "db:seed": "tsx src/db/seed.ts",
     "db:studio": "drizzle-kit studio",
     "import:wordpress": "tsx src/scripts/import-wordpress.ts",
+    "content:fallback": "tsx src/scripts/export-web-fallback.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {

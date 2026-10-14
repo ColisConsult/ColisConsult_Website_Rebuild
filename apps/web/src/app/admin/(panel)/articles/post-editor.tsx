@@ -89,6 +89,14 @@ export function PostEditor({ post }: { post: Post | null }) {
             </select>
           </div>
           <div>
+            <label htmlFor="kind" className="label">Type</label>
+            <select id="kind" name="kind" defaultValue={post?.kind ?? 'article'} className="field field-select">
+              <option value="article">Article (conseils, analyses)</option>
+              <option value="news">Actualité ou webinar</option>
+            </select>
+            <p className="mt-1 text-xs text-ink-faint">Les actualités et annonces de webinars sont présentées à part des articles.</p>
+          </div>
+          <div>
             <label htmlFor="publishedAt" className="label">Date de publication</label>
             <input id="publishedAt" name="publishedAt" type="datetime-local" defaultValue={isoToParisInput(post?.publishedAt)} className="field" />
             <p className="mt-1 text-xs text-ink-faint">Vide : date du jour à la publication.</p>

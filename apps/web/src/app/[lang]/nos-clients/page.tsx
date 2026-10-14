@@ -1,7 +1,7 @@
 import { OtherClients } from '@/components/sections/client-names';
 import { CtaBand } from '@/components/sections/cta-band';
 import { LogoWall } from '@/components/sections/logo-band';
-import { ResultCards } from '@/components/sections/results';
+import { ResultCards, topResults } from '@/components/sections/results';
 import { TestimonialsGrid } from '@/components/sections/testimonials';
 import { VideoTestimonials } from '@/components/sections/video-testimonials';
 import { ArrowUpRight } from '@/components/ui/icons';
@@ -21,6 +21,8 @@ export default async function ClientsPage() {
   const c = t.clients;
   const testimonials = await getTestimonials();
   const featured = testimonials.filter((x) => x.featured);
+  // Les trois témoignages chiffrés sont en tête de page : on ne les répète pas dans la grille
+  const shown = new Set(topResults(featured, locale).map((x) => x.id));
 
   return (
     <>
@@ -40,7 +42,7 @@ export default async function ClientsPage() {
       </Section>
 
       <Section title={c.testimonialsTitle} lead={c.testimonialsLead}>
-        <TestimonialsGrid items={testimonials} locale={locale} t={t} />
+        <TestimonialsGrid items={testimonials.filter((x) => !shown.has(x.id))} locale={locale} t={t} />
         <a
           href={`${site.founderLinkedin}details/recommendations/`}
           target="_blank"

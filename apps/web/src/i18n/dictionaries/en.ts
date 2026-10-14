@@ -25,6 +25,7 @@ const en: Dictionary = {
   },
 
   common: {
+    kind: { article: 'Article', news: 'News' },
     learnMore: 'Learn more',
     readMore: 'Read',
     minRead: 'min read',
@@ -49,12 +50,12 @@ const en: Dictionary = {
   home: {
     hero: {
       title: 'Pay less to ship your parcels and pallets. Often without changing carrier.',
-      lead: 'We run your transport tender end to end, across the whole market, your current carriers included. And we are paid on the savings we deliver.',
+      lead: 'We run your transport tender end to end, your current carriers included.',
       ctaPrimary: 'Get my free pre-audit',
       ctaSecondary: 'Estimate my savings',
       guarantee: 'No savings, no fees.',
-      badge: 'Independent transport procurement consultancy since 2005',
-      reassurance: ['Free, no commitment', 'Non-disclosure agreement signed before any data is shared'],
+      badge: 'Independent consultancy since 2005',
+      reassurance: ['Free, under a non-disclosure agreement'],
       photoAlt: 'Matthieu Erly, founder of ColisConsult, speaking at a logistics conference',
       photoCaption: 'Matthieu Erly, founder, speaking at a conference',
       proof: {
@@ -62,6 +63,7 @@ const en: Dictionary = {
         text: 'on our parcel and pallet contracts, without changing carrier',
         author: 'Michael Benyamin',
         role: 'Sales Manager, Airis LED (translated from French)',
+        short: 'on Airis LED’s parcel and pallet contracts, without changing carrier',
       },
       console: {
         title: 'Your invoices, analysed',
@@ -70,9 +72,7 @@ const en: Dictionary = {
         lines: [
           { label: 'Parcel 2 kg · France', note: null },
           { label: '“Remote area” surcharge', note: 'Unjustified surcharge' },
-          { label: 'Pallet 180 kg · Marseille', note: 'Wrong zone' },
           { label: '6 kg parcel billed as 15 kg', note: 'Wrong weight' },
-          { label: 'Parcel 12 kg · Express Europe', note: null },
         ],
         ok: 'Compliant',
         spendTitle: 'Where the spend is concentrated',
@@ -161,7 +161,7 @@ const en: Dictionary = {
       linkedin: 'Read our clients’ recommendations on LinkedIn',
     },
     founder: {
-      title: 'You work with the people who do the work.',
+      title: 'Your tender, run by Matthieu Erly and his team.',
       text: 'Matthieu Erly founded ColisConsult in 2005 after several years working for carriers. He leads every engagement with a team of data and transport purchasing specialists, based near Paris.',
       team: 'Meet the team',
       photoAlt: 'Matthieu Erly, founder of ColisConsult, at the office',
@@ -170,6 +170,8 @@ const en: Dictionary = {
     resources: {
       title: 'For transport buyers',
       blog: 'Latest articles',
+      news: 'News and webinars',
+      noNews: 'No news for now.',
       rankingsTitle: 'E-commerce delivery rankings',
       rankingsText: '518 e-commerce websites reviewed against 29 criteria.',
       rankingsCta: 'See the rankings',
@@ -436,6 +438,11 @@ const en: Dictionary = {
     title: 'The transport buyer’s blog',
     lead: 'Advice, analysis and case studies to buy parcel and pallet transport better. Most articles are in French.',
     empty: 'No articles published yet.',
+    jumpLabel: 'Blog sections',
+    articlesTitle: 'Articles',
+    newsTitle: 'News and webinars',
+    newsLead: 'Webinar announcements, rankings and firm news.',
+    newsEmpty: 'No news for now.',
     webinarsTitle: 'Webinars',
     replays: 'Replays',
   },

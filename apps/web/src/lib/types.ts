@@ -8,10 +8,13 @@ export interface PostSummary {
   excerpt: string;
   coverImageUrl: string | null;
   status: 'draft' | 'published';
+  /** article : conseils, analyses · news : actualités, annonces de webinars */
+  kind: PostKind;
   publishedAt: string | null;
   updatedAt: string;
   readingMinutes: number;
 }
+export type PostKind = 'article' | 'news';
 export interface Post extends PostSummary {
   content: string;
 }

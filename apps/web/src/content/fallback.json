@@ -1,0 +1,1022 @@
+{
+  "testimonials": [
+    {
+      "id": "seed-testimonial-1",
+      "company": "Plastic Omnium",
+      "author": "Nicole Hemard",
+      "role": "Service Purchaser",
+      "quoteFr": "Matthieu a réalisé une étude précise de notre activité « transport express ».",
+      "quoteEn": "Matthieu carried out a precise study of our express transport activity.",
+      "quoteLang": "fr",
+      "missionFr": "Étude et appel d’offres transport express",
+      "missionEn": "Express transport study and tender",
+      "resultFr": "−25 % sur le transport express",
+      "resultEn": "−25% on express transport",
+      "segment": "enterprise",
+      "featured": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "seed-testimonial-2",
+      "company": "What Matters",
+      "author": "Charlotte Catton Puechbroussou",
+      "role": "Cofondatrice",
+      "quoteFr": "Je ne peux que recommander ColisConsult et l’équipe de Matthieu qui nous ont aidé à réduire de plus de 20 % nos coûts de transport, sans changer de partenaire ! Efficaces et compétents.",
+      "quoteEn": "I can only recommend ColisConsult and Matthieu’s team, who helped us cut our transport costs by more than 20% without changing partner! Efficient and skilled.",
+      "quoteLang": "fr",
+      "missionFr": "Optimisation des coûts de transport",
+      "missionEn": "Transport cost optimisation",
+      "resultFr": "−20 % et plus, sans changer de partenaire",
+      "resultEn": "−20% and more, without changing partner",
+      "segment": "sme",
+      "featured": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "seed-testimonial-3",
+      "company": "Cétofine",
+      "author": "Benjamin Dumas",
+      "role": "Responsable e-commerce",
+      "quoteFr": "L’économie réalisée a été de 16 % tout en gardant le même transporteur. En bref : je recommande…",
+      "quoteEn": "We saved 16% while keeping the same carrier. In short: I recommend them…",
+      "quoteLang": "fr",
+      "missionFr": "Optimisation des contrats de transport",
+      "missionEn": "Transport contract optimisation",
+      "resultFr": "−16 % avec le même transporteur",
+      "resultEn": "−16% with the same carrier",
+      "segment": "sme",
+      "featured": true,
+      "sortOrder": 3
+    },
+    {
+      "id": "seed-testimonial-4",
+      "company": "Airis LED",
+      "author": "Michael Benyamin",
+      "role": "Responsable commercial",
+      "quoteFr": "Nous avons réalisé 19 % d’économies sur nos contrats de transport de colis et de palettes sans changer de transporteur.",
+      "quoteEn": "We saved 19% on our parcel and pallet transport contracts without changing carrier.",
+      "quoteLang": "fr",
+      "missionFr": "Optimisation des contrats colis et palettes",
+      "missionEn": "Parcel and pallet contract optimisation",
+      "resultFr": "−19 % sans changer de transporteur",
+      "resultEn": "−19% without changing carrier",
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 4
+    },
+    {
+      "id": "seed-testimonial-5",
+      "company": "ADP",
+      "author": "François Renard",
+      "role": "Procurement Director",
+      "quoteFr": "Les résultats ont dépassé nos attentes : nous avons réalisé d’importantes économies, y compris dans les pays où nous avons décidé de garder le même transporteur.",
+      "quoteEn": "The results were beyond our expectations: we achieved large amount of savings, even in the countries where we decided to keep the same carrier.",
+      "quoteLang": "en",
+      "missionFr": "Appel d’offres transport multi-pays",
+      "missionEn": "Multi-country transport tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 5
+    },
+    {
+      "id": "seed-testimonial-6",
+      "company": "Firmenich",
+      "author": "François Jacquier",
+      "role": "Global Purchasing Director",
+      "quoteFr": "Au-delà d’une bien meilleure compréhension de nos flux et de la gestion de nos données, l’équipe ColisConsult a apporté une approche très pragmatique, guidée par une compréhension fine de la valeur et bien adaptée à notre activité. Les résultats ont dépassé nos attentes.",
+      "quoteEn": "Beyond understanding much better our flows and data management, the Colisconsult team brought a very pragmatic approach, driven by deep value understanding and well adapted to our business. This has driven results beyond our expectations.",
+      "quoteLang": "en",
+      "missionFr": "Appel d’offres transport express",
+      "missionEn": "Express transport tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 6
+    },
+    {
+      "id": "seed-testimonial-7",
+      "company": "Nina Ricci",
+      "author": "Hakima Desch-Benhemadi",
+      "role": "Logistics & Customer Service Manager",
+      "quoteFr": "Grâce à leur expertise, leur connaissance de notre industrie et leur belle capacité de négociation, ColisConsult nous ont fait bénéficier de solutions de transport plus adaptées avec une meilleure qualité de service et d’une baisse significative de nos coûts de transport Express.",
+      "quoteEn": "Thanks to their expertise, their knowledge of our industry and their strong negotiating skills, ColisConsult gave us better-suited transport solutions, with better service quality and a significant reduction in our express transport costs.",
+      "quoteLang": "fr",
+      "missionFr": "Maîtrise des coûts de transport express",
+      "missionEn": "Express transport cost control",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 7
+    },
+    {
+      "id": "seed-testimonial-8",
+      "company": "Vestiaire Collective",
+      "author": "Christian Jorge",
+      "role": "VP Operations",
+      "quoteFr": "ColisConsult nous a permis d’améliorer significativement nos tarifs et notre volet pilotage.",
+      "quoteEn": "ColisConsult helped us significantly improve our rates and our performance monitoring.",
+      "quoteLang": "fr",
+      "missionFr": "Reprise générale du plan de transport",
+      "missionEn": "Full overhaul of the transport plan",
+      "resultFr": "Plusieurs milliers de colis par jour vers 45 pays",
+      "resultEn": "Thousands of parcels a day to 45 countries",
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 8
+    },
+    {
+      "id": "seed-testimonial-9",
+      "company": "Somfy",
+      "author": "Virginie Tueta",
+      "role": "Group Indirect Purchasing Manager",
+      "quoteFr": "Matthieu et son équipe ont géré avec succès notre appel d’offres colis EMEA fin 2020. […] Je recommande vivement ses services pour tout projet d’appel d’offres de colis.",
+      "quoteEn": "Matthieu and his team successfully ran our EMEA parcel tender at the end of 2020. […] I highly recommend his services for any parcel tender project.",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres colis EMEA",
+      "missionEn": "EMEA parcel tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 9
+    },
+    {
+      "id": "seed-testimonial-10",
+      "company": "Pharmacie des Drakkars",
+      "author": "Titouan Hébert",
+      "role": "Assistant de direction",
+      "quoteFr": "Matthieu nous a accompagnés avec rigueur, disponibilité et une grande expertise. Son approche à la fois constructive et pragmatique a permis de réduire nos coûts de transport tout en facilitant nos relations avec nos transporteurs. […] Objectif atteint.",
+      "quoteEn": "Matthieu supported us with rigour, availability and great expertise. His constructive and pragmatic approach cut our transport costs while making our relationships with our carriers easier. […] Objective achieved.",
+      "quoteLang": "fr",
+      "missionFr": "Optimisation des coûts de transport",
+      "missionEn": "Transport cost optimisation",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "sme",
+      "featured": false,
+      "sortOrder": 10
+    },
+    {
+      "id": "seed-testimonial-11",
+      "company": "Clément Design",
+      "author": "Alexandra Mannina Fantino",
+      "role": "Export Sales Manager",
+      "quoteFr": "ColisConsult a su nous accompagner, récupérer la data, challenger les acteurs transports et nous faire réaliser des économies concrètes et très intéressantes. Un prestataire clef en main, une équipe réactive, vraiment un temps précieux gagné.",
+      "quoteEn": "ColisConsult supported us, gathered the data, challenged the carriers and delivered concrete, very worthwhile savings. A turnkey provider and a responsive team: we saved a great deal of time.",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres transport",
+      "missionEn": "Transport tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "sme",
+      "featured": false,
+      "sortOrder": 11
+    },
+    {
+      "id": "seed-testimonial-12",
+      "company": "Regus",
+      "author": "Claire Faure",
+      "role": "Procurement Director",
+      "quoteFr": "J’ai collaboré à plusieurs reprises avec Matthieu sur des appels d’offres EMEA. Il est très expérimenté et expert dans ce domaine. Je recommande vivement ce cabinet.",
+      "quoteEn": "I have collaborated several times with Matthieu for EMEA RFQs. He is really experienced and expert in this area. I highly recommend this company.",
+      "quoteLang": "en",
+      "missionFr": "Appels d’offres transport EMEA",
+      "missionEn": "EMEA transport tenders",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 12
+    },
+    {
+      "id": "seed-testimonial-13",
+      "company": "Columbia",
+      "author": "Coralie Cappe",
+      "role": "Sourcing Manager Europe",
+      "quoteFr": "Une bonne expérience avec l’équipe ColisConsult pour notre activité colis en Europe. Flexibilité, réactivité et précision ont permis des résultats tangibles.",
+      "quoteEn": "Good experience working with Colisconsult team for our Parcel business in Europe. Flexibility, reactivity, accuracy contributed to tangible output.",
+      "quoteLang": "en",
+      "missionFr": "Transport colis en Europe",
+      "missionEn": "Parcel transport in Europe",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 13
+    },
+    {
+      "id": "seed-testimonial-14",
+      "company": "Firmenich",
+      "author": "Rémi Forgeot",
+      "role": "Directeur financier",
+      "quoteFr": "Les résultats ont été supérieurs à nos attentes. Matthieu a été présent à chaque étape du processus, avec des conseils, des explications, et en faisant vraiment tout pour obtenir des résultats.",
+      "quoteEn": "The results were higher than expected. Matthieu was always there, at any step of the process, giving advices, explanations and really doing his best to obtain results.",
+      "quoteLang": "en",
+      "missionFr": "Express international",
+      "missionEn": "International express delivery",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 14
+    },
+    {
+      "id": "seed-testimonial-15",
+      "company": "Life Technologies (Thermo Fisher)",
+      "author": "Bruno Baudoin",
+      "role": "Program Manager",
+      "quoteFr": "Nous avons gardé les mêmes fournisseurs, mais nous bénéficions dorénavant de tarifs plus avantageux.",
+      "quoteEn": "We kept the same suppliers, but we now benefit from better rates.",
+      "quoteLang": "fr",
+      "missionFr": "Renégociation des contrats DHL et TNT",
+      "missionEn": "DHL and TNT contract renegotiation",
+      "resultFr": "Meilleurs tarifs, mêmes transporteurs",
+      "resultEn": "Better rates, same carriers",
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 15
+    },
+    {
+      "id": "seed-testimonial-16",
+      "company": "Patagonia",
+      "author": "Sylvain Morvan",
+      "role": "IT & Logistics Director",
+      "quoteFr": "Son expérience et son réseau de connaissances lui permettent d’être d’une efficacité redoutable.",
+      "quoteEn": "His experience and network make him remarkably effective.",
+      "quoteLang": "fr",
+      "missionFr": "Optimisation des flux de transport en Europe",
+      "missionEn": "European transport flow optimisation",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 16
+    },
+    {
+      "id": "seed-testimonial-17",
+      "company": "RAJA",
+      "author": "Mathieu Dubalais",
+      "role": "Directeur Transport France",
+      "quoteFr": "ColisConsult nous ont permis de gagner en efficacité dans les négociations.",
+      "quoteEn": "ColisConsult made our negotiations more effective.",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres transport pour les entités du groupe",
+      "missionEn": "Transport tender for the group’s entities",
+      "resultFr": "1,2 million de colis par an",
+      "resultEn": "1.2 million parcels a year",
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 17
+    },
+    {
+      "id": "seed-testimonial-18",
+      "company": "Danone",
+      "author": "Bruno Peloin",
+      "role": "Directeur Supply Chain, Danone Advanced Medical Nutrition (Nutricia)",
+      "quoteFr": "Matthieu a conduit avec brio, pour le compte de Danone, un appel d’offres en 2018.",
+      "quoteEn": "Matthieu brilliantly ran a tender for Danone in 2018.",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres transport",
+      "missionEn": "Transport tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 18
+    },
+    {
+      "id": "seed-testimonial-19",
+      "company": "Nutricia",
+      "author": "Rebecca de Klerck",
+      "role": "Facility Manager, Nutricia Research & Nutricia Nederland",
+      "quoteFr": "Ce fut un réel plaisir de travailler avec Matthieu !",
+      "quoteEn": "It was a real pleasure to work with Matthieu!",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres messagerie et colis, entités Benelux",
+      "missionEn": "Groupage and parcel tender, Benelux entities",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 19
+    },
+    {
+      "id": "seed-testimonial-20",
+      "company": "Decathlon Pro",
+      "author": "Guillaume Allard",
+      "role": "Responsable des opérations",
+      "quoteFr": "Matthieu et toute son équipe nous ont aidés lors d’un appel d’offres affrètement pour Decathlon Pro.",
+      "quoteEn": "Matthieu and his whole team helped us with a freight chartering tender for Decathlon Pro.",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres affrètement",
+      "missionEn": "Freight chartering tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "enterprise",
+      "featured": false,
+      "sortOrder": 20
+    },
+    {
+      "id": "seed-testimonial-21",
+      "company": "Guard Industrie",
+      "author": "Barnabé Wayser",
+      "role": "Président",
+      "quoteFr": "Équipe très compétente, dynamique et en plus très sympathique.",
+      "quoteEn": "A very competent, dynamic and genuinely friendly team.",
+      "quoteLang": "fr",
+      "missionFr": "Appels d’offres transport",
+      "missionEn": "Transport tenders",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "sme",
+      "featured": false,
+      "sortOrder": 21
+    },
+    {
+      "id": "seed-testimonial-22",
+      "company": "Laboratoire Bioderma",
+      "author": "Emilie Toledano",
+      "role": "Responsable Supply Chain",
+      "quoteFr": "La collaboration d’optimisation de nos transports avec ColisConsult fut fructueuse.",
+      "quoteEn": "Our transport optimisation project with ColisConsult was a success.",
+      "quoteLang": "fr",
+      "missionFr": "Optimisation des transports",
+      "missionEn": "Transport optimisation",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 22
+    },
+    {
+      "id": "seed-testimonial-23",
+      "company": "Balzac Paris",
+      "author": "Alexandre Chevalier",
+      "role": "Responsable Supply Chain",
+      "quoteFr": "Une grande expertise pour mettre en lumière nos points faibles et remettre à plat notre plan de distribution e-com.",
+      "quoteEn": "Real expertise to highlight our weak points and overhaul our e-commerce distribution plan.",
+      "quoteLang": "fr",
+      "missionFr": "Remise à plat du plan de distribution e-commerce",
+      "missionEn": "E-commerce distribution plan overhaul",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 23
+    },
+    {
+      "id": "seed-testimonial-24",
+      "company": "Anne Semonin",
+      "author": "Amaury de Loisy",
+      "role": "General Manager",
+      "quoteFr": "Ils nous ont donné accès à de bien meilleurs tarifs pour nos activités transport B2B et B2C.",
+      "quoteEn": "They gave us access to much better rates for our B2B and B2C transport.",
+      "quoteLang": "fr",
+      "missionFr": "Optimisation des transports B2B et B2C",
+      "missionEn": "B2B and B2C transport optimisation",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "ecommerce",
+      "featured": false,
+      "sortOrder": 24
+    },
+    {
+      "id": "seed-testimonial-25",
+      "company": "Alma",
+      "author": "Nathalie Moine",
+      "role": "Responsable des achats",
+      "quoteFr": "Gestion d’un appel d’offres transport messagerie palettes avec efficacité et célérité.",
+      "quoteEn": "A pallet groupage tender run efficiently and quickly.",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres messagerie et palettes",
+      "missionEn": "Groupage and pallet tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "sme",
+      "featured": false,
+      "sortOrder": 25
+    },
+    {
+      "id": "seed-testimonial-26",
+      "company": "Eugène Perma",
+      "author": "Manuel Servio",
+      "role": "Logistics Director",
+      "quoteFr": "Matthieu et son équipe ont optimisé nos transports sur ventes en bonne intelligence avec notre logisticien.",
+      "quoteEn": "Matthieu and his team optimised our sales shipments in close cooperation with our logistics provider.",
+      "quoteLang": "fr",
+      "missionFr": "Analyse et benchmark des flux de livraison",
+      "missionEn": "Delivery flow analysis and benchmark",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "sme",
+      "featured": false,
+      "sortOrder": 26
+    },
+    {
+      "id": "seed-testimonial-27",
+      "company": "BIPEA",
+      "author": "Abdelkader Boubetra",
+      "role": "Manager scientifique et technique",
+      "quoteFr": "Très bonne approche et très bon suivi, notre collaboration a été très fructueuse !",
+      "quoteEn": "A very good approach and very good follow-up: our collaboration was very fruitful!",
+      "quoteLang": "fr",
+      "missionFr": "Appel d’offres transport",
+      "missionEn": "Transport tender",
+      "resultFr": null,
+      "resultEn": null,
+      "segment": "sme",
+      "featured": false,
+      "sortOrder": 27
+    }
+  ],
+  "team": [
+    {
+      "id": "seed-team-1",
+      "name": "Matthieu Erly",
+      "roleFr": "Fondateur et directeur",
+      "roleEn": "Founder & Managing Director",
+      "bioFr": "Passé par les services commerciaux de plusieurs transporteurs, il fonde ColisConsult en 2005. Il pilote les missions et reste l'interlocuteur direct des clients. Intervenant régulier en conférences, il anime une communauté de plus de 15 000 abonnés sur LinkedIn et les groupes « Acheteur transport » et « DHL Express, FedEx-TNT, UPS in Europe ».",
+      "bioEn": "After working in the sales departments of several carriers, he founded ColisConsult in 2005. He leads every engagement and remains the client’s direct contact. A regular conference speaker, he runs a LinkedIn community of more than 15,000 followers and the groups “Acheteur transport” and “DHL Express, FedEx-TNT, UPS in Europe”.",
+      "linkedinUrl": "https://www.linkedin.com/in/matthieuerly/",
+      "photoUrl": "/team/matthieu-erly.jpg"
+    },
+    {
+      "id": "seed-team-2",
+      "name": "Stéphane Gravier",
+      "roleFr": "Coordinateur de projets",
+      "roleEn": "Project Coordinator",
+      "bioFr": "Chez ColisConsult depuis 2015. Coordonne les missions aux côtés de Matthieu Erly et Majdi Hammami, du cadrage à la sélection des offres.",
+      "bioEn": "With ColisConsult since 2015. Coordinates engagements alongside Matthieu Erly and Majdi Hammami, from scoping to carrier selection.",
+      "linkedinUrl": null,
+      "photoUrl": "/team/stephane-gravier.jpg"
+    },
+    {
+      "id": "seed-team-3",
+      "name": "Majdi Hammami",
+      "roleFr": "Expert data transport",
+      "roleEn": "Transport Data Expert",
+      "bioFr": "Chez ColisConsult depuis 2016. Responsable des analyses des missions : factures, flux, grilles tarifaires et réponses des transporteurs.",
+      "bioEn": "With ColisConsult since 2016. Leads engagement analysis: invoices, shipping flows, rate cards and carrier responses.",
+      "linkedinUrl": null,
+      "photoUrl": "/team/majdi-hammami.jpg"
+    },
+    {
+      "id": "seed-team-4",
+      "name": "Mohamed Farsi",
+      "roleFr": "Data analyst & Power BI",
+      "roleEn": "Data Analyst & Power BI",
+      "bioFr": "Traite et fiabilise les données de facturation transport qui alimentent les analyses et les tableaux de bord.",
+      "bioEn": "Processes and cleans the transport billing data behind every analysis and dashboard.",
+      "linkedinUrl": null,
+      "photoUrl": "/team/mohamed-farsi.jpg"
+    },
+    {
+      "id": "seed-team-5",
+      "name": "Margaux Poiret",
+      "roleFr": "Communication & digital",
+      "roleEn": "Communications & Digital",
+      "bioFr": "Gère les sites web, la communication, le marketing et l’organisation des événements, dont les webinars.",
+      "bioEn": "Runs the websites, communications, marketing and events, including our webinars.",
+      "linkedinUrl": null,
+      "photoUrl": null
+    },
+    {
+      "id": "seed-team-6",
+      "name": "Maxime Courbeyrette",
+      "roleFr": "Assistant",
+      "roleEn": "Assistant",
+      "bioFr": "",
+      "bioEn": "",
+      "linkedinUrl": null,
+      "photoUrl": "/team/maxime-courbeyrette.jpg"
+    }
+  ],
+  "clients": [
+    {
+      "id": "seed-client-1",
+      "name": "Danone",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-2",
+      "name": "Somfy",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-3",
+      "name": "Ubisoft",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-4",
+      "name": "Decathlon Pro",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-5",
+      "name": "Plastic Omnium",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-6",
+      "name": "Firmenich",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-7",
+      "name": "Arkema",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-8",
+      "name": "Atlas Copco",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-9",
+      "name": "Beiersdorf",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-10",
+      "name": "Estée Lauder",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-11",
+      "name": "Nutricia",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-12",
+      "name": "Biogen",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-13",
+      "name": "UCB",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-14",
+      "name": "Arkopharma",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-15",
+      "name": "Recordati Rare Diseases",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-16",
+      "name": "Life Technologies",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-17",
+      "name": "ADP",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-18",
+      "name": "Regus",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-19",
+      "name": "CNP",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-20",
+      "name": "Renault",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-21",
+      "name": "Zodiac",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-22",
+      "name": "Radiall",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-23",
+      "name": "Ipsos",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-24",
+      "name": "Columbia",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-25",
+      "name": "Westfield",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-26",
+      "name": "Unibail",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-27",
+      "name": "Groupama Loire Bretagne",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-28",
+      "name": "Smacl Assurances",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-29",
+      "name": "Hologram Industries",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-30",
+      "name": "ALcontrol Laboratories",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-31",
+      "name": "La Martinière Groupe",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-32",
+      "name": "Beauté Prestige International",
+      "segment": "enterprise",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-33",
+      "name": "Lacoste",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-34",
+      "name": "Patagonia",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-35",
+      "name": "Vestiaire Collective",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-36",
+      "name": "Nina Ricci",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-37",
+      "name": "Paco Rabanne",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-38",
+      "name": "Courir",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-39",
+      "name": "Bioderma",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-40",
+      "name": "RAJA",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-41",
+      "name": "Carven",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-42",
+      "name": "Dakine",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-43",
+      "name": "Woodbrass",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-44",
+      "name": "Melijoe",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-45",
+      "name": "Philibert",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-46",
+      "name": "WeTheNew",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-47",
+      "name": "Emma Sleep",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-48",
+      "name": "Balzac Paris",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-49",
+      "name": "Anne Semonin",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-50",
+      "name": "Therascience",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-51",
+      "name": "Packshop",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-52",
+      "name": "Airis LED",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-53",
+      "name": "Cheval Energy",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-54",
+      "name": "Veepee",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-55",
+      "name": "What Matters",
+      "segment": "ecommerce",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-56",
+      "name": "Guard Industrie",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-57",
+      "name": "Alma",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-58",
+      "name": "Eugène Perma",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-59",
+      "name": "Alliance Artem",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-60",
+      "name": "Let Me Repair",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-61",
+      "name": "Nowos",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-62",
+      "name": "Cétofine",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-63",
+      "name": "Clément Design",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-64",
+      "name": "Pharmacie des Drakkars",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-65",
+      "name": "BIPEA",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-66",
+      "name": "Prot'iLab",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-67",
+      "name": "Infractive",
+      "segment": "sme",
+      "logoUrl": null
+    },
+    {
+      "id": "seed-client-68",
+      "name": "Cellhire",
+      "segment": "sme",
+      "logoUrl": null
+    }
+  ],
+  "posts": [
+    {
+      "id": "seed-post-1",
+      "slug": "recueils-des-recommandations-linkedin-deposees-par-les-clients-colisconsult",
+      "locale": "fr",
+      "title": "Recueil des recommandations LinkedIn déposées par les clients ColisConsult",
+      "excerpt": "Les recommandations laissées par nos clients, également visibles sur le profil LinkedIn de Matthieu Erly.",
+      "content": "Les recommandations laissées par nos clients, également visibles sur le profil LinkedIn de Matthieu Erly.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "news",
+      "publishedAt": "2026-06-15T14:24:31.000Z",
+      "updatedAt": "2026-06-15T14:24:31.000Z",
+      "readingMinutes": 1
+    },
+    {
+      "id": "seed-post-2",
+      "slug": "webinar-un-ao-pour-contrer-les-hausses-2026-des-transporteurs-bonne-ou-mauvaise-idee",
+      "locale": "fr",
+      "title": "[Webinar] Un AO pour contrer les hausses 2026 des transporteurs : bonne ou mauvaise idée ?",
+      "excerpt": "Webinar réservé aux entreprises expéditrices, sur le lancement d’un appel d’offres face aux hausses tarifaires 2026.",
+      "content": "Webinar réservé aux entreprises expéditrices, sur le lancement d’un appel d’offres face aux hausses tarifaires 2026.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "news",
+      "publishedAt": "2025-11-21T11:59:15.000Z",
+      "updatedAt": "2025-11-21T11:59:15.000Z",
+      "readingMinutes": 1
+    },
+    {
+      "id": "seed-post-3",
+      "slug": "les-enjeux-de-la-gestion-des-expeditions-pour-les-e-commercants",
+      "locale": "fr",
+      "title": "Les enjeux de la gestion des expéditions pour les e-commerçants",
+      "excerpt": "La gestion des expéditions, pilier de la stratégie commerciale des e-commerçants. Une tribune de CibleWeb.",
+      "content": "La gestion des expéditions, pilier de la stratégie commerciale des e-commerçants. Une tribune de CibleWeb.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "article",
+      "publishedAt": "2024-03-05T09:00:00.000Z",
+      "updatedAt": "2024-03-05T09:00:00.000Z",
+      "readingMinutes": 1
+    },
+    {
+      "id": "seed-post-4",
+      "slug": "guide-2023-reussir-lenvoi-de-colis-en-toute-simplicite",
+      "locale": "fr",
+      "title": "Guide : réussir l’envoi de colis en toute simplicité",
+      "excerpt": "Emballage, choix du service, assurance : les bases pour expédier des colis sans mauvaise surprise, à titre personnel comme professionnel.",
+      "content": "Emballage, choix du service, assurance : les bases pour expédier des colis sans mauvaise surprise, à titre personnel comme professionnel.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "article",
+      "publishedAt": "2023-07-27T08:00:00.000Z",
+      "updatedAt": "2023-07-27T08:00:00.000Z",
+      "readingMinutes": 1
+    },
+    {
+      "id": "seed-post-5",
+      "slug": "pourquoi-vous-devriez-lancer-un-ao-transport-cet-ete",
+      "locale": "fr",
+      "title": "Pourquoi lancer un appel d’offres transport cet été ?",
+      "excerpt": "Anticiper les hausses tarifaires annuelles des transporteurs en lançant son appel d’offres dès l’été.",
+      "content": "Anticiper les hausses tarifaires annuelles des transporteurs en lançant son appel d’offres dès l’été.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "article",
+      "publishedAt": "2023-06-29T08:00:00.000Z",
+      "updatedAt": "2023-06-29T08:00:00.000Z",
+      "readingMinutes": 1
+    },
+    {
+      "id": "seed-post-6",
+      "slug": "4-leviers-efficaces-pour-reduire-votre-budget-de-transport-express",
+      "locale": "fr",
+      "title": "4 leviers efficaces pour réduire votre budget de transport express",
+      "excerpt": "Quatre leviers concrets pour faire baisser nettement votre budget de transport express.",
+      "content": "Quatre leviers concrets pour faire baisser nettement votre budget de transport express.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "article",
+      "publishedAt": "2023-06-09T08:00:00.000Z",
+      "updatedAt": "2023-06-09T08:00:00.000Z",
+      "readingMinutes": 1
+    },
+    {
+      "id": "seed-post-7",
+      "slug": "13-erreurs-a-eviter-pour-vos-envois-de-colis",
+      "locale": "fr",
+      "title": "13 erreurs à éviter pour vos envois de colis",
+      "excerpt": "Les erreurs les plus fréquentes dans l’expédition de colis, et comment les corriger.",
+      "content": "Les erreurs les plus fréquentes dans l’expédition de colis, et comment les corriger.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "article",
+      "publishedAt": "2023-06-08T08:00:00.000Z",
+      "updatedAt": "2023-06-08T08:00:00.000Z",
+      "readingMinutes": 1
+    },
+    {
+      "id": "seed-post-8",
+      "slug": "le-poids-volumetrique-dans-le-transport-comment-optimiser-votre-budget-et-reduire-limpact-economique",
+      "locale": "fr",
+      "title": "Le poids volumétrique : comment optimiser votre budget transport",
+      "excerpt": "Le poids volumétrique pèse de plus en plus dans la tarification. Comment le mesurer, et comment limiter son impact.",
+      "content": "Le poids volumétrique pèse de plus en plus dans la tarification. Comment le mesurer, et comment limiter son impact.",
+      "coverImageUrl": null,
+      "status": "published",
+      "kind": "article",
+      "publishedAt": "2023-06-05T08:00:00.000Z",
+      "updatedAt": "2023-06-05T08:00:00.000Z",
+      "readingMinutes": 1
+    }
+  ]
+}

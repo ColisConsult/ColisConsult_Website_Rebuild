@@ -12,6 +12,7 @@ const listColumns = {
   excerpt: posts.excerpt,
   coverImageUrl: posts.coverImageUrl,
   status: posts.status,
+  kind: posts.kind,
   publishedAt: posts.publishedAt,
   updatedAt: posts.updatedAt,
   // Temps de lecture estimé (230 mots / minute)
@@ -22,8 +23,13 @@ const listColumns = {
 export class PostsService {
   constructor(@InjectDb() private readonly db: Database) {}
 
-  async listPublished(locales: string[], page: number, pageSize: number) {
-    const where = and(eq(posts.status, 'published'), inArray(posts.locale, locales));
+  /** Articles publiés ; `kind` limite aux articles (« article ») ou aux actualités (« news ») */
+  async listPublished(locales: string[], page: number, pageSize: number, kind?: 'article' | 'news') {
+    const where = and(
+      eq(posts.status, 'published'),
+      inArray(posts.locale, locales),
+      kind ? eq(posts.kind, kind) : undefined,
+    );
     const [items, [{ total }]] = await Promise.all([
       this.db
         .select(listColumns)

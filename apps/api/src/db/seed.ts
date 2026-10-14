@@ -93,6 +93,7 @@ async function main() {
         excerpt: p.excerpt,
         content: p.excerpt,
         status: 'published',
+        kind: p.kind,
         publishedAt: new Date(p.publishedAt),
         legacyUrl: p.legacyUrl,
       })

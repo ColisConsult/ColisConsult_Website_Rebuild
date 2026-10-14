@@ -1,4 +1,4 @@
-# ColisConsult — nouveau site
+# ColisConsult — nouveau site (PUBLIC pour Versel)
 
 Refonte de colisconsult.com (WordPress) en application **Next.js + NestJS + PostgreSQL**, bilingue FR/EN, avec back-office.
 

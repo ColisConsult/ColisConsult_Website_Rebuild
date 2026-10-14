@@ -195,17 +195,11 @@ Vercel sert à **montrer le site au client** (visuel, animations, parcours) ; le
 ### Mettre la vitrine en ligne
 
 1. Importer le dépôt dans Vercel (« Add New… → Project ») : `vercel.json` suffit, sans réglage de dossier racine ni de framework.
-2. Onglet **Storage** du projet : créer une base **Neon Postgres** (offre gratuite) ; Vercel ajoute `DATABASE_URL` aux variables.
-3. Onglet **Settings → Environment Variables** : ajouter `JWT_SECRET` (valeur longue et aléatoire) et `NEXT_PUBLIC_SITE_URL` (adresse de la vitrine, ex. `https://colisconsult.vercel.app`). SMTP facultatif : sans `SMTP_HOST`, les demandes sont enregistrées sans e-mail.
-4. Remplir la base depuis votre poste, avec l'adresse Neon (bouton « Copy » de `DATABASE_URL`) :
+2. Onglet **Storage** du projet : « Create Database » → **Neon** (offre gratuite) → la relier au projet. Vercel ajoute `DATABASE_URL` tout seul.
+3. Onglet **Settings → Environment Variables** : ajouter `JWT_SECRET` (une longue suite de caractères au hasard) ; pour se connecter au back-office, `ADMIN_EMAIL` et `ADMIN_PASSWORD`. SMTP facultatif : sans `SMTP_HOST`, les demandes sont enregistrées sans e-mail.
+4. Onglet **Deployments** : « Redeploy ». Pendant le déploiement, la base se prépare toute seule (`apps/api/src/scripts/vercel-prepare.ts`) : tables, import des articles WordPress (images servies par le WordPress actuel), équipe, clients, témoignages, compte admin. Rien à lancer depuis son poste.
 
-```bash
-DATABASE_URL="postgres://…" npm run db:migrate
-DATABASE_URL="postgres://…" ADMIN_EMAIL=… ADMIN_PASSWORD=… npm run db:seed
-DATABASE_URL="postgres://…" npm run import:wordpress   # articles ; images servies par le WordPress actuel
-```
-
-5. Redéployer (onglet Deployments → Redeploy). Facultatif : `API_BUILD_URL` = adresse de la vitrine, pour que les pages soient pré-rendues avec le contenu réel dès le déploiement suivant.
+Juste après un déploiement, les sections alimentées par la base (résultats, équipe, blog) peuvent mettre une minute à apparaître : recharger la page. Facultatif : `API_BUILD_URL` = adresse de la vitrine, pour qu'elles soient présentes dès le déploiement suivant.
 
 Partager l'adresse de production du projet (`….vercel.app`) : les adresses de prévisualisation sont protégées par Vercel par défaut.
 

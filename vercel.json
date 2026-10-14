@@ -4,6 +4,7 @@
     "api": {
       "root": "apps/api",
       "framework": "nestjs",
+      "buildCommand": "npm run build && node dist/scripts/vercel-prepare.js",
       "devCommand": "npm run start:dev"
     },
     "web": {

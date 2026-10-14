@@ -25,7 +25,8 @@ export function LogoMark({ className, title }: { className?: string; title?: str
   );
 }
 
-export function Logo({ className, tone = 'dark' }: { className?: string; tone?: 'dark' | 'light' }) {
+/** tone="current" : le mot-symbole prend la couleur du texte (en-tête adaptatif). */
+export function Logo({ className, tone = 'dark' }: { className?: string; tone?: 'dark' | 'light' | 'current' }) {
   return (
     <svg
       viewBox="0 0 7677 1935"
@@ -34,7 +35,7 @@ export function Logo({ className, tone = 'dark' }: { className?: string; tone?: 
       aria-label="ColisConsult"
     >
       <path d={MARK} fill="#FF8E72" />
-      <path d={WORDMARK} fill={tone === 'dark' ? '#0D5257' : '#FFFFFF'} />
+      <path d={WORDMARK} fill={tone === 'current' ? 'currentColor' : tone === 'dark' ? '#0D5257' : '#FFFFFF'} />
     </svg>
   );
 }

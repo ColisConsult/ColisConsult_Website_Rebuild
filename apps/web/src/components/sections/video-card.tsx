@@ -31,7 +31,7 @@ export function VideoPlayer({
         autoPlay
         playsInline
         preload="auto"
-        className="aspect-video w-full rounded-[var(--radius-card)] bg-ink"
+        className="aspect-video w-full rounded-[calc(var(--radius-card)-0.4rem)] bg-ink"
         aria-label={title}
       />
     );
@@ -41,17 +41,24 @@ export function VideoPlayer({
     <button
       type="button"
       onClick={() => setPlaying(true)}
-      className="group relative block aspect-video w-full overflow-hidden rounded-[var(--radius-card)] bg-ink text-left"
+      className="group/video relative block aspect-video w-full overflow-hidden rounded-[calc(var(--radius-card)-0.4rem)] bg-ink text-left"
       aria-label={`${playLabel} : ${title}`}
     >
-      <Image src={poster} alt="" fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
-      <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/5" aria-hidden="true" />
-      <span className="absolute top-1/2 left-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-teal shadow-lg transition-colors group-hover:bg-coral group-hover:text-ink">
+      <Image
+        src={poster}
+        alt=""
+        fill
+        sizes="(min-width: 1024px) 30vw, 100vw"
+        className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-out-expo)] group-hover/video:scale-[1.06]"
+      />
+      <span className="absolute inset-0 bg-gradient-to-t from-night/45 via-transparent to-transparent transition-opacity duration-500 group-hover/video:opacity-60" aria-hidden="true" />
+      <span className="absolute top-1/2 left-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-teal shadow-[0_10px_40px_-8px_rgb(0_0_0/0.5)] backdrop-blur transition-[background-color,color,scale] duration-500 ease-[var(--ease-out-expo)] group-hover/video:scale-110 group-hover/video:bg-coral group-hover/video:text-night">
+        <span className="absolute inset-0 animate-[cc-pulse-white_2.4s_var(--ease-out-soft)_infinite] rounded-full" aria-hidden="true" />
         <svg viewBox="0 0 20 20" className="ml-0.5 size-6" fill="currentColor" aria-hidden="true">
           <path d="M6 4.2v11.6a.8.8 0 0 0 1.2.7l9.3-5.8a.8.8 0 0 0 0-1.4L7.2 3.5A.8.8 0 0 0 6 4.2Z" />
         </svg>
       </span>
-      <span className="absolute top-3 right-3 rounded bg-ink/70 px-1.5 py-0.5 text-sm font-medium text-white tabular-nums">{duration}</span>
+      <span className="absolute top-3 right-3 rounded-full bg-night/60 px-2 py-0.5 text-sm font-medium text-white tabular-nums backdrop-blur">{duration}</span>
     </button>
   );
 }

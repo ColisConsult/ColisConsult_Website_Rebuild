@@ -1,4 +1,4 @@
-import { PostRow, UpcomingWebinars, WebinarItem } from '@/components/sections/resources';
+import { PostCard, UpcomingWebinars, WebinarItem } from '@/components/sections/resources';
 import { PageHero, Section } from '@/components/ui/section';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { getPosts, getWebinars } from '@/lib/api';
@@ -16,11 +16,13 @@ export default async function BlogPage() {
   return (
     <>
       <PageHero title={t.blog.title} lead={t.blog.lead} />
-      <div className="container-site pb-20">
+      <div className="container-site pt-12 pb-20 md:pt-16 md:pb-28">
         {items.length ? (
-          <ul className="border-t border-line">
-            {items.map((post) => (
-              <PostRow key={post.id} post={post} locale={locale} t={t} />
+          <ul data-stagger="" className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {items.map((post, i) => (
+              <li key={post.id} className={i === 0 ? 'md:col-span-2 lg:col-span-3' : undefined}>
+                <PostCard post={post} locale={locale} t={t} featured={i === 0} />
+              </li>
             ))}
           </ul>
         ) : (

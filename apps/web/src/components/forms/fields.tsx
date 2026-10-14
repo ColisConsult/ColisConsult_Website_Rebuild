@@ -95,14 +95,14 @@ export function Honeypot() {
 export function FormStatus({ state, t, success }: { state: SubmitState; t: Dictionary['forms']; success: string }) {
   if (state.status === 'success') {
     return (
-      <div role="status" className="rounded-md border border-mint/40 bg-mint/10 p-4 text-[0.97rem] text-ink">
+      <div role="status" className="rounded-xl border border-mint/40 bg-mint/10 p-4 text-[0.97rem] text-ink">
         {success}
       </div>
     );
   }
   if (state.status === 'error') {
     return (
-      <div role="alert" className="rounded-md border border-coral-ink/30 bg-coral-soft/50 p-4 text-[0.95rem] text-ink">
+      <div role="alert" className="rounded-xl border border-coral-ink/30 bg-coral-soft/50 p-4 text-[0.95rem] text-ink">
         {state.message ?? t.error}
       </div>
     );
@@ -115,6 +115,7 @@ export type SubmitState = { status: 'idle' | 'sending' | 'success' | 'error'; me
 export function SubmitButton({ sending, t, children, className }: { sending: boolean; t: Dictionary['forms']; children?: ReactNode; className?: string }) {
   return (
     <button type="submit" disabled={sending} className={cn('btn btn-dark disabled:opacity-60', className)}>
+      {sending && <span className="size-4 animate-spin rounded-full border-2 border-white/30 border-t-white" aria-hidden="true" />}
       {sending ? t.sending : (children ?? t.submit)}
     </button>
   );
